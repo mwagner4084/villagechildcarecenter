@@ -24,3 +24,7 @@ header {
 .btn {
     background-color: rgb(125, 197, 133);
 }
+
+.mission {
+    max-width: 700px;
+}
