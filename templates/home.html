@@ -1,9 +1,62 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
-<h1>
-    Homepage
-</h1>
+<div class="home-body">
+    <div class="flex-contanier">
+        <h1 class="py-3">
+           - Opening Spring 2023 -
+        </h1>
+        <figure class="figure">
+            <img src="{% static 'img/imagination.jpeg'%}" class="figure-img home-img img-fluid rounded" alt="imagination">
+            <figcaption class="figure-caption text-end">
+                Credit: Getty Images
+            </figcaption>
+        </figure>
+        <h3 class="pb-4">
+            - Mission Statement -
+        </h3>
+        <section>
+            <form action="{% url 'subscribe' %}" method="post">
+                <div class="row d-flex justify-content-center">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="col-auto">
+                        <p class="pt-2">
+                            Subscribe to our newsletter:
+                        </p>
+                    </div>
+                    <br>
+                    <div class="col-auto">
+                        <input id="name" name="name" class="form-control" placeholder="Jane Doe"/>
+                    </div>
+                    <div class="col-auto">
+                        <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+          <footer class="footer pt-3">
+            <div class="mx-2">
+                <span class="text-muted">
+                    <a href="#">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="#">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                </span>
+            </div>
+        </footer>
+    </div>
+</div>
+
 
 {% endblock content %}
