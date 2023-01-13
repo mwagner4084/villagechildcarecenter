@@ -28,3 +28,41 @@ header {
 .mission {
     max-width: 700px;
 }
+
+.welcome-body {
+    background-color: rgb(182, 147, 147);
+}
+
+.max-md {
+    max-width: 768px
+}
+
+.accordion-body {
+    background-color: beige;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: beige !important;
+    color: rgb(88, 54, 54) !important;
+    
+}
+
+.accordion-button:link, .accordion-button:visited, .accordion-button:hover, .accordion-button:active {
+    background-color: beige !important;
+    color: rgb(88, 54, 54) !important;
+    text-decoration: none !important;
+    border-color: rgb(59, 32, 32) !important;
+    box-shadow: 0px !important;
+}
+
+.accordion-button:focus {
+    z-index: 3;
+    border-color: rgb(59, 32, 32) !important;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgb(59, 32, 32) !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    transform: rotate(180deg);
+}
