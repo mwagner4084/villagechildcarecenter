@@ -6,7 +6,7 @@ class WelcomePageView(TemplateView):
     template_name = "welcome.html"
 
 class ClassroomPageView(TemplateView):
-    template_name = "classroom.html"
+    template_name = "classrooms.html"
 
 class SteamPageView(TemplateView):
     template_name = "steam.html"
