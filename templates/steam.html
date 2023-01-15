@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="home-body">
+    <div class="flex-contanier">
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <h1 class="py-3">
+                    - SCIENCE. TECHNOLOGY. ENGINEERING. ART. MATHEMATICS. -
+                </h1>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <figure class="figure">
+                    <img src="{% static 'img/steam.png'%}" class="figure-img home-img img-fluid rounded" alt="steam">
+                    <h1 class="text-center">
+                        <strong class="text-primary">
+                            STEAM 
+                        </strong>
+                        <strong>
+                            EDUCATION
+                        </strong>
+                    </h1>
+                    <figcaption class="figure-caption text-end">
+                        Credit: KOFAC
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-auto pb-2">
+                <div class="flex-container mission">
+                    <p class="fs-5">
+                        Our S.T.E.A.M. classroom is designed to allow children to use their imagination to explore 
+                        their creativity. Young children benefit from S.T.E.A.M. learning because they are generally 
+                        naturally inquisitive and want to explore and make sense of themselves and the environment in 
+                        which they live.
+                        <br>
+                        <br>
+                        In this classroom we will have professionals come on site weekly to teach children science, 
+                        art, yoga, and music.
+                    </p>
+                    <figure class="figure">
+                        <img src="{% static 'img/steam_art.png'%}" class="home-img" alt="steam">
+                        <figcaption class="figure-caption text-end">
+                            Credit: Urban Gateways
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+        <div class="row py-4">
+            <div class="col-12">
+                <form action="{% url 'subscribe' %}" method="post">
+                    <div class="row justify-content-center">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="col-auto">
+                            <p class="pt-2">
+                                Subscribe to our newsletter:
+                            </p>
+                        </div>
+                        <br>
+                        <div class="col-auto">
+                            <input id="name" name="name" class="form-control" placeholder="Jane Doe"/>
+                        </div>
+                        <div class="col-auto">
+                            <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="col-auto">
+                            <button type="submit" class="btn">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <footer class="footer d-flex pt-3 justify-content-center">
+                    <div class="mx-2">
+                        <span class="text-muted">
+                            <a href="#">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        </span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
