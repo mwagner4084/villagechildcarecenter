@@ -5,10 +5,10 @@
 {% block content %}
 
 <div class="home-body">
-    <div class="flex-container">
+    <div class="container">
         <div class="row justify-content-md-center">
-            <div class="col-md-auto">
-                <h1 class="py-3">
+            <div class="col-12 col-md-auto">
+                <h1 class="text-center py-3">
                     - Opening Spring 2023 -
                 </h1>
             </div>
@@ -27,7 +27,7 @@
         <div class="row justify-content-md-center">
             <div class="col-md-auto">
                 <figure class="figure">
-                    <img src="{% static 'img/imagination.jpeg'%}" class="figure-img home-img img-fluid rounded" alt="imagination">
+                    <img src="{% static 'img/imagination.jpeg'%}" class="figure-img home-img img-fluid rounded mw-100" alt="imagination">
                     <figcaption class="figure-caption text-end">
                         Credit: Getty Images
                     </figcaption>
@@ -45,13 +45,13 @@
                         </p>
                     </div>
                     <br>
-                    <div class="col-md-auto mt-3 mt-md-0">
+                    <div class="col-12 col-md-auto mt-3 mt-md-0">
                         <input id="name" name="name" class="form-control" placeholder="Jane Doe"/>
                     </div>
-                    <div class="col-md-auto">
+                    <div class="col-12 col-md-auto mt-3 mt-md-0">
                         <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
                     </div>
-                    <div class="col-md-auto mt-3 mt-md-0">
+                    <div class="col-12 col-md-auto mt-3 mt-md-0">
                         <button type="submit" class="btn">
                             Submit
                         </button>
@@ -59,7 +59,7 @@
                 </div>
             </form>
         </section>
-          <footer class="footer pt-3">
+          <footer class="footer pt-3 justify-content-md-center">
             <div class="mx-2">
                 <span class="text-muted">
                     <a href="#">
