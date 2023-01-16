@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="contact-body">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <h1 class="py-3">
+                    - CONTACT US -
+                </h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-10 pb-2">
+                <div class="container">
+                    <h3>
+                        Schedule a tour
+                    </h3>
+                    <p class="fs-5">
+                        We strongly encourage parents to schedule a tour of the school. This will give you the 
+                        opportunity to see the classrooms and witness first hand what your child can experience 
+                        at The Village Childcare Center. 
+                        <br>
+                        <br>
+                        If you have any questions, concerns, or wish to schedule a tour, please feel free to contact us.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center ms-1">
+            <div class="col-10">
+                <div class="row">
+                    <div class="col-6">
+                        <h3>
+                            Location: 
+                        </h3>
+                        <ul class="list-unstyled fs-5">
+                            <li>
+                                The Village Childcare Center
+                            </li>
+                            <li>
+                                5320 Holiday Terrace
+                            </li>
+                            <li>
+                                Kalamazoo, MI 49009
+                            </li>
+                        </ul>
+                        <br>
+                        <ul class="list-unstyled fs-5">
+                            <li>
+                                <strong>
+                                    Local: 
+                                </strong>
+                                (269) 253-8008
+                            </li>
+                            <li>
+                                <strong>
+                                    Fax: 
+                                </strong>
+                                (269)222-2588
+                            </li>
+                            <li>
+                                <strong>
+                                    Email: 
+                                </strong>
+                                director@thevillageccc.com
+                            </li>
+                        </ul>
+                        <figure class="figure pt-5">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2952.5895720496633!2d-85.65791634942362!3d42.2659365790912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x881776e4f1f128d3%3A0xe3505950e3160da0!2s5320%20Holiday%20Terrace%2C%20Kalamazoo%2C%20MI%2049009!5e0!3m2!1sen!2sus!4v1673838103210!5m2!1sen!2sus" width="400" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </figure>
+                    </div>
+                    <div class="col-6 justify-content-center">
+                        <form action="{% url 'subscribe' %}" method="post">
+                            <div class="row justify-content-center fs-5">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <h3>
+                                    Send us a message!
+                                </h3>
+                                <div class="row g-1">
+                                    <div class="col-10">
+                                        <label for="fname" class="form-label">
+                                            First Name: * 
+                                        </label>
+                                        <input id="fname" name="fname" class="form-control" placeholder="Jane"/>
+                                    </div>
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-10">
+                                        <label for="lname" class="form-label">
+                                            Last Name: * 
+                                        </label>
+                                        <input id="lname" name="lname" class="form-control" placeholder="Doe"/>
+                                    </div>
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-10">
+                                        <label for="email" class="form-label">
+                                            Email: *
+                                        </label>
+                                        <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
+                                    </div>
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-10">
+                                        <label for="phone" class="form-label">
+                                            Phone: * 
+                                        </label>
+                                        <input id="phone" name="phone" class="form-control" placeholder="555-555-5555">
+                                    </div>
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-10">
+                                        <label for="children" class="form-label">
+                                            Children's Names / Ages: 
+                                        </label>
+                                        <textarea id="children" class="form-control" placeholder="Kaitlyn - 3, Graham - 5, etc." rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-10">
+                                        <label for="date" class="form-label">
+                                            Preferred Daycare Start Date: * 
+                                        </label>
+                                        <input id="date" name="date" class="form-control" placeholder="MM-DD-YYYY">
+                                    </div>
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-10">
+                                        <label for="comment" class="form-label">
+                                            Comments: 
+                                        </label>
+                                        <textarea id="comment" class="form-control" placeholder="I am looking for..." rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-10">
+                                        <label for="referred" class="form-label">
+                                            Referred By:
+                                        </label>
+                                        <input id="referred" name="referred" class="form-control" placeholder="John Doe">
+                                    </div>
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-10">
+                                        <button type="submit" class="btn">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row py-4">
+            <div class="col-12">
+                <footer class="footer d-flex pt-3 justify-content-center">
+                    <div class="mx-2">
+                        <span class="text-muted">
+                            <a href="#">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        </span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="school-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center py-3">
+                    <strong>
+                            - SCHOOL AGE - 
+                    </strong>
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <section id="school">
+                    <h3 class="text-center">
+                        Before/After School Care
+                    </h3>
+                    <p class="fs-5">
+                        We know it can be stressful to find care for your children 
+                        before and after school care. We offer care with Kalamazoo 
+                        bus transportation. While your children are with us during 
+                        this time, they will have the opportunity to relax, do homework, 
+                        play outside, and play in our S.T.E.A.M room classroom.
+                    </p>
+                    <div class="d-flex justify-content-center py-3">
+                        <figure class="figure">
+                            <img src="{% static 'img/bus.png'%}" class="school-img w-100 img-fluid rounded" alt="bus">
+                            <figcaption class="figure-caption text-end">
+                                Credit: Vector Stock
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <p class="fs-5">
+                        <strong>
+                            If there is a bus cancellation, we are unable to bus your child to school.
+                        </strong>
+                    </p>
+                </section>
+            </div>
+            <div class="col">
+                <section id="school">
+                    <h3 class="text-center">
+                        Summer Camp + School Breaks
+                    </h3>
+                    <p class="fs-5">
+                        This camp program is for elementary schoolers who are 5-12 years old. We guarantee 
+                        your children will love spending their summers at the Village Childcare Center. We 
+                        offer both onsite and offsite field trips. The spaces and activities are designed 
+                        to be fun, engaging, and educational. 
+                        <br>
+                        <br>
+                        No matter the weather, we will be enjoying the outdoors.  
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <figure class="figure">
+                            <img src="{% static 'img/camp.jpeg'%}" class="school-img w-100 img-fluid rounded" alt="abc">
+                            <figcaption class="figure-caption text-end">
+                                Credit: Washington Parent
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <p class="fs-5">
+                        <strong>
+                            The Village Childcare Center follows KPS school schedule.
+                        </strong>
+                    </p>
+                </section>
+            </div>
+        </div>
+        <div class="row py-4">
+            <div class="col-12">
+                <form action="{% url 'subscribe' %}" method="post">
+                    <div class="row justify-content-center">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="col-auto">
+                            <p class="pt-2">
+                                Subscribe to our newsletter:
+                            </p>
+                        </div>
+                        <br>
+                        <div class="col-auto">
+                            <input id="name" name="name" class="form-control" placeholder="Jane Doe"/>
+                        </div>
+                        <div class="col-auto">
+                            <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="col-auto">
+                            <button type="submit" class="btn">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <footer class="footer d-flex pt-3 justify-content-center">
+                    <div class="mx-2">
+                        <span class="text-muted">
+                            <a href="#">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        </span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

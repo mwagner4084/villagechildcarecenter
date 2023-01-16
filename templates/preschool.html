@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="preschool-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center py-3">
+                    <strong>
+                            - COMING FALL 2023 - 
+                    </strong>
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <section id="preschool">
+                    <p class="fs-5">
+                        Our Preschool Program is an optional program as well as open to the public. 
+                        In our preschool program our teachers will introduce inter scope curriculum 
+                        and eureka math.
+                        <br>
+                        <br> 
+                        <strong>
+                            Eureka Math 
+                        </strong>
+                        Kalamazoo schools currently use Eureka math curriculum. Students 
+                        gain a complete body of math knowledge, not just a discrete set of skills. 
+                        They use the same models and problem-solving methods from grade to grade, 
+                        so math concepts stay with them, year after year.
+                        <br>
+                        <br>
+                        <strong>
+                            Interscope curriculum 
+                        </strong>
+                        offers additional resources designed to support daily learning. Includes 
+                        strategies to individualize learning throughout the daily routine and 
+                        activities for building children's literacy skills and music to support 
+                        learning. These resources are a first step in creating and engaging the rich 
+                        learning environment that encourages young children to learn through exploration. 
+                        Combined with diverse, open-ended materials that reflect children's home, language, 
+                        and culture to provide an optimal learning environment that truly aligns with active 
+                        learning.
+                    </p>
+                </section>
+            </div>
+            <div class="col">
+                <section id="preschool">
+                    <p class="fs-5">
+                        Our 4 year olds will have the opportunity to use the STEAM classroom from 9-12 Monday, 
+                        Wed, Thursday. During this time students will follow SCOPE curriculum. This program is 
+                        also available to the public. The Village Childcare center will go in depth with the following:
+                        <br>
+                        <br>
+                        <strong>
+                            Nature and Science: 
+                        </strong>
+                        to comprehend the physical and natural world through observation, description, prediction, 
+                        and data gathering.
+                        <br>
+                        <br>
+                        <strong>
+                            Early Math: 
+                        </strong>
+                        Learning about numbers, patterns, sorting, and ordering; learning to utilize numbers to add, 
+                        subtract, measure, and graph.
+                        <br>
+                        <br>
+                        <strong>
+                            Logic and Reasoning: 
+                        </strong>
+                        Practicing sequencing, problem-solving, and critical thinking.
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <figure class="figure">
+                            <img src="{% static 'img/abc_blocks.png'%}" class="preschool-img w-100" alt="abc">
+                            <figcaption class="figure-caption text-end">
+                                Credit: Adobe Stock
+                            </figcaption>
+                        </figure>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row py-4">
+            <div class="col-12">
+                <form action="{% url 'subscribe' %}" method="post">
+                    <div class="row justify-content-center">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="col-auto">
+                            <p class="pt-2">
+                                Subscribe to our newsletter:
+                            </p>
+                        </div>
+                        <br>
+                        <div class="col-auto">
+                            <input id="name" name="name" class="form-control" placeholder="Jane Doe"/>
+                        </div>
+                        <div class="col-auto">
+                            <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="col-auto">
+                            <button type="submit" class="btn">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <footer class="footer d-flex pt-3 justify-content-center">
+                    <div class="mx-2">
+                        <span class="text-muted">
+                            <a href="#">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        </span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
