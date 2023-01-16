@@ -10,12 +10,6 @@ header {
     align-items: center;
 }
 
-.home-body {
-    background-color: blanchedalmond;
-    align-items: center;
-    text-align: center;
-}
-
 .home-img {
     max-width: 500px;
     margin-top: 4px;
@@ -29,16 +23,46 @@ header {
     max-width: 700px;
 }
 
-.welcome-body {
-    background-color: rgb(182, 147, 147);
+.home-body {
+    background-color: blanchedalmond;
+    align-items: center;
+    text-align: center;
 }
 
-.max-md {
-    max-width: 768px
+.classrooms-body {
+    background-color: rgb(224, 205, 216);
+}
+
+.welcome-body {
+    background-color: rgb(207, 178, 178);
 }
 
 .accordion-body {
     background-color: beige;
+}
+
+.steam-body {
+    background-color: rgb(242, 219, 186);
+}
+
+.preschool-body {
+    background-color: rgb(216, 193, 157);
+}
+
+.school-body {
+    background-color: rgb(224, 205, 216);
+}
+
+.potty-body {
+    background-color: rgb(207, 178, 178);
+}
+
+.contact-body {
+    background-color: rgb(216, 193, 157);
+}
+
+.max-md {
+    max-width: 768px
 }
 
 .accordion-button:not(.collapsed) {
@@ -67,11 +91,18 @@ header {
     transform: rotate(180deg);
 }
 
-.classrooms-body {
-    background-color: rgb(235, 216, 234);
-}
 
 .class-img {
     max-width: 500px;
     margin-top: 4px;
+}
+
+.preschool-img {
+    max-width: 400px;
+    max-height: 200px;
+}
+
+.school-img {
+    max-width: 600px;
+    max-height: 300px;
 }
