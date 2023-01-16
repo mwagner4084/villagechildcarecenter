@@ -7,14 +7,14 @@
 <div class="contact-body">
     <div class="container">
         <div class="row justify-content-md-center">
-            <div class="col-md-auto">
-                <h1 class="py-3">
+            <div class="col-12 col-md-auto">
+                <h1 class="text-center py-3">
                     - CONTACT US -
                 </h1>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-10 pb-2">
+        <div class="row justify-content-md-start">
+            <div class="col-md-12 pb-2">
                 <div class="container">
                     <h3>
                         Schedule a tour
@@ -30,10 +30,10 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center ms-1">
-            <div class="col-10">
-                <div class="row">
-                    <div class="col-6">
+        <div class="row justify-content-md-start">
+            <div class="col-md-12">
+                <div class="row justify-content-md-start ms-1">
+                    <div class="col-md-6">
                         <h3>
                             Location: 
                         </h3>
@@ -70,19 +70,19 @@
                             </li>
                         </ul>
                         <figure class="figure pt-5">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2952.5895720496633!2d-85.65791634942362!3d42.2659365790912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x881776e4f1f128d3%3A0xe3505950e3160da0!2s5320%20Holiday%20Terrace%2C%20Kalamazoo%2C%20MI%2049009!5e0!3m2!1sen!2sus!4v1673838103210!5m2!1sen!2sus" width="400" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2952.5895720496633!2d-85.65791634942362!3d42.2659365790912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x881776e4f1f128d3%3A0xe3505950e3160da0!2s5320%20Holiday%20Terrace%2C%20Kalamazoo%2C%20MI%2049009!5e0!3m2!1sen!2sus!4v1673838103210!5m2!1sen!2sus" class="mw-100" width="400" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </figure>
                     </div>
-                    <div class="col-6 justify-content-center">
+                    <div class="col-12 col-md-6 justify-content-md-start">
                         <form action="{% url 'subscribe' %}" method="post">
-                            <div class="row justify-content-center fs-5">
+                            <div class="row justify-content-md-start fs-5">
                                 {% csrf_token %}
                                 {{ form|crispy }}
                                 <h3>
                                     Send us a message!
                                 </h3>
                                 <div class="row g-1">
-                                    <div class="col-10">
+                                    <div class="col-md-12 mt-md-0">
                                         <label for="fname" class="form-label">
                                             First Name: * 
                                         </label>
@@ -90,7 +90,7 @@
                                     </div>
                                 </div>
                                 <div class="row g-1">
-                                    <div class="col-10">
+                                    <div class="col-md-12">
                                         <label for="lname" class="form-label">
                                             Last Name: * 
                                         </label>
@@ -98,7 +98,7 @@
                                     </div>
                                 </div>
                                 <div class="row g-1">
-                                    <div class="col-10">
+                                    <div class="col-md-12">
                                         <label for="email" class="form-label">
                                             Email: *
                                         </label>
@@ -106,7 +106,7 @@
                                     </div>
                                 </div>
                                 <div class="row g-1">
-                                    <div class="col-10">
+                                    <div class="col-md-12">
                                         <label for="phone" class="form-label">
                                             Phone: * 
                                         </label>
@@ -114,7 +114,7 @@
                                     </div>
                                 </div>
                                 <div class="row g-1">
-                                    <div class="col-10">
+                                    <div class="col-md-12">
                                         <label for="children" class="form-label">
                                             Children's Names / Ages: 
                                         </label>
@@ -122,7 +122,7 @@
                                     </div>
                                 </div>
                                 <div class="row g-1">
-                                    <div class="col-10">
+                                    <div class="col-md-12">
                                         <label for="date" class="form-label">
                                             Preferred Daycare Start Date: * 
                                         </label>
@@ -130,7 +130,7 @@
                                     </div>
                                 </div>
                                 <div class="row g-1">
-                                    <div class="col-10">
+                                    <div class="col-md-12">
                                         <label for="comment" class="form-label">
                                             Comments: 
                                         </label>
@@ -138,7 +138,7 @@
                                     </div>
                                 </div>
                                 <div class="row g-1">
-                                    <div class="col-10">
+                                    <div class="col-md-12">
                                         <label for="referred" class="form-label">
                                             Referred By:
                                         </label>
@@ -146,7 +146,7 @@
                                     </div>
                                 </div>
                                 <div class="row g-1">
-                                    <div class="col-10">
+                                    <div class="col-md-12">
                                         <button type="submit" class="btn">
                                             Submit
                                         </button>
@@ -158,9 +158,9 @@
                 </div>
             </div>
         </div>
-        <div class="row py-4">
-            <div class="col-12">
-                <footer class="footer d-flex pt-3 justify-content-center">
+        <div class="row justify-content-md-center py-4">
+            <div class="col-12 col-md-auto">
+                <footer class="footer d-flex pt-3 justify-content-md-center">
                     <div class="mx-2">
                         <span class="text-muted">
                             <a href="#">

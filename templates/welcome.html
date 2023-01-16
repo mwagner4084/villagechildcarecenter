@@ -6,8 +6,8 @@
 
 <div class="welcome-body">
     <div class="container">
-        <div class="row">
-            <div class="col-8">
+        <div class="row justify-content-md-center">
+            <div class="col-md-8">
                 <h1 class="text-center py-3">
                     <strong>
                         <u>
@@ -44,7 +44,7 @@
                     </p>
                 </section>
             </div>
-            <div class="col-4">
+            <div class="col-md-4">
                 <div class="accordion accordion-flush pt-5 position-sticky top-0" id="accordionGroup">
                     <div class="accordion-item">
                         <h3 class="accordion-header" id="headingMission">
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item align-items-center justify-content-center">
+                    <div class="accordion-item align-items-center justify-content-md-center">
                         <h3 class="accordion-header" id="headingRights">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRights" aria-expanded="false" aria-controls="collapseRights">
                                 Children's Bill of Rights
@@ -109,34 +109,34 @@
                 </div>
             </div>
         </div>
-        <div class="row py-4">
-            <div class="col-8">
+        <div class="row justify-content-md-between py-4">
+            <div class="col-md-8">
                 <form action="{% url 'subscribe' %}" method="post">
-                    <div class="row d-inline-flex justify-content-start">
+                    <div class="row d-inline-flex justify-content-md-start">
                         {% csrf_token %}
                         {{ form|crispy }}
-                        <div class="col-auto">
+                        <div class="col-md-auto">
                             <p class="pt-2">
                                 Subscribe to our newsletter:
                             </p>
                         </div>
                         <br>
-                        <div class="col-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <input id="name" name="name" class="form-control" placeholder="Jane Doe"/>
                         </div>
-                        <div class="col-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
                         </div>
                         <br>
                         <br>
-                        <div class="col-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <button type="submit" class="btn">
                                 Submit
                             </button>
                         </div>
                     </div>
                 </form>
-                <footer class="footer d-flex pt-3 justify-content-center">
+                <footer class="footer d-flex pt-3 justify-content-md-center">
                     <div class="mx-2">
                         <span class="text-muted">
                             <a href="#">

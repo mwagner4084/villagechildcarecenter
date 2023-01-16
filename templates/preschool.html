@@ -6,8 +6,8 @@
 
 <div class="preschool-body">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-auto">
                 <h1 class="text-center py-3">
                     <strong>
                             - COMING FALL 2023 - 
@@ -15,8 +15,8 @@
                 </h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
+        <div class="row justify-content-md-start">
+            <div class="col col-md-12">
                 <section id="preschool">
                     <p class="fs-5">
                         Our Preschool Program is an optional program as well as open to the public. 
@@ -47,7 +47,7 @@
                     </p>
                 </section>
             </div>
-            <div class="col">
+            <div class="col col-md-12">
                 <section id="preschool">
                     <p class="fs-5">
                         Our 4 year olds will have the opportunity to use the STEAM classroom from 9-12 Monday, 
@@ -74,9 +74,9 @@
                         </strong>
                         Practicing sequencing, problem-solving, and critical thinking.
                     </p>
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-md-center">
                         <figure class="figure">
-                            <img src="{% static 'img/abc_blocks.png'%}" class="preschool-img w-100" alt="abc">
+                            <img src="{% static 'img/abc_blocks.png'%}" class="preschool-img mw-100" alt="abc">
                             <figcaption class="figure-caption text-end">
                                 Credit: Adobe Stock
                             </figcaption>
@@ -85,34 +85,34 @@
                 </section>
             </div>
         </div>
-        <div class="row py-4">
-            <div class="col-12">
+        <div class="row justify-content-md-center py-4">
+            <div class="col-12 col-md-12">
                 <form action="{% url 'subscribe' %}" method="post">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-md-center">
                         {% csrf_token %}
                         {{ form|crispy }}
-                        <div class="col-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <p class="pt-2">
                                 Subscribe to our newsletter:
                             </p>
                         </div>
                         <br>
-                        <div class="col-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <input id="name" name="name" class="form-control" placeholder="Jane Doe"/>
                         </div>
-                        <div class="col-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
                         </div>
                         <br>
                         <br>
-                        <div class="col-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <button type="submit" class="btn">
                                 Submit
                             </button>
                         </div>
                     </div>
                 </form>
-                <footer class="footer d-flex pt-3 justify-content-center">
+                <footer class="footer d-flex pt-3 justify-content-md-center">
                     <div class="mx-2">
                         <span class="text-muted">
                             <a href="#">

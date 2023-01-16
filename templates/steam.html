@@ -5,18 +5,18 @@
 {% block content %}
 
 <div class="steam-body">
-    <div class="flex-container">
+    <div class="container">
         <div class="row justify-content-md-center">
-            <div class="col-md-auto">
-                <h1 class="py-3">
+            <div class="col-12 col-md-8 col-md-auto">
+                <h2 class="text-center py-3">
                     - SCIENCE. TECHNOLOGY. ENGINEERING. ART. MATHEMATICS. -
-                </h1>
+                </h2>
             </div>
         </div>
         <div class="row justify-content-md-center">
-            <div class="col-md-auto">
+            <div class="col-12 col-md-8 col-md-auto">
                 <figure class="figure">
-                    <img src="{% static 'img/steam.png'%}" class="figure-img home-img img-fluid rounded" alt="steam">
+                    <img src="{% static 'img/steam.png'%}" class="figure-img home-img img-fluid rounded mw-100" alt="steam">
                     <h1 class="text-center">
                         <strong class="text-primary">
                             STEAM 
@@ -31,10 +31,10 @@
                 </figure>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-md-auto pb-2">
-                <div class="flex-container mission">
-                    <p class="fs-5">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-10 col-md-auto pb-2">
+                <div class="container mission">
+                    <p class="text-center fs-5">
                         Our S.T.E.A.M. classroom is designed to allow children to use their imagination to explore 
                         their creativity. Young children benefit from S.T.E.A.M. learning because they are generally 
                         naturally inquisitive and want to explore and make sense of themselves and the environment in 
@@ -44,42 +44,42 @@
                         In this classroom we will have professionals come on site weekly to teach children science, 
                         art, yoga, and music.
                     </p>
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-md-center">
                         <figure class="figure">
-                            <img src="{% static 'img/steam_art.png'%}" class="home-img w-100" alt="steam">
+                            <img src="{% static 'img/steam_art.png'%}" class="home-img mw-100" alt="steam">
                         </figure>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row py-4">
-            <div class="col-12">
+        <div class="row justify-content-md-center py-4">
+            <div class="col-12 col-md-10">
                 <form action="{% url 'subscribe' %}" method="post">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-md-center">
                         {% csrf_token %}
                         {{ form|crispy }}
-                        <div class="col-auto">
+                        <div class="col-md-auto">
                             <p class="pt-2">
                                 Subscribe to our newsletter:
                             </p>
                         </div>
                         <br>
-                        <div class="col-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <input id="name" name="name" class="form-control" placeholder="Jane Doe"/>
                         </div>
-                        <div class="col-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
                         </div>
                         <br>
                         <br>
-                        <div class="col-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <button type="submit" class="btn">
                                 Submit
                             </button>
                         </div>
                     </div>
                 </form>
-                <footer class="footer d-flex pt-3 justify-content-center">
+                <footer class="footer d-flex pt-3 justify-content-md-center">
                     <div class="mx-2">
                         <span class="text-muted">
                             <a href="#">

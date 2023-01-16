@@ -6,8 +6,8 @@
 
 <div class="school-body">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-auto">
                 <h1 class="text-center py-3">
                     <strong>
                             - SCHOOL AGE - 
@@ -15,8 +15,8 @@
                 </h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
+        <div class="row justify-content-md-start">
+            <div class="col col-md-12">
                 <section id="school">
                     <h3 class="text-center">
                         Before/After School Care
@@ -28,9 +28,9 @@
                         this time, they will have the opportunity to relax, do homework, 
                         play outside, and play in our S.T.E.A.M room classroom.
                     </p>
-                    <div class="d-flex justify-content-center py-3">
+                    <div class="d-flex justify-content-md-center py-3">
                         <figure class="figure">
-                            <img src="{% static 'img/bus.png'%}" class="school-img w-100 img-fluid rounded" alt="bus">
+                            <img src="{% static 'img/bus.png'%}" class="school-img mw-100 img-fluid rounded" alt="bus">
                             <figcaption class="figure-caption text-end">
                                 Credit: Vector Stock
                             </figcaption>
@@ -43,7 +43,7 @@
                     </p>
                 </section>
             </div>
-            <div class="col">
+            <div class="col col-md-12">
                 <section id="school">
                     <h3 class="text-center">
                         Summer Camp + School Breaks
@@ -57,9 +57,9 @@
                         <br>
                         No matter the weather, we will be enjoying the outdoors.  
                     </p>
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-md-center">
                         <figure class="figure">
-                            <img src="{% static 'img/camp.jpeg'%}" class="school-img w-100 img-fluid rounded" alt="abc">
+                            <img src="{% static 'img/camp.jpeg'%}" class="school-img mw-100 img-fluid rounded" alt="abc">
                             <figcaption class="figure-caption text-end">
                                 Credit: Washington Parent
                             </figcaption>
@@ -73,34 +73,34 @@
                 </section>
             </div>
         </div>
-        <div class="row py-4">
-            <div class="col-12">
+        <div class="row justify-content-md-center py-4">
+            <div class="col-12 col-md-12">
                 <form action="{% url 'subscribe' %}" method="post">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-md-center">
                         {% csrf_token %}
                         {{ form|crispy }}
-                        <div class="col-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <p class="pt-2">
                                 Subscribe to our newsletter:
                             </p>
                         </div>
                         <br>
-                        <div class="col-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <input id="name" name="name" class="form-control" placeholder="Jane Doe"/>
                         </div>
-                        <div class="col-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
                         </div>
                         <br>
                         <br>
-                        <div class="col-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <button type="submit" class="btn">
                                 Submit
                             </button>
                         </div>
                     </div>
                 </form>
-                <footer class="footer d-flex pt-3 justify-content-center">
+                <footer class="footer d-flex pt-3 justify-content-md-center">
                     <div class="mx-2">
                         <span class="text-muted">
                             <a href="#">
