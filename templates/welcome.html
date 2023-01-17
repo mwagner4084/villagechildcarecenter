@@ -79,7 +79,7 @@
                         </h3>
                         <div id="collapseRights" class="accordion-collapse collapse" aria-labelledby="headingRights" data-bs-parent="#accordionRights"> 
                             <div class="accordion-body">
-                                <ul class="list-unstyled">
+                                <ul>
                                     <li>
                                         Every child in our program has the right to be respected as an individual with concern for his or her own interests, 
                                         handicaps, special talents, and individual style and pace of learning.  
@@ -115,7 +115,7 @@
                     <div class="row d-inline-flex justify-content-md-start">
                         {% csrf_token %}
                         {{ form|crispy }}
-                        <div class="col-md-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <p class="pt-2">
                                 Subscribe to our newsletter:
                             </p>
