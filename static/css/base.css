@@ -3,7 +3,7 @@
 }
 
 body {
-    font-family: Georgia, serif;
+    font-family: 'Marker Felt', fantasy;
 }
 
 header {
@@ -93,7 +93,8 @@ header {
 
 
 .class-img {
-    max-width: 500px;
+    max-width: 100%;
+    width: 450px;
     margin-top: 4px;
 }
 
