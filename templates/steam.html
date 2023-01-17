@@ -7,14 +7,14 @@
 <div class="steam-body">
     <div class="container">
         <div class="row justify-content-md-center">
-            <div class="col-12 col-md-8 col-md-auto">
+            <div class="col-md-12 col-md-auto">
                 <h2 class="text-center py-3">
                     - SCIENCE. TECHNOLOGY. ENGINEERING. ART. MATHEMATICS. -
                 </h2>
             </div>
         </div>
         <div class="row justify-content-md-center">
-            <div class="col-12 col-md-8 col-md-auto">
+            <div class="col-12 col-md-8 text-center">
                 <figure class="figure">
                     <img src="{% static 'img/steam.png'%}" class="figure-img home-img img-fluid rounded mw-100" alt="steam">
                     <h1 class="text-center">
@@ -53,12 +53,12 @@
             </div>
         </div>
         <div class="row justify-content-md-center py-4">
-            <div class="col-12 col-md-10">
+            <div class="col-md-12">
                 <form action="{% url 'subscribe' %}" method="post">
                     <div class="row justify-content-md-center">
                         {% csrf_token %}
                         {{ form|crispy }}
-                        <div class="col-md-auto">
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
                             <p class="pt-2">
                                 Subscribe to our newsletter:
                             </p>

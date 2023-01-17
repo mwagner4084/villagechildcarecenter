@@ -10,9 +10,7 @@
             <div class="col-md-8">
                 <h1 class="text-center py-3">
                     <strong>
-                        <u>
-                            Welcome to the Village 
-                        </u>
+                            - Welcome to the Village -
                     </strong>
                 </h1>
                 <section id="philosophy">
@@ -109,10 +107,10 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-md-between py-4">
-            <div class="col-md-8">
+        <div class="row justify-content-md-start py-4">
+            <div class="col-md-12">
                 <form action="{% url 'subscribe' %}" method="post">
-                    <div class="row d-inline-flex justify-content-md-start">
+                    <div class="row justify-content-md-start">
                         {% csrf_token %}
                         {{ form|crispy }}
                         <div class="col-12 col-md-auto mt-3 mt-md-0">
