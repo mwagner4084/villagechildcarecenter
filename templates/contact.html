@@ -15,19 +15,17 @@
         </div>
         <div class="row justify-content-md-start">
             <div class="col-md-12 pb-2">
-                <div class="container">
-                    <h3>
-                        Schedule a tour
-                    </h3>
-                    <p class="fs-5">
-                        We strongly encourage parents to schedule a tour of the school. This will give you the 
-                        opportunity to see the classrooms and witness first hand what your child can experience 
-                        at The Village Childcare Center. 
-                        <br>
-                        <br>
-                        If you have any questions, concerns, or wish to schedule a tour, please feel free to contact us.
-                    </p>
-                </div>
+                <h3>
+                    Schedule a tour
+                </h3>
+                <p class="fs-5">
+                    We strongly encourage parents to schedule a tour of the school. This will give you the 
+                    opportunity to see the classrooms and witness first hand what your child can experience 
+                    at The Village Childcare Center. 
+                    <br>
+                    <br>
+                    If you have any questions, concerns, or wish to schedule a tour, please feel free to contact us.
+                </p>
             </div>
         </div>
         <div class="row justify-content-md-start">
@@ -76,80 +74,82 @@
                     <div class="col-12 col-md-6 justify-content-md-start">
                         <form action="{% url 'subscribe' %}" method="post">
                             <div class="row justify-content-md-start fs-5">
-                                {% csrf_token %}
-                                {{ form|crispy }}
-                                <h3>
-                                    Send us a message!
-                                </h3>
-                                <div class="row g-1">
-                                    <div class="col-md-12 mt-md-0">
-                                        <label for="fname" class="form-label">
-                                            First Name: * 
-                                        </label>
-                                        <input id="fname" name="fname" class="form-control" placeholder="Jane"/>
+                                <div class="col-md-12 mt-md-0">
+                                    {% csrf_token %}
+                                    {{ form|crispy }}
+                                    <h3>
+                                        Send us a message!
+                                    </h3>
+                                    <div class="row mb-2">
+                                        <div class="col-md-12 mt-md-0">
+                                            <label for="fname" class="form-label">
+                                                First Name: * 
+                                            </label>
+                                            <input id="fname" name="fname" class="form-control" placeholder="Jane"/>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-md-12">
-                                        <label for="lname" class="form-label">
-                                            Last Name: * 
-                                        </label>
-                                        <input id="lname" name="lname" class="form-control" placeholder="Doe"/>
+                                    <div class="row mb-2">
+                                        <div class="col-md-12">
+                                            <label for="lname" class="form-label">
+                                                Last Name: * 
+                                            </label>
+                                            <input id="lname" name="lname" class="form-control" placeholder="Doe"/>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-md-12">
-                                        <label for="email" class="form-label">
-                                            Email: *
-                                        </label>
-                                        <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
+                                    <div class="row mb-2">
+                                        <div class="col-md-12">
+                                            <label for="email" class="form-label">
+                                                Email: *
+                                            </label>
+                                            <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-md-12">
-                                        <label for="phone" class="form-label">
-                                            Phone: * 
-                                        </label>
-                                        <input id="phone" name="phone" class="form-control" placeholder="555-555-5555">
+                                    <div class="row mb-2">
+                                        <div class="col-md-12">
+                                            <label for="phone" class="form-label">
+                                                Phone: * 
+                                            </label>
+                                            <input id="phone" name="phone" class="form-control" placeholder="555-555-5555">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-md-12">
-                                        <label for="children" class="form-label">
-                                            Children's Names / Ages: 
-                                        </label>
-                                        <textarea id="children" class="form-control" placeholder="Kaitlyn - 3, Graham - 5, etc." rows="3"></textarea>
+                                    <div class="row mb-2">
+                                        <div class="col-md-12">
+                                            <label for="children" class="form-label">
+                                                Children's Names / Ages: 
+                                            </label>
+                                            <textarea id="children" class="form-control" placeholder="Kaitlyn - 3, Graham - 5, etc." rows="3"></textarea>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-md-12">
-                                        <label for="date" class="form-label">
-                                            Preferred Daycare Start Date: * 
-                                        </label>
-                                        <input id="date" name="date" class="form-control" placeholder="MM-DD-YYYY">
+                                    <div class="row mb-2">
+                                        <div class="col-md-12">
+                                            <label for="date" class="form-label">
+                                                Preferred Daycare Start Date: * 
+                                            </label>
+                                            <input id="date" name="date" class="form-control" placeholder="MM-DD-YYYY">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-md-12">
-                                        <label for="comment" class="form-label">
-                                            Comments: 
-                                        </label>
-                                        <textarea id="comment" class="form-control" placeholder="I am looking for..." rows="3"></textarea>
+                                    <div class="row mb-2">
+                                        <div class="col-md-12">
+                                            <label for="comment" class="form-label">
+                                                Comments: 
+                                            </label>
+                                            <textarea id="comment" class="form-control" placeholder="I am looking for..." rows="3"></textarea>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-md-12">
-                                        <label for="referred" class="form-label">
-                                            Referred By:
-                                        </label>
-                                        <input id="referred" name="referred" class="form-control" placeholder="John Doe">
+                                    <div class="row mb-2">
+                                        <div class="col-md-12">
+                                            <label for="referred" class="form-label">
+                                                Referred By:
+                                            </label>
+                                            <input id="referred" name="referred" class="form-control" placeholder="John Doe">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-md-12">
-                                        <button type="submit" class="btn">
-                                            Submit
-                                        </button>
+                                    <div class="row mb-2">
+                                        <div class="col-md-12">
+                                            <button type="submit" class="btn">
+                                                Submit
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

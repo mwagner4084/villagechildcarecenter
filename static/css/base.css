@@ -1,13 +1,48 @@
+@font-face {
+    font-family: 'Trueno';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Trueno Regular'), url('../fonts/TruenoRg.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Trueno';
+    font-style: normal;
+    font-weight: 100;
+    src: local('Trueno Light'), url('../fonts/TruenoLt.woff') format('woff');
+}
+    
+
+:root {
+    --bs-body-font-family: "Trueno", sans-serif;
+    --heading-font-family: 'Marker Felt', fantasy;
+    --navbar-font-family: "Trueno", sans-serif;
+    --bs-body-font-weight: 100;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--heading-font-family);
+}
+
 .navbar {
     background-color: rgb(127, 183, 143);
 }
 
-body {
-    font-family: 'Marker Felt', fantasy;
+.navbar a {
+    font-family: var(--navbar-font-family);
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+    font-weight: 400;
 }
 
 header {
     align-items: center;
+    font-family: var(--heading-font-family);
 }
 
 .home-img {
