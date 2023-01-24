@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import HTMLModel
 
-# Register your models here.
+class HTMLModelAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(HTMLModel, HTMLModelAdmin)

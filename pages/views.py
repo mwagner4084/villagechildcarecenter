@@ -1,6 +1,10 @@
 from django.views.generic import TemplateView
+from django.shortcuts import render
+from .models import HTMLModel
+
 class HomePageView(TemplateView):
     template_name = "index.html"
+    
 
 class WelcomePageView(TemplateView):
     template_name = "welcome.html"
