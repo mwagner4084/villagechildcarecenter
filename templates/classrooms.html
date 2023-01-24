@@ -88,7 +88,60 @@
                             with others, like family, friends, and community members, as well as 
                             understanding how to interact with others while developing self-awareness.
                         </p>
-                        <br>
+                        <div class="accordion accordion-flush pt-5 position-sticky top-0" id="accordionGroup">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingMission">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMission" aria-expanded="false" aria-controls="collapseMission">
+                                        Potty Training Philosophy
+                                    </button>
+                                </h2>
+                                <div id="collapseMission" class="accordion-collapse collapse" aria-labelledby="headingMission" data-bs-parent="#accordionMission"> 
+                                    <div class="accordion-body">
+                                        <p>
+                                            The Village faculty is eager to share in the process of potty training. Our official potty training age is 24-36 months. 
+                                            At this age our classroom faculty works diligently with the children to promote using the toilet. We do realize that some 
+                                            children begin training at younger ages. In these cases, our faculty will work with your child on a more individual basis 
+                                            to reinforce procedures that you are using at home.
+                                            <br>
+                                            <br>
+                                            Your child may be ready for potty training if:
+                                        </p>
+                                        <ol>
+                                            <li>
+                                                They have a dry diaper for two hours or more.
+                                            </li>
+                                            <li>
+                                                They have a dry diaper after naptime.
+                                            </li>
+                                            <li>
+                                                They tell you when their diaper needs to be changed.
+                                            </li>
+                                            <li>
+                                                They tell you when they are urinating or making a bowel movement in their diaper.
+                                            </li>
+                                            <li>
+                                                They show an interest or curiosity in using the toilet.
+                                            </li>
+                                        </ol>
+                                        <p>
+                                            As your child is beginning to potty train, we suggest heavy cotton training pants or rubber pants which may be more 
+                                            effective than pull-ups. Rubber pants keep their clothes dry. Cotton pants may leave your child feeling a bit uncomfortable 
+                                            so that they will quickly learn to relieve themselves using the toilet. Pull-ups are most effective AFTER the child has shown 
+                                            that they are dry most of the time or at bedtime.
+                                            <br>
+                                            <br>
+                                            Please remind your child to go to the potty at home. When he or she is successful, use positive reinforcement. 
+                                            <br>
+                                            <br>
+                                            It is not recommended that your child be allowed to wear underpants over diapers or pull-ups. This defeats the purpose of them 
+                                            and removes the incentive for your child to wear underwear. Lastly, it is important to be consistent in whichever method you choose to use.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 justify-content-md-start">
                         <h3>
                             <strong>
                                 3 - 4 Year Olds
@@ -114,8 +167,7 @@
                             We will begin more projects in these classrooms- Children will be able to 
                             follow their strengths and imagination to explore the world around them.
                         </p>
-                    </div>
-                    <div class="col-12 col-md-6 justify-content-md-start">
+                        <br>
                         <h3>
                             <strong>
                                 Optional 4-year-old Preschool Program
@@ -162,33 +214,6 @@
                                 </li>
                             </ul>
                         </p>
-                        <br>
-                        <div class="row justify-content-md-start py-5">
-                            <div class="col">
-                                <h4>
-                                    <strong>
-                                        More Information:
-                                    </strong>
-                                </h4>
-                                <br>
-                                <p class="fs-5">
-                                    Read about our potty training philosophy 
-                                    <a href="{% url 'potty_training'%}">
-                                        here.
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row justify-content-md-center">
-                            <div class="col-12 col-md-auto">
-                                <figure class="figure">
-                                    <img src="{% static 'img/istockphoto.jpeg'%}" class="class-img" alt="children">
-                                    <figcaption class="figure-caption text-end">
-                                        Credit: iStock Photo
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -199,12 +224,6 @@
                             {% csrf_token %}
                             {{ form|crispy }}
                             <div class="col-12 col-md-auto mt-3 mt-md-0">
-                                <p class="pt-2">
-                                    Subscribe to our newsletter:
-                                </p>
-                            </div>
-                            <br>
-                            <div class="col-12 col-md-auto mt-3 mt-md-0">
                                 <input id="name" name="name" class="form-control" placeholder="Jane Doe"/>
                             </div>
                             <div class="col-12 col-md-auto mt-3 mt-md-0">
@@ -214,7 +233,7 @@
                             <br>
                             <div class="col-12 col-md-auto mt-3 mt-md-0">
                                 <button type="submit" class="btn">
-                                    Submit
+                                    Signup
                                 </button>
                             </div>
                         </div>
