@@ -6,18 +6,18 @@
 }
 
 @font-face {
-    font-family: 'Trueno';
+    font-family: 'Fira Sans', sans-serif;
     font-style: normal;
-    font-weight: 100;
-    src: local('Trueno Light'), url('../fonts/TruenoLt.woff') format('woff');
+    font-weight: 400;
+    src: local('Fira Sans'), url('../fonts/FiraSans-Regular.ttf') format('ttf');
 }
     
 
 :root {
-    --bs-body-font-family: "Trueno", sans-serif;
+    --bs-body-font-family: "Fira Sans", sans-serif;
     --heading-font-family: 'Marker Felt', fantasy;
     --navbar-font-family: "Trueno", sans-serif;
-    --bs-body-font-weight: 100;
+    --bs-body-font-weight: 400;
 }
 
 h1,
