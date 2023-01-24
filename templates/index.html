@@ -39,12 +39,6 @@
                 <div class="row d-flex justify-content-md-center">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <div class="col-md-auto">
-                        <p class="pt-2">
-                            Subscribe to our newsletter:
-                        </p>
-                    </div>
-                    <br>
                     <div class="col-12 col-md-auto mt-3 mt-md-0">
                         <input id="name" name="name" class="form-control" placeholder="Jane Doe"/>
                     </div>
@@ -53,7 +47,7 @@
                     </div>
                     <div class="col-12 col-md-auto mt-3 mt-md-0">
                         <button type="submit" class="btn">
-                            Submit
+                            Signup
                         </button>
                     </div>
                 </div>
