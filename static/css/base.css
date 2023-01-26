@@ -5,14 +5,6 @@
     src: local('Trueno Regular'), url('../fonts/TruenoRg.woff') format('woff');
 }
 
-@font-face {
-    font-family: 'Fira Sans', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    src: local('Fira Sans'), url('../fonts/FiraSans-Regular.ttf') format('ttf');
-}
-    
-
 :root {
     --bs-body-font-family: "Fira Sans", sans-serif;
     --heading-font-family: 'Marker Felt', fantasy;
@@ -102,32 +94,27 @@ header {
     max-width: 768px
 }
 
-.accordion-button:not(.collapsed) {
-    background-color: beige !important;
-    color: rgb(88, 54, 54) !important;
-    
+.accordion-welcome {
+    --bs-accordion-bg: beige !important;
+    color:rgb(88, 54, 54) !important;
+    --bs-accordion-border-color: rgb(59, 32, 32);
+    --bs-accordion-active-bg: beige !important;
+    --bs-accordion-active-color: rgb(88, 54, 54) !important;
+    --bs-accordion-btn-focus-box-shadow: beige !important;
+    --bs-accordion-btn-focus-border-color: rgb(59, 32, 32) !important;
 }
 
-.accordion-button:link, .accordion-button:visited, .accordion-button:hover, .accordion-button:active {
-    background-color: beige !important;
-    color: rgb(88, 54, 54) !important;
-    text-decoration: none !important;
-    border-color: rgb(59, 32, 32) !important;
-    box-shadow: 0px !important;
+.accordion-button:not(.collapsed) {
+    color: rgb(88, 54, 54);
+    background-color: beige;
 }
 
 .accordion-button:focus {
-    z-index: 3;
-    border-color: rgb(59, 32, 32) !important;
-    outline: 0;
-    box-shadow: 0 0 0 .25rem rgb(59, 32, 32) !important;
+    border-color:rgb(88, 54, 54) !important;
+    box-shadow: beige !important;
+    color: rgb(88, 54, 54) !important;
+    background-color: beige !important;
 }
-
-.accordion-button:not(.collapsed)::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-    transform: rotate(180deg);
-}
-
 
 .class-img {
     max-width: 100%;

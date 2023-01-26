@@ -14,4 +14,4 @@ class HomepageTests(SimpleTestCase):
         self.assertTemplateUsed(response, "home.html")
     def test_template_content(self): 
         response = self.client.get(reverse("home"))
-        self.assertContains(response, "Homepage")
+        self.assertContains(response, "- Coming Spring 2023 -")
