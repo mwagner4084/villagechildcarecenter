@@ -128,6 +128,7 @@ header {
 }
 
 .school-img {
-    max-width: 600px;
-    max-height: 300px;
+    max-width: 100%;
+    max-height: auto;
+    width: 500px;
 }
