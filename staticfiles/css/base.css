@@ -1,0 +1,133 @@
+@font-face {
+    font-family: 'Trueno';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Trueno Regular'), url('../fonts/TruenoRg.woff') format('woff');
+}
+
+:root {
+    --bs-body-font-family: "Fira Sans", sans-serif;
+    --heading-font-family: 'Marker Felt', fantasy;
+    --navbar-font-family: "Trueno", sans-serif;
+    --bs-body-font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--heading-font-family);
+}
+
+.navbar {
+    background-color: rgb(127, 183, 143);
+}
+
+.navbar a {
+    font-family: var(--navbar-font-family);
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+header {
+    align-items: center;
+    font-family: var(--heading-font-family);
+}
+
+.home-img {
+    max-width: 100%;
+    width: 600px;
+    margin-top: 4px;
+}
+
+.btn {
+    background-color: rgb(125, 197, 133);
+}
+
+.mission {
+    max-width: 700px;
+}
+
+.home-body {
+    background-color: blanchedalmond;
+    align-items: center;
+    text-align: center;
+}
+
+.classrooms-body {
+    background-color: rgb(224, 205, 216);
+}
+
+.welcome-body {
+    background-color: rgb(207, 178, 178);
+}
+
+.accordion-body {
+    background-color: beige;
+}
+
+.steam-body {
+    background-color: rgb(242, 219, 186);
+}
+
+.preschool-body {
+    background-color: rgb(216, 193, 157);
+}
+
+.school-body {
+    background-color: rgb(224, 205, 216);
+}
+
+.potty-body {
+    background-color: rgb(207, 178, 178);
+}
+
+.contact-body {
+    background-color: rgb(216, 193, 157);
+}
+
+.max-md {
+    max-width: 768px
+}
+
+.accordion-welcome {
+    --bs-accordion-bg: beige !important;
+    color:rgb(88, 54, 54) !important;
+    --bs-accordion-border-color: rgb(59, 32, 32);
+    --bs-accordion-active-bg: beige !important;
+    --bs-accordion-active-color: rgb(88, 54, 54) !important;
+    --bs-accordion-btn-focus-box-shadow: beige !important;
+    --bs-accordion-btn-focus-border-color: rgb(59, 32, 32) !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: rgb(88, 54, 54);
+    background-color: beige;
+}
+
+.accordion-button:focus {
+    border-color:rgb(88, 54, 54) !important;
+    box-shadow: beige !important;
+    color: rgb(88, 54, 54) !important;
+    background-color: beige !important;
+}
+
+.class-img {
+    max-width: 100%;
+    width: 450px;
+    margin-top: 4px;
+}
+
+.preschool-img {
+    max-width: 400px;
+    max-height: 200px;
+}
+
+.school-img {
+    max-width: 600px;
+    max-height: 300px;
+}
