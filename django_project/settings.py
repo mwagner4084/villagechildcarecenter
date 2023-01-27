@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
+    'tinymce',
     # Local
     'pages.apps.PagesConfig',
     # 3rd Party
