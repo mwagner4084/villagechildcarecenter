@@ -15,12 +15,13 @@
         </div>
         <div class="row justify-content-md-center">
             <div class="col-12 col-md-10 pb-2">
-                <div class="container">
-                    <p class="fs-4">
-                        Our mission is to provide child-centered care focused on fostering children's creativity, educational development, 
-                        and independece. We provide a resource-rich, inclusive environment that allows each child to develop at his/her own pace.
-                        Our classrooms are designed to give children room to grow and express themselves in a safe space.
-                    </p>
+                <div class="container fs-4">
+                    {% if page.content %}
+                        {{ page.content | safe }}
+                        {% if page.image %}
+                            <img src="{{ page.image.url }}" />
+                        {% endif %}
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -65,5 +66,14 @@
     </div>
 </div>
 
+{% if user.is_staff %}
+    <form action="" method="get" class="form-floating">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-primary" type="submit">
+            Edit
+        </button>
+    </form>
+{% endif %}
 
 {% endblock content %}
