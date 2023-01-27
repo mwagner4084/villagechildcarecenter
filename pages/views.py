@@ -1,9 +1,17 @@
 from django.views.generic import TemplateView
 #from django.shortcuts import render
-#from .models import HTMLModel
+from .models import Page
 
 class HomePageView(TemplateView):
     template_name = "index.html"
+    model = Page
+
+    def get_context_data(self, **kwargs):
+        context = super(HomePageView, self).get_context_data(**kwargs)
+        pages = Page.objects.filter(handle='home')
+        if len(pages):
+            context['page'] = pages[0]
+        return context
     
 
 class WelcomePageView(TemplateView):
