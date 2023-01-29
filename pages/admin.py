@@ -3,12 +3,11 @@ from .models import Page
 from .forms import HomePageForm
 
 class PageAdmin(admin.ModelAdmin):
-    # fieldsets = [(None, {"fields": ("title", "handle", "content",)})]
+    fieldsets = [(None, {"fields": ("title", "handle", "content", "content_secondary")})]
     form = HomePageForm
     class Media:
-        js = (
-            'js/tinymce/tinymce.min.js',
-            'js/tinymce/custom.js',
-        )
+        css = {
+            'all': ('css/admin/edit-page.css',)
+        }
 
 admin.site.register(Page, PageAdmin)
