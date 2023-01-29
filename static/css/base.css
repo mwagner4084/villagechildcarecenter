@@ -148,10 +148,16 @@ h1::after {
     margin-right: 0.5rem;
 }
 
+p {
+    margin: 1.5rem 0;
+}
+
 .rte img {
     max-width: 100%;
 }
 
-p {
-    margin: 1.5rem 0;
+.rte ul {
+    /* the same as Bootstrap unstyled-list */
+    padding-left: 0;
+    list-style: none;
 }
