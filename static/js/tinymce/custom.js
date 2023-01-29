@@ -360,23 +360,34 @@ const hasSecondaryContent = [
     'steam',
 ]
 
-function showSecondaryContent() {
-    const handle = $('#id_handle').val();
-    const $title = $('#id_title');
-    const mceContent = tinymce.get("id_content");
-    const $contentSecondary = $('.field-content_secondary');
-    const mceContentSecondary = tinymce.get("id_content_secondary");
+/**
+ * Show the secondary content for the page and update the title and content if set.
+ * @param {bool} updateContent
+ * @returns
+ */
+function showSecondaryContent(updateContent) {
+    return () => {
+        const handle = $('#id_handle').val();
+        const $title = $('#id_title');
+        const mceContent = tinymce.get("id_content");
+        const $contentSecondary = $('.field-content_secondary');
+        const mceContentSecondary = tinymce.get("id_content_secondary");
 
-    mceContent.setContent(pageDefaults[handle].content);
-    $title.val(pageDefaults[handle].title);
+        if (updateContent) {
+            mceContent.setContent(pageDefaults[handle].content);
+        }
+        $title.val(pageDefaults[handle].title);
 
-    if (hasSecondaryContent.includes(handle)) {
-        $contentSecondary.show();
-        mceContentSecondary.setContent(pageDefaults[handle].contentSecondary);
-    } else {
-        $contentSecondary.hide();
+        if (hasSecondaryContent.includes(handle)) {
+            $contentSecondary.show();
+            if (updateContent) {
+                mceContentSecondary.setContent(pageDefaults[handle].contentSecondary);
+            }
+        } else {
+            $contentSecondary.hide();
+        }
     }
 }
 
-$(showSecondaryContent);
-$('#id_handle').on('change', showSecondaryContent);
+$(showSecondaryContent(false));
+$('#id_handle').on('change', showSecondaryContent(true));
