@@ -215,7 +215,7 @@ const pageDefaults = {
     steam: {
         title: `Science. Technology. Engineering. Art. Mathematics.`,
         content: `
-            <img src="${django.staticBase + 'img/steam.png'}" class="school-img img-fluid rounded" />
+            <img src="${django.staticPrefix + 'img/steam.png'}" class="school-img img-fluid rounded" />
             <h2>
                 <strong class="text-primary">STEAM</strong> <strong>EDUCATION</strong>
             </h2>
@@ -232,7 +232,7 @@ const pageDefaults = {
                 art, yoga, and music.
             </p>
             <p>
-                <img src="${ django.staticBase + 'img/steam_art.png' }" alt="S.T.E.A.M. Art">
+                <img src="${ django.staticPrefix + 'img/steam_art.png' }" alt="S.T.E.A.M. Art">
             </p>
         `,
     },
@@ -302,7 +302,7 @@ const pageDefaults = {
             <p>
                 No matter the weather, we will be enjoying the outdoors.
             </p>
-            <img src="${ django.staticBase + 'img/explore1.png' }" alt="explore">
+            <img src="${ django.staticPrefix + 'img/explore1.png' }" alt="explore">
             <p>
                 <strong>The Village Childcare Center follows KPS school schedule.</strong>
             </p>
