@@ -5,65 +5,69 @@
 {% block content %}
 
 <div class="preschool-body">
-    <div class="container">
+    <div class="container py-5">
         <div class="row justify-content-md-center">
             <div class="col-md-12 col-md-auto">
-                <h1 class="text-center py-3">
-                    <strong>
-                            - COMING FALL 2023 - 
-                    </strong>
-                </h1>
+                {% spaceless %}
+                    <h1 class="text-center">
+                        {% if page.title %}
+                            <span>{{ page.title | safe }}</span>
+                        {% else %}
+                            <span>Coming Fall 2023</span>
+                        {% endif %}
+                    </h1>
+                {% endspaceless %}
             </div>
         </div>
         <div class="row justify-content-md-center">
             <div class="col-12 col-md-10">
-                <section id="preschool">
-                    <p class="fs-5">
-                        Our Preschool Program is an optional program as well as open to the public. 
+                <section id="preschool" class="fs-5">
+                    {% if page.content %}
+                            {{ page.content | safe }}
+                    {% else %}
+                    <p>
+                        Our Preschool Program is an optional program as well as open to the public.
                         In our preschool program our teachers will introduce interscope curriculum.
                         <br>
                         <br>
                         <strong>
-                            Interscope curriculum 
+                            Interscope curriculum
                         </strong>
-                        offers additional resources designed to support daily learning. Includes 
-                        strategies to individualize learning throughout the daily routine and 
-                        activities for building children's literacy skills and music to support 
-                        learning. These resources are a first step in creating and engaging the rich 
-                        learning environment that encourages young children to learn through exploration. 
-                        Combined with diverse, open-ended materials that reflect children's home, language, 
-                        and culture to provide an optimal learning environment that truly aligns with active 
+                        offers additional resources designed to support daily learning. Includes
+                        strategies to individualize learning throughout the daily routine and
+                        activities for building children's literacy skills and music to support
+                        learning. These resources are a first step in creating and engaging the rich
+                        learning environment that encourages young children to learn through exploration.
+                        Combined with diverse, open-ended materials that reflect children's home, language,
+                        and culture to provide an optimal learning environment that truly aligns with active
                         learning.
-                    </p>
-                </section>
-            </div>
-            <div class="col-12 col-md-10">
-                <section id="preschool">
-                    <p class="fs-5">
-                        Our 4 year olds will have the opportunity to use the STEAM classroom from 9-12 Monday, 
-                        Wed, Thursday. During this time students will follow SCOPE curriculum. This program is 
+                        <br>
+                        <br>
+                        Our 4 year olds will have the opportunity to use the STEAM classroom from 9-12 Monday,
+                        Wed, Thursday. During this time students will follow SCOPE curriculum. This program is
                         also available to the public. The Village Childcare center will go in depth with the following:
                         <br>
                         <br>
                         <strong>
-                            Nature and Science: 
+                            Nature and Science:
                         </strong>
-                        to comprehend the physical and natural world through observation, description, prediction, 
+                        to comprehend the physical and natural world through observation, description, prediction,
                         and data gathering.
                         <br>
                         <br>
                         <strong>
-                            Early Math: 
+                            Early Math:
                         </strong>
-                        Learning about numbers, patterns, sorting, and ordering; learning to utilize numbers to add, 
+                        Learning about numbers, patterns, sorting, and ordering; learning to utilize numbers to add,
                         subtract, measure, and graph.
                         <br>
                         <br>
                         <strong>
-                            Logic and Reasoning: 
+                            Logic and Reasoning:
                         </strong>
                         Practicing sequencing, problem-solving, and critical thinking.
                     </p>
+                    {% endif %}
                 </section>
             </div>
         </div>
@@ -88,21 +92,20 @@
                         </div>
                     </div>
                 </form>
-                <footer class="footer d-flex pt-3 justify-content-md-center">
-                    <div class="mx-2">
-                        <span class="text-muted">
-                            <a href="#">
-                                <i class="bi bi-facebook"></i>
-                            </a>
-                            <a href="#">
-                                <i class="bi bi-instagram"></i>
-                            </a>
-                        </span>
-                    </div>
-                </footer>
             </div>
         </div>
     </div>
+    {% if user.is_staff %}
+    <div class="container py-3">
+        <form action="" method="get" class="form-floating">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn btn-primary" type="submit">
+                Edit
+            </button>
+        </form>
+    </div>
+    {% endif %}
 </div>
 
 {% endblock content %}

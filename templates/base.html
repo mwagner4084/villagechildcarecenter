@@ -14,7 +14,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <!--Bootstrap Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -24,11 +24,11 @@
         <div class="flex-container">
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid justify-content-lg-center">
-                        <h1 class="mb-0">
+                        <h2 class="mb-0" title="The Village Childcare Center">
                             <a class="navbar-brand lead text-primary d-inline-block py-3" href="{% url 'home' %}">
-                                <img class="img-fluid img-limit-height" src="{% static 'img/vcc-logo.png' %}" alt="logo" width="300" height="200">
+                                <img class="img-fluid img-limit-height" src="{% static 'img/vcc-logo.png' %}" alt="The Village Childcare Center Logo" width="300" height="200">
                             </a>
-                        </h1>
+                        </h2>
                         <ul class="nav d-flex mb-2 justify-content-md-center mb-md-0">
                             <li class="nav-item align-items-center">
                                 <a href="{% url 'welcome' %}" class="nav-link link-dark">
@@ -63,7 +63,7 @@
                         </ul>
                     </nav>
                 </div>
-            </header>   
+            </header>
         <main>
             {% block content %}
             {% endblock content %}

@@ -5,50 +5,59 @@
 {% block content %}
 
 <div class="steam-body">
-    <div class="container">
+    <div class="container py-5">
         <div class="row justify-content-md-center">
             <div class="col-md-12 col-md-auto">
-                <h2 class="text-center py-3">
-                    - SCIENCE. TECHNOLOGY. ENGINEERING. ART. MATHEMATICS. -
-                </h2>
+                {% spaceless %}
+                    <h1 class="text-center mb-5">
+                        {% if page.title %}
+                            <span>{{ page.title | safe }}</span>
+                        {% else %}
+                            <span>SCIENCE. TECHNOLOGY. ENGINEERING. ART. MATHEMATICS.</span>
+                        {% endif %}
+                    </h1>
+                {% endspaceless %}
             </div>
         </div>
         <div class="row justify-content-md-center">
             <div class="col-12 col-md-8 text-center">
-                <figure class="figure">
-                    <img src="{% static 'img/steam.png'%}" class="figure-img home-img img-fluid rounded mw-100" alt="steam">
-                    <h1 class="text-center">
+                <div class="container fs-4 pb-3 rte">
+                    {% if page.content %}
+                        {{ page.content | safe }}
+                    {% else %}
+                    <img src="{% static 'img/steam.png'%}" class="home-img img-fluid rounded mw-100" alt="steam">
+                    <h2>
                         <strong class="text-primary">
-                            STEAM 
+                            STEAM
                         </strong>
                         <strong>
                             EDUCATION
                         </strong>
-                    </h1>
-                    <figcaption class="figure-caption text-end">
-                        Credit: KOFAC
-                    </figcaption>
-                </figure>
+                    </h2>
+                    {% endif %}
+                </div>
             </div>
         </div>
         <div class="row justify-content-md-center">
             <div class="col-12 col-md-10 pb-2">
-                <div class="container">
-                    <p class="text-center fs-5">
-                        Our S.T.E.A.M. classroom is designed to allow children to use their imagination to explore 
-                        their creativity. Young children benefit from S.T.E.A.M. learning because they are generally 
-                        naturally inquisitive and want to explore and make sense of themselves and the environment in 
+                <div class="container text-center fs-5 rte">
+                    {% if page.content_secondary%}
+                        {{ page.content_secondary }}
+                    {% else %}
+                    <p>
+                        Our S.T.E.A.M. classroom is designed to allow children to use their imagination to explore
+                        their creativity. Young children benefit from S.T.E.A.M. learning because they are generally
+                        naturally inquisitive and want to explore and make sense of themselves and the environment in
                         which they live.
                         <br>
                         <br>
-                        In this classroom we will have professionals come on site weekly to teach children science, 
+                        In this classroom we will have professionals come on site weekly to teach children science,
                         art, yoga, and music.
                     </p>
-                    <div class="d-flex justify-content-md-center">
-                        <figure class="figure">
-                            <img src="{% static 'img/steam_art.png'%}" class="home-img mw-100" alt="steam">
-                        </figure>
-                    </div>
+                    <p>
+                        <img src="{% static 'img/steam_art.png'%}" class="home-img mw-100" alt="wonder">
+                    </p>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -73,21 +82,20 @@
                         </div>
                     </div>
                 </form>
-                <footer class="footer d-flex pt-3 justify-content-md-center">
-                    <div class="mx-2">
-                        <span class="text-muted">
-                            <a href="#">
-                                <i class="bi bi-facebook"></i>
-                            </a>
-                            <a href="#">
-                                <i class="bi bi-instagram"></i>
-                            </a>
-                        </span>
-                    </div>
-                </footer>
             </div>
         </div>
     </div>
+    {% if user.is_staff %}
+    <div class="container py-3">
+        <form action="" method="get" class="form-floating">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn btn-primary" type="submit">
+                Edit
+            </button>
+        </form>
+    </div>
+    {% endif %}
 </div>
 
 {% endblock content %}

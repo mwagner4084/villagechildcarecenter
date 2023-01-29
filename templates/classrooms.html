@@ -5,89 +5,91 @@
 {% block content %}
 
 <div class="classrooms-body">
-    <div class="container">
+    <div class="container py-5">
         <div class="row justify-content-md-center">
             <div class="col-12 col-md-auto">
-                <h1 class="text-center py-3">
-                    <strong>
-                            - CLASSROOMS -  
-                    </strong>
-                </h1>
+                {% spaceless %}
+                    <h1 class="text-center mb-4">
+                        {% if page.title %}
+                            <span>{{ page.title | safe }}</span>
+                        {% else %}
+                            <span>Classrooms</span>
+                        {% endif %}
+                    </h1>
+                {% endspaceless %}
             </div>
         </div>
         <hr>
         <div class="row justify-content-md-start pt-4">
-            <div class="col-md-12">
+            <div class="col-md-12 fs-5">
                 <div class="row justify-content-md-start">
                     <div class="col-md-6">
-                        <h3>
-                            <strong>
-                                Newborn - 12 Months
-                            </strong>
-                        </h3>
-                        <p class="fs-5">
-                            Here, babies are made to feel safe, secure, and happy. 
-                            This classroom gives warm, caring teachers an opportunity to 
-                            bond and develop trust with little ones. Each child has a 
-                            primary caregiver who will guide your child's development and 
-                            be your main point of contact.
-                            <br>
-                            <br>
-                            In this classroom, children will enjoy a warm, nurturing classroom 
-                            environment with stimulating activities and age-appropriate educational 
-                            toys.
-                        </p>
-                        <br>
-                        <h3>
-                            <strong>
-                                12 Months - 24 Months
-                            </strong>
-                        </h3>
-                        <p class="fs-5">
-                            These energetic little ones are growing and learning, so we channel their 
-                            energy into positive learning moments by giving them ample room to move 
-                            and explore. Here, toddlers receive encouragement and guidance toward the 
-                            growth of their physical skills and emerging milestones:
-                            <br>
-                            <ul class="fs-5">
-                                <li>
-                                    Stimulating classroom environments
-                                </li>
-                                <li>
-                                    Milestone-based curriculum
-                                </li>
-                                <li>
-                                    Immersive learning experiences
-                                </li>
-                                <li>
-                                    Educational toys and activities
-                                </li>
-                            </ul>
-                        </p>
-                        <p class="fs-5">
-                            Here, toddlers develop an understanding of their own feelings and 
-                            relationship with people like family, friends, and community members; 
-                            they also increase their ability to interact with others and develop 
-                            self-awareness.
-                        </p>
-                        <br>
-                        <h3>
-                            <strong>
-                                24 Months - 35 Months
-                            </strong>
-                        </h3>
-                        <p class="fs-5">
-                            This classroom is committed to potty training. A mobile, energetic 
-                            2-year-old enjoys the entire world as their playground. We've put 
-                            together a unique educational approach that focuses their enthusiasm 
-                            into opportunities for development, growth, and achievement. Here, 
-                            2-year-olds enjoy exclusive milestone-based curriculum and interactive, 
-                            tactile learning experiences. 
-                            <br>
-                            Developing and understanding of their own emotions and their relationships 
-                            with others, like family, friends, and community members, as well as 
-                            understanding how to interact with others while developing self-awareness.
-                        </p>
+                        <div class="rte">
+                            {% if page.content %}
+                                {{ page.content | safe }}
+                            {% else %}
+                                <h3>
+                                    <strong>Newborn - 12 Months</strong>
+                                </h3>
+                                <p>
+                                    Here, babies are made to feel safe, secure, and happy.
+                                    This classroom gives warm, caring teachers an opportunity to
+                                    bond and develop trust with little ones. Each child has a
+                                    primary caregiver who will guide your child's development and
+                                    be your main point of contact.
+                                </p>
+                                <p>
+                                    In this classroom, children will enjoy a warm, nurturing classroom
+                                    environment with stimulating activities and age-appropriate educational
+                                    toys.
+                                </p>
+                                <h3>
+                                    <strong>12 Months - 24 Months</strong>
+                                </h3>
+                                <p>
+                                    These energetic little ones are growing and learning, so we channel their
+                                    energy into positive learning moments by giving them ample room to move
+                                    and explore. Here, toddlers receive encouragement and guidance toward the
+                                    growth of their physical skills and emerging milestones:
+                                </p>
+                                <ul>
+                                    <li>
+                                        Stimulating classroom environments
+                                    </li>
+                                    <li>
+                                        Milestone-based curriculum
+                                    </li>
+                                    <li>
+                                        Immersive learning experiences
+                                    </li>
+                                    <li>
+                                        Educational toys and activities
+                                    </li>
+                                </ul>
+                                <p>
+                                    Here, toddlers develop an understanding of their own feelings and
+                                    relationship with people like family, friends, and community members;
+                                    they also increase their ability to interact with others and develop
+                                    self-awareness.
+                                </p>
+                                <h3>
+                                    <strong>24 Months - 35 Months</strong>
+                                </h3>
+                                <p>
+                                    This classroom is committed to potty training. A mobile, energetic
+                                    2-year-old enjoys the entire world as their playground. We've put
+                                    together a unique educational approach that focuses their enthusiasm
+                                    into opportunities for development, growth, and achievement. Here,
+                                    2-year-olds enjoy exclusive milestone-based curriculum and interactive,
+                                    tactile learning experiences.
+                                </p>
+                                <p>
+                                    Developing and understanding of their own emotions and their relationships
+                                    with others, like family, friends, and community members, as well as
+                                    understanding how to interact with others while developing self-awareness.
+                                </p>
+                            {% endif %}
+                        </div>
                         <div class="accordion accordion-flush pt-5 position-sticky top-0" id="accordionGroup">
                             <div class="accordion-item">
                                 <h3 class="accordion-header" id="headingMission">
@@ -95,12 +97,12 @@
                                         Potty Training Philosophy
                                     </button>
                                 </h2>
-                                <div id="collapseMission" class="accordion-collapse collapse" aria-labelledby="headingMission" data-bs-parent="#accordionMission"> 
+                                <div id="collapseMission" class="accordion-collapse collapse" aria-labelledby="headingMission" data-bs-parent="#accordionMission">
                                     <div class="accordion-body">
                                         <p>
-                                            The Village faculty is eager to share in the process of potty training. Our official potty training age is 24-36 months. 
-                                            At this age our classroom faculty works diligently with the children to promote using the toilet. We do realize that some 
-                                            children begin training at younger ages. In these cases, our faculty will work with your child on a more individual basis 
+                                            The Village faculty is eager to share in the process of potty training. Our official potty training age is 24-36 months.
+                                            At this age our classroom faculty works diligently with the children to promote using the toilet. We do realize that some
+                                            children begin training at younger ages. In these cases, our faculty will work with your child on a more individual basis
                                             to reinforce procedures that you are using at home.
                                             <br>
                                             <br>
@@ -124,16 +126,16 @@
                                             </li>
                                         </ol>
                                         <p>
-                                            As your child is beginning to potty train, we suggest heavy cotton training pants or rubber pants which may be more 
-                                            effective than pull-ups. Rubber pants keep their clothes dry. Cotton pants may leave your child feeling a bit uncomfortable 
-                                            so that they will quickly learn to relieve themselves using the toilet. Pull-ups are most effective AFTER the child has shown 
+                                            As your child is beginning to potty train, we suggest heavy cotton training pants or rubber pants which may be more
+                                            effective than pull-ups. Rubber pants keep their clothes dry. Cotton pants may leave your child feeling a bit uncomfortable
+                                            so that they will quickly learn to relieve themselves using the toilet. Pull-ups are most effective AFTER the child has shown
                                             that they are dry most of the time or at bedtime.
                                             <br>
                                             <br>
-                                            Please remind your child to go to the potty at home. When he or she is successful, use positive reinforcement. 
+                                            Please remind your child to go to the potty at home. When he or she is successful, use positive reinforcement.
                                             <br>
                                             <br>
-                                            It is not recommended that your child be allowed to wear underpants over diapers or pull-ups. This defeats the purpose of them 
+                                            It is not recommended that your child be allowed to wear underpants over diapers or pull-ups. This defeats the purpose of them
                                             and removes the incentive for your child to wear underwear. Lastly, it is important to be consistent in whichever method you choose to use.
                                         </p>
                                     </div>
@@ -142,14 +144,17 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-6 justify-content-md-start">
+                        {% if page.content_secondary %}
+                            {{ page.content_secondary | safe }}
+                        {% else %}
                         <h3>
                             <strong>
                                 3 - 4 Year Olds
                             </strong>
                         </h3>
                         <p class="fs-5">
-                            As they grow to be independent learners, these children develop the ability 
-                            to work with others, follow directions, self-regulate, follow routines, and 
+                            As they grow to be independent learners, these children develop the ability
+                            to work with others, follow directions, self-regulate, follow routines, and
                             build self-help skills. This program offers:
                             <ul class="fs-5">
                                 <li>
@@ -164,7 +169,7 @@
                             </ul>
                         </p>
                         <p class="fs-5">
-                            We will begin more projects in these classrooms- Children will be able to 
+                            We will begin more projects in these classrooms- Children will be able to
                             follow their strengths and imagination to explore the world around them.
                         </p>
                         <br>
@@ -175,33 +180,34 @@
                         </h3>
                         <p class="fs-5">
                             In our preschool program our teachers will introduce interscope curriculum. Interscope
-                            curriculum offers additional resources designed to support daily learning. This includes 
-                            strategies to individualize learning throughout the daily routine, as well as activities for building 
-                            children's literacy skills and music to support learning. These resources are a first step in 
-                            creating and engaging the rich learning environment that encourages young children to learn 
-                            through exploration. Combined with diverse, open-ended materials that reflect children's home, 
-                            language, and culture to provide an optimal learning environment that truly aligns with active 
+                            curriculum offers additional resources designed to support daily learning. This includes
+                            strategies to individualize learning throughout the daily routine, as well as activities for building
+                            children's literacy skills and music to support learning. These resources are a first step in
+                            creating and engaging the rich learning environment that encourages young children to learn
+                            through exploration. Combined with diverse, open-ended materials that reflect children's home,
+                            language, and culture to provide an optimal learning environment that truly aligns with active
                             learning.
                             <br>
                             <br>
-                            Our 4 year olds will have the opportunity to use the STEAM classroom from 9-12 Monday, Wed, Thursday. 
-                            During this time, students will follow SCOPE curriculum. This program is also available to the public. 
+                            Our 4 year olds will have the opportunity to use the STEAM classroom from 9-12 Monday, Wed, Thursday.
+                            During this time, students will follow SCOPE curriculum. This program is also available to the public.
                             The Village Childcare center will go in depth with the following:
                             <ul class="fs-5">
                                 <li>
                                     <strong>
-                                        Nature and Science: 
+                                        Nature and Science:
                                     </strong>
                                     to comprehend the physical and natural world through observation, description, prediction, and data gathering
                                 </li>
                                 <li>
                                     <strong>
-                                        Logic and Reasoning: 
+                                        Logic and Reasoning:
                                     </strong>
                                     Practicing sequencing, problem-solving, and critical thinking.
                                 </li>
                             </ul>
                         </p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -217,8 +223,6 @@
                             <div class="col-12 col-md-auto mt-3 mt-md-0">
                                 <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
                             </div>
-                            <br>
-                            <br>
                             <div class="col-12 col-md-auto mt-3 mt-md-0">
                                 <button type="submit" class="btn">
                                     Signup
@@ -226,22 +230,21 @@
                             </div>
                         </div>
                     </form>
-                    <footer class="footer d-flex pt-3 justify-content-md-center">
-                        <div class="mx-2">
-                            <span class="text-muted">
-                                <a href="#">
-                                    <i class="bi bi-facebook"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="bi bi-instagram"></i>
-                                </a>
-                            </span>
-                        </div>
-                    </footer>
                 </div>
             </div>
         </div>
     </div>
+    {% if user.is_staff %}
+    <div class="container py-3">
+        <form action="" method="get" class="form-floating">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn btn-primary" type="submit">
+                Edit
+            </button>
+        </form>
+    </div>
+    {% endif %}
 </div>
 
 {% endblock content %}
