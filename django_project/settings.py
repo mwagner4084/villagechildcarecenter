@@ -31,7 +31,6 @@ DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = ["web-production-b31d.up.railway.app", "railway.app", "localhost", "127.0.0.1", "0.0.0.0"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
