@@ -30,6 +30,9 @@ h6 {
     text-transform: uppercase;
     letter-spacing: 0.075em;
     font-weight: 400;
+}
+
+.navbar a:hover {
     text-decoration: underline;
 }
 
@@ -131,4 +134,24 @@ header {
     max-width: 100%;
     max-height: auto;
     width: 500px;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+h1::before,
+h1::after {
+    content: "-";
+    font-weight: bold;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.rte img {
+    max-width: 100%;
+}
+
+p {
+    margin: 1.5rem 0;
 }
