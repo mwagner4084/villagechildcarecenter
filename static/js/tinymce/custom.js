@@ -360,8 +360,8 @@ const hasSecondaryContent = [
     'steam',
 ]
 
-$('#id_handle').on('change', (e) => {
-    const handle = e.target.value;
+function showSecondaryContent() {
+    const handle = $('#id_handle').val();
     const $title = $('#id_title');
     const mceContent = tinymce.get("id_content");
     const $contentSecondary = $('.field-content_secondary');
@@ -376,4 +376,7 @@ $('#id_handle').on('change', (e) => {
     } else {
         $contentSecondary.hide();
     }
-});
+}
+
+$(showSecondaryContent);
+$('#id_handle').on('change', showSecondaryContent);
