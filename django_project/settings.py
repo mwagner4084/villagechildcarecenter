@@ -153,14 +153,11 @@ EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-#AWS_ACCESS_KEY_ID = env.str("AWS_ACCESS_KEY_ID")
-#AWS_SECRET_ACCESS_KEY = env.str("AWS_SECRET_ACCESS_KEY")
-
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-LOGIN_REDIRECT_URL = "admin:index"
+LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "login"
 
 # Auth User
