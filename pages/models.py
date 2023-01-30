@@ -11,6 +11,7 @@ class Page(models.Model):
         ('preschool', 'Preschool'),
         ('school_age', 'School Age'),
         ('contact', 'Contact'),
+        ('subscribe', 'Subscribe'),
     )
 
     handle = models.CharField(
