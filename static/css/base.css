@@ -196,6 +196,10 @@ p {
     --bs-accordion-active-bg: rgb(111, 147, 107);
 }
 
+.accordion-flush .accordion-item {
+    box-shadow: 5px 6px 0 0 var(--th-color-gray);
+}
+
 .accordion-body {
     background-color: #97846d;
     color: white;
