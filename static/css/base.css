@@ -6,10 +6,19 @@
 }
 
 :root {
-    --bs-body-font-family: "Fira Sans", sans-serif;
+    --th-color-green: #8ab885;
+    --th-color-eggshell: #fcefd5;
+    --th-color-gray: #3b3d34;
+    --th-color-beige: #e2cfb8;
+
     --heading-font-family: 'Marker Felt', fantasy;
     --navbar-font-family: "Trueno", sans-serif;
+
+    --bs-body-font-family: "Fira Sans", sans-serif;
     --bs-body-font-weight: 400;
+    --bs-body-color: var(--th-color-gray);
+    --bs-primary: var(--th-color-green);
+    --bs-primary-rgb: 138, 184, 133;
 }
 
 h1,
@@ -22,7 +31,7 @@ h6 {
 }
 
 .navbar {
-    background-color: rgb(127, 183, 143);
+    background-color: var(--th-color-green);
 }
 
 .navbar a {
@@ -55,49 +64,54 @@ header {
     max-width: 700px;
 }
 
+.bg-green {
+    background-color: var(--th-color-green) !important;
+}
+
+.bg-eggshell {
+    background-color: var(--th-color-eggshell) !important;
+}
+
+.bg-beige {
+    background-color: var(--th-color-beige) !important;
+}
+
 .home-body {
-    background-color: blanchedalmond;
+    background-color: #f6e1b5;
     align-items: center;
     text-align: center;
 }
 
 .classrooms-body {
-    background-color: rgb(224, 205, 216);
+    background-color: #e5d8bf;
 }
 
 .welcome-body {
-    background-color: rgb(207, 178, 178);
+    background-color: #c7b198;
 }
 
-.accordion-body {
-    background-color: beige;
-}
 
 .steam-body {
-    background-color: rgb(242, 219, 186);
+    background-color: #f6e1b5;
 }
 
 .preschool-body {
-    background-color: rgb(216, 193, 157);
+    background-color: #c7b198;
 }
 
 .school-body {
-    background-color: rgb(224, 205, 216);
-}
-
-.potty-body {
-    background-color: rgb(207, 178, 178);
+    background-color: #e5d8bf;
 }
 
 .contact-body {
-    background-color: rgb(216, 193, 157);
+    background-color: #f6e1b5;
 }
 
 .max-md {
     max-width: 768px
 }
 
-.accordion-welcome {
+/* .accordion-welcome {
     --bs-accordion-bg: beige !important;
     color:rgb(88, 54, 54) !important;
     --bs-accordion-border-color: rgb(59, 32, 32);
@@ -107,17 +121,17 @@ header {
     --bs-accordion-btn-focus-border-color: rgb(59, 32, 32) !important;
 }
 
-.accordion-button:not(.collapsed) {
+.accordion-button collapsed:not(.collapsed) {
     color: rgb(88, 54, 54);
     background-color: beige;
 }
 
-.accordion-button:focus {
+.accordion-button collapsed:focus {
     border-color:rgb(88, 54, 54) !important;
     box-shadow: beige !important;
     color: rgb(88, 54, 54) !important;
     background-color: beige !important;
-}
+} */
 
 .class-img {
     max-width: 100%;
@@ -152,6 +166,10 @@ p {
     margin: 1.5rem 0;
 }
 
+.start-initial {
+    left: initial !important;
+}
+
 .rte img {
     max-width: 100%;
 }
@@ -160,4 +178,25 @@ p {
     /* the same as Bootstrap unstyled-list */
     padding-left: 0;
     list-style: none;
+}
+
+.site-logo {
+    filter: brightness(0);
+}
+
+.accordion {
+    --bs-accordion-color: var(--bs-body-color);
+    --bs-accordion-bg: #6f936b;
+    --bs-accordion-border-color: white;
+    --bs-accordion-btn-color: white;
+    --bs-accordion-btn-bg: var(--bs-accordion-bg);
+    --bs-accordion-btn-focus-border-color: #4f6b4c;
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(58, 110, 52, 0.25);
+    --bs-accordion-active-color: white;
+    --bs-accordion-active-bg: rgb(111, 147, 107);
+}
+
+.accordion-body {
+    background-color: #97846d;
+    color: white;
 }
