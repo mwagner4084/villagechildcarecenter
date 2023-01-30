@@ -6,6 +6,8 @@ class PageView(TemplateView):
     model = Page
     handle = ''
     template_name = ''
+    if not handle or not template_name:
+        raise Exception('You must define a handle and template_name')
 
     def get_context_data(self, **kwargs):
         context = super(TemplateView, self).get_context_data(**kwargs)
