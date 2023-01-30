@@ -82,6 +82,26 @@
             {% block content %}
             {% endblock content %}
 
+            <section class="pb-5 container">
+                <form action="{% url 'subscribe' %}" method="post">
+                    <div class="row d-flex justify-content-md-center">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
+                            <input id="name" name="name" class="form-control" placeholder="Jane Doe"/>
+                        </div>
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
+                            <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
+                        </div>
+                        <div class="col-12 col-md-auto mt-3 mt-md-0">
+                            <button type="submit" class="btn">
+                                Signup
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
         </main>
 
         <!-- JQuery JS Bundle -->
