@@ -144,10 +144,12 @@ CSRF_TRUSTED_ORIGINS = ['https://web-production-b31d.up.railway.app']
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
+SENDGRID_API_KEY = env.str('SENDGRID_API_KEY')
+
 DEFAULT_FROM_EMAIL = "testiestest828@gmail.com"
 EMAIL_HOST = "smtp.sendgrid.net"
 EMAIL_HOST_USER = "apikey"
-EMAIL_HOST_PASSWORD = env.str("EMAIL_HOST_PASSWORD")
+EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

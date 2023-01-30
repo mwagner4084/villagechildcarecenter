@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 from .models import Page
+# from django.core.mail import send_mail
 
 class PageView(TemplateView):
     """ Base class for all page views. """
@@ -68,3 +69,5 @@ class SubscribePageView(PageView):
 
     template_name = "subscribe.html"
     handle = 'subscribe'
+
+# send_mail('Subject here', 'Here is the message.', 'from@example.com', ['to@example.com'], fail_silently=False)
