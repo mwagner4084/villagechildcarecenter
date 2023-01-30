@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="template-home text-center">
+    <div class="container py-5">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-auto text-center">
+                {% spaceless %}
+                    <h1 class="mb-4">
+                        {% if page.title %}
+                            <span>{{ page.title | safe }}</span>
+                        {% else %}
+                            <span>Thank you</span>
+                        {% endif %}
+                    </h1>
+                {% endspaceless %}
+            </div>
+        </div>
+        <hr>
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-10 pb-2">
+                <div class="container fs-5 rte">
+                    {% if page.content %}
+                        {{ page.content | safe }}
+                        {% if page.image %}
+                            {{ page.image }}
+                        {% endif %}
+                    {% else %}
+                        <h3>
+                            Thank you for your interest in The Village Childcare Center!
+                        </h3>
+                        <h4>
+                            We look forward to working with you and your child.
+                            We'll be in touch soon.
+                        </h4>
+                        <img src="{% static 'img/thank-you.png' %}" class="py-5" />
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
