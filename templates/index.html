@@ -4,12 +4,12 @@
 
 {% block content %}
 
-<div class="home-body">
+<div class="template-home text-center">
     <div class="container py-5">
         <div class="row justify-content-md-center">
             <div class="col-12 col-md-auto text-center">
                 {% spaceless %}
-                    <h1>
+                    <h1 class="mb-4">
                         {% if page.title %}
                             <span>{{ page.title | safe }}</span>
                         {% else %}
@@ -19,6 +19,7 @@
                 {% endspaceless %}
             </div>
         </div>
+        <hr>
         <div class="row justify-content-md-center">
             <div class="col-12 col-md-10 pb-2">
                 <div class="container fs-4 rte">
@@ -55,17 +56,6 @@
             </form>
         </section>
     </div>
-    {% if user.is_staff %}
-    <div class="container py-3 text-start">
-        <form action="" method="get" class="form-floating">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button class="btn btn-primary" type="submit">
-                Edit
-            </button>
-        </form>
-    </div>
-    {% endif %}
 </div>
 
 

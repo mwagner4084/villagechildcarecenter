@@ -4,12 +4,12 @@
 
 {% block content %}
 
-<div class="welcome-body">
+<div class="template-welcome">
     <div class="container py-5">
         <div class="row justify-content-md-center">
             <div class="col-md-8">
                 {% spaceless %}
-                <h1 class="text-center">
+                <h1 class="text-center pb-4">
                     {% if page.title %}
                         <span>{{ page.title | safe }}</span>
                     {% else %}
@@ -17,6 +17,7 @@
                     {% endif %}
                 </h1>
                 {% endspaceless %}
+                <hr>
                 <section id="philosophy" class="fs-5 rte">
                     {% if page.content %}
                         {{ page.content | safe }}
@@ -54,7 +55,7 @@
                 <div class="accordion accordion1 accordion-flush pt-5 position-sticky top-0" id="accordionGroup">
                     <div class="accordion-item">
                         <h3 class="accordion-header" id="headingMission">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMission" aria-expanded="false" aria-controls="collapseMission">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMission" aria-expanded="false" aria-controls="collapseMission">
                                 Our Mission
                             </button>
                         </h2>
@@ -79,7 +80,7 @@
                     </div>
                     <div class="accordion-item align-items-center justify-content-md-center">
                         <h3 class="accordion-header" id="headingRights">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRights" aria-expanded="false" aria-controls="collapseRights">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRights" aria-expanded="false" aria-controls="collapseRights">
                                 Children's Bill of Rights
                             </button>
                         </h3>
@@ -140,17 +141,6 @@
             </div>
         </div>
     </div>
-    {% if user.is_staff %}
-        <div class="container py-3">
-            <form action="" method="get" class="form-floating">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button class="btn btn-primary" type="submit">
-                    Edit
-                </button>
-            </form>
-        </div>
-    {% endif %}
 </div>
 
 {% endblock content %}
