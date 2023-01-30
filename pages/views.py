@@ -4,8 +4,8 @@ from .models import Page
 
 class PageView(TemplateView):
     model = Page
-    handle = 'home'
-    template_name = "index.html"
+    handle = ''
+    template_name = ''
 
     def get_context_data(self, **kwargs):
         context = super(TemplateView, self).get_context_data(**kwargs)
