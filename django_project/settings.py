@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # 'tinymce',
     # Local
     'pages.apps.PagesConfig',
+    'accounts.apps.AccountsConfig',
     # 3rd Party
     'crispy_forms',
     'crispy_bootstrap5',
@@ -140,3 +141,25 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 CSRF_TRUSTED_ORIGINS = ['https://web-production-b31d.up.railway.app']
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+DEFAULT_FROM_EMAIL = "testiestest828@gmail.com"
+EMAIL_HOST = "smtp.sendgrid.net"
+EMAIL_HOST_USER = "apikey"
+EMAIL_HOST_PASSWORD = env.str("EMAIL_HOST_PASSWORD")
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+#AWS_ACCESS_KEY_ID = env.str("AWS_ACCESS_KEY_ID")
+#AWS_SECRET_ACCESS_KEY = env.str("AWS_SECRET_ACCESS_KEY")
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_REDIRECT_URL = "admin:index"
+LOGOUT_REDIRECT_URL = "login"
+
+# Auth User
+AUTH_USER_MODEL = "accounts.CustomUser"
