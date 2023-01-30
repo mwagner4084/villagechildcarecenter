@@ -1,8 +1,8 @@
 from django.db import models
-# from tinymce import models as tinymce_models
-# from tinymce.models import HTMLField
 
 class Page(models.Model):
+    """ Page model for static pages. """
+
     HANDLE_CHOICES = (
         ('home', 'Home'),
         ('philosophy', 'Our Philosophy'),
