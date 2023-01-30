@@ -204,3 +204,7 @@ p {
     background-color: #97846d;
     color: white;
 }
+
+.site-main {
+    min-height: 90vh;
+}
