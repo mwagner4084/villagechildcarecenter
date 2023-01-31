@@ -7,9 +7,9 @@
 <div class="template-welcome">
     <div class="container py-5">
         <div class="row justify-content-md-center">
-            <div class="col-md-8">
+            <div class="col-md-12 pb-4">
                 {% spaceless %}
-                <h1 class="text-center pb-4">
+                <h1>
                     {% if page.title %}
                         <span>{{ page.title | safe }}</span>
                     {% else %}
@@ -17,8 +17,12 @@
                     {% endif %}
                 </h1>
                 {% endspaceless %}
-                <hr>
-                <section id="philosophy" class="fs-5 rte">
+            </div>
+        </div>
+        <hr>
+        <div class="row justify-content-md-start">
+            <div class="col-12 col-md-8">
+                <section id="philosophy" class="rte">
                     {% if page.content %}
                         {{ page.content | safe }}
                     {% else %}

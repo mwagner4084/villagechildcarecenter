@@ -7,9 +7,9 @@
 <div class="template-steam">
     <div class="container py-5">
         <div class="row justify-content-md-center">
-            <div class="col-md-12 col-md-auto">
+            <div class="col-md-12 mb-4">
                 {% spaceless %}
-                    <h1 class="text-center mb-5">
+                    <h1>
                         {% if page.title %}
                             <span>{{ page.title | safe }}</span>
                         {% else %}
@@ -19,13 +19,14 @@
                 {% endspaceless %}
             </div>
         </div>
+        <hr>
         <div class="row justify-content-md-center">
-            <div class="col-12 col-md-8 text-center">
-                <div class="container fs-4 pb-3 rte">
+            <div class="col-12 col-md-8 py-3">
+                <div class="rte stema-edu">
                     {% if page.content %}
                         {{ page.content | safe }}
                     {% else %}
-                    <img src="{% static 'img/steam.png'%}" class="home-img img-fluid rounded mw-100" alt="steam">
+                    <img src="{% static 'img/steam.png'%}" class="home-img img-fluid rounded pb-3" alt="steam">
                     <h2>
                         <strong class="text-primary">STEAM</strong> <strong>EDUCATION</strong>
                     </h2>
@@ -33,10 +34,9 @@
                 </div>
             </div>
         </div>
-        <hr>
         <div class="row justify-content-md-center">
-            <div class="col-12 col-md-10 pb-2">
-                <div class="container text-center fs-5 rte">
+            <div class="col-12 col-md-12 pb-2">
+                <div class="rte">
                     {% if page.content_secondary%}
                         {{ page.content_secondary | safe }}
                     {% else %}

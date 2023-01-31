@@ -7,9 +7,9 @@
 <div class="template-home text-center">
     <div class="container py-5">
         <div class="row justify-content-md-center">
-            <div class="col-12 col-md-auto text-center">
+            <div class="col-12 col-md-auto text-center mb-4">
                 {% spaceless %}
-                    <h1 class="mb-4">
+                    <h1>
                         {% if page.title %}
                             <span>{{ page.title | safe }}</span>
                         {% else %}
@@ -21,8 +21,8 @@
         </div>
         <hr>
         <div class="row justify-content-md-center">
-            <div class="col-12 col-md-10 pb-2">
-                <div class="container fs-4 rte">
+            <div class="col-12 col-md-8 pb-2">
+                <div class="rte">
                     {% if page.content %}
                         {{ page.content | safe }}
                     {% else %}
@@ -31,7 +31,9 @@
                             and independence. We provide a resource-rich, inclusive environment that allows each child to develop at his/her own pace.
                             Our classrooms are designed to give children room to grow and express themselves in a safe space.
                         </p>
-                        <img src="{% static 'img/wander.jpeg' %}" />
+                        <div class="home-img">
+                            <img src="{% static 'img/wander.jpeg' %}" />
+                        </div>
                     {% endif %}
                 </div>
             </div>

@@ -7,9 +7,9 @@
 <div class="template-school-age">
     <div class="container py-5">
         <div class="row justify-content-md-center">
-            <div class="col-12 col-md-auto">
+            <div class="col-12 col-md-auto mb-4">
                 {% spaceless %}
-                    <h1 class="mb-4">
+                    <h1>
                         {% if page.title %}
                             <span>{{ page.title | safe }}</span>
                         {% else %}
@@ -21,55 +21,51 @@
         </div>
         <hr>
         <div class="row justify-content-md-start pt-4">
-            <div class="col-md-12">
-                <div class="row justify-content-md-start">
-                    <div class="col-md-6">
-                        <section id="school" class="text-center fs-5 rte">
-                            {% if page.content %}
-                                {{ page.content | safe }}
-                            {% else %}
-                                <h3>
-                                    Before/After School Care
-                                </h3>
-                                <p>
-                                    We know it can be stressful to find care for your children
-                                    before and after school care. We offer care with Kalamazoo
-                                    bus transportation. While your children are with us during
-                                    this time, they will have the opportunity to relax, do homework,
-                                    play outside, and play in our S.T.E.A.M room classroom.
-                                </p>
-                                {% comment %} <img src="{% static 'img/discover.png'%}" class="school-img img-fluid rounded" alt="discover"> {% endcomment %}
-                                <p>
-                                    <strong>Note: </strong>If there is a bus cancellation, we are unable to bus your child&nbsp;to&nbsp;school.
-                                </p>
-                            {% endif %}
-                        </section>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <section id="school" class="text-center fs-5 rte">
-                            {% if page.content_secondary %}
-                                {{ page.content_secondary | safe }}
-                            {% else %}
-                                <h3>
-                                    Summer Camp + School Breaks
-                                </h3>
-                                <p>
-                                    This camp program is for elementary schoolers who are 5-12 years old. We guarantee
-                                    your children will love spending their summers at the Village Childcare Center. We
-                                    offer both onsite and offsite field trips. The spaces and activities are designed
-                                    to be fun, engaging, and educational.
-                                </p>
-                                <p>
-                                    No matter the weather, we will be enjoying the outdoors.
-                                </p>
-                                {% comment %} <img src="{% static 'img/explore1.png'%}" class="school-img img-fluid rounded" alt="explore"> {% endcomment %}
-                                <p>
-                                    <strong>Note: </strong>The Village Childcare Center follows KPS school schedule.
-                                </p>
-                            {% endif %}
-                        </section>
-                    </div>
-                </div>
+            <div class="col-12 col-md-6">
+                <section id="school" class="rte">
+                    {% if page.content %}
+                        {{ page.content | safe }}
+                    {% else %}
+                        <h3>
+                            Before/After School Care
+                        </h3>
+                        <p>
+                            We know it can be stressful to find care for your children
+                            before and after school care. We offer care with Kalamazoo
+                            bus transportation. While your children are with us during
+                            this time, they will have the opportunity to relax, do homework,
+                            play outside, and play in our S.T.E.A.M room classroom.
+                        </p>
+                        {% comment %} <img src="{% static 'img/discover.png'%}" class="school-img img-fluid rounded" alt="discover"> {% endcomment %}
+                        <p>
+                            <strong>Note: </strong>If there is a bus cancellation, we are unable to bus your child&nbsp;to&nbsp;school.
+                        </p>
+                    {% endif %}
+                </section>
+            </div>
+            <div class="col-12 col-md-6">
+                <section id="school" class="rte">
+                    {% if page.content_secondary %}
+                        {{ page.content_secondary | safe }}
+                    {% else %}
+                        <h3>
+                            Summer Camp + School Breaks
+                        </h3>
+                        <p>
+                            This camp program is for elementary schoolers who are 5-12 years old. We guarantee
+                            your children will love spending their summers at the Village Childcare Center. We
+                            offer both onsite and offsite field trips. The spaces and activities are designed
+                            to be fun, engaging, and educational.
+                        </p>
+                        <p>
+                            No matter the weather, we will be enjoying the outdoors.
+                        </p>
+                        {% comment %} <img src="{% static 'img/explore1.png'%}" class="school-img img-fluid rounded" alt="explore"> {% endcomment %}
+                        <p>
+                            <strong>Note: </strong>The Village Childcare Center follows KPS school schedule.
+                        </p>
+                    {% endif %}
+                </section>
             </div>
         </div>
     </div>
