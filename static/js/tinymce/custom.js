@@ -143,6 +143,8 @@ const pageDefaults = {
                 they also increase their ability to interact with others and develop
                 self-awareness.
             </p>
+        `,
+        contentSecondary: `
             <h3>
                 <strong>24 Months - 35 Months</strong>
             </h3>
@@ -159,8 +161,6 @@ const pageDefaults = {
                 with others, like family, friends, and community members, as well as
                 understanding how to interact with others while developing self-awareness.
             </p>
-        `,
-        contentSecondary: `
             <h3>
                 <strong>3 - 4 Year Olds</strong>
             </h3>
@@ -184,32 +184,6 @@ const pageDefaults = {
                 We will begin more projects in these classrooms- Children will be able to
                 follow their strengths and imagination to explore the world around them.
             </p>
-            <h3>
-                <strong>Optional 4-year-old Preschool Program</strong>
-            </h3>
-            <p>
-                In our preschool program our teachers will introduce interscope curriculum. Interscope
-                curriculum offers additional resources designed to support daily learning. This includes
-                strategies to individualize learning throughout the daily routine, as well as activities for building
-                children's literacy skills and music to support learning. These resources are a first step in
-                creating and engaging the rich learning environment that encourages young children to learn
-                through exploration. Combined with diverse, open-ended materials that reflect children's home,
-                language, and culture to provide an optimal learning environment that truly aligns with active
-                learning.
-            </p>
-            <p>
-                Our 4 year olds will have the opportunity to use the STEAM classroom from 9-12 Monday, Wed, Thursday.
-                During this time, students will follow SCOPE curriculum. This program is also available to the public.
-                The Village Childcare center will go in depth with the following:
-            </p>
-            <ul>
-                <li>
-                    <strong>Nature and Science:</strong> to comprehend the physical and natural world through observation, description, prediction, and data gathering.
-                </li>
-                <li>
-                    <strong>Logic and Reasoning:</strong> Practicing sequencing, problem-solving, and critical thinking.
-                </li>
-            </ul>
         `,
     },
     steam: {
@@ -230,9 +204,6 @@ const pageDefaults = {
             <p>
                 In this classroom we will have professionals come on site weekly to teach children science,
                 art, yoga, and music.
-            </p>
-            <p>
-                <img src="${ django.staticPrefix + 'img/steam_art.png' }" alt="S.T.E.A.M. Art">
             </p>
         `,
     },
@@ -284,9 +255,8 @@ const pageDefaults = {
                 this time, they will have the opportunity to relax, do homework,
                 play outside, and play in our S.T.E.A.M room classroom.
             </p>
-            <img src="${ django.staticPrefix + 'img/discover.png'}" alt="discover">
             <p>
-                <strong>If there is a bus cancellation, we are unable to bus your child&nbsp;to&nbsp;school.</strong>
+            <strong>Note: </strong>If there is a bus cancellation, we are unable to bus your child&nbsp;to&nbsp;school.
             </p>
         `,
         contentSecondary: `
@@ -302,9 +272,8 @@ const pageDefaults = {
             <p>
                 No matter the weather, we will be enjoying the outdoors.
             </p>
-            <img src="${ django.staticPrefix + 'img/explore1.png' }" alt="explore">
             <p>
-                <strong>The Village Childcare Center follows KPS school schedule.</strong>
+                <strong>Note: </strong>The Village Childcare Center follows KPS school schedule.
             </p>
         `,
     },
@@ -344,9 +313,6 @@ const pageDefaults = {
                 </li>
                 <li>
                     <strong>Fax:</strong> (269) 222-2588
-                </li>
-                <li>
-                    <strong>Email:</strong> director@thevillageccc.com
                 </li>
             </ul>
         `,
