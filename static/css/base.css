@@ -208,3 +208,13 @@ p {
 .site-main {
     min-height: 90vh;
 }
+
+.navbar-brand {
+    max-width: 200px;
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        font-size: clamp(0.75rem, 1vw, 1rem);
+    }
+}

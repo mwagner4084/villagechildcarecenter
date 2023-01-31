@@ -21,48 +21,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body class="font-family-base">
-    <header class="site-header">
+    <header class="site-header" role="banner">
         <nav class="navbar navbar-expand-lg">
             <div class="container justify-content-lg-center">
-                <h2 class="mb-0" title="The Village Childcare Center">
+                {% comment %} <h2 class="mb-0" title="The Village Childcare Center"> {% endcomment %}
                     <a class="navbar-brand lead text-primary d-inline-block py-3" href="{% url 'home' %}">
                         <img class="img-fluid img-limit-height site-logo" src="{% static 'img/vcc-logo.png' %}" alt="The Village Childcare Center Logo" width="300" height="200">
                     </a>
-                </h2>
-                <ul class="nav d-flex mb-2 justify-content-md-center mb-md-0">
-                    <li class="nav-item align-items-center">
+                {% comment %} </h2> {% endcomment %}
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="navbarToggler">
+                    <div class="navbar-nav text-center">
                         <a href="{% url 'welcome' %}" class="nav-link link-dark">
-                            Our Philosophy
+                                Our Philosophy
                         </a>
-                    </li>
-                    <li class="nav-item align-items-center">
                         <a href="{% url 'classrooms'%}" class="nav-link link-dark">
-                            Classrooms
+                                Classrooms
                         </a>
-                    </li>
-                    <li class="nav-item align-items-center">
                         <a href="{% url 'steam'%}" class="nav-link link-dark">
-                            S.T.E.A.M.
+                                S.T.E.A.M.
                         </a>
-                    </li>
-                    <li class="nav-item align-items-center">
                         <a href="{% url 'preschool'%}" class="nav-link link-dark">
-                            Preschool
+                                Preschool
                         </a>
-                    </li>
-                    <li class="nav-item align-items-center">
                         <a href="{% url 'school_age'%}" class="nav-link link-dark">
-                            School Age
+                                School Age
                         </a>
-                    </li>
-                    <li class="nav-item align-items-center">
                         <a href="{% url 'contact'%}" class="nav-link link-dark">
-                            Contact
+                                Contact
                         </a>
-                    </li>
-                </ul>
+                    </div>
+                </div>
                 {% if user.is_staff %}
-                <div class="dropdown d-flex justify-content-end ms-auto text-end">
+                <div class="dropdown d-none d-lg-flex justify-content-end ms-auto text-end">
                     <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-person-circle"></i>
                     </a>
@@ -88,7 +81,7 @@
             {% endblock content %}
 
             <section class="pb-5 container">
-                <form action="{% url 'subscribe' %}" method="post">
+                <form action="" method="post">
                     <div class="row d-flex justify-content-md-center">
                         {% csrf_token %}
                         {% comment %} {{ form|crispy }} {% endcomment %}
@@ -99,9 +92,9 @@
                             <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
                         </div>
                         <div class="col-12 col-md-auto mt-3 mt-md-0">
-                            <button type="submit" class="btn">
+                            <a href="{% url 'subscribe' %}" class="btn" role="button">
                                 Signup
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </form>
