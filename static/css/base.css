@@ -28,6 +28,7 @@ h4,
 h5,
 h6 {
     font-family: var(--heading-font-family);
+    text-align: center;
 }
 
 .navbar {
@@ -60,10 +61,6 @@ header {
     background-color: rgb(125, 197, 133);
 }
 
-.mission {
-    max-width: 700px;
-}
-
 .bg-green {
     background-color: var(--th-color-green) !important;
 }
@@ -76,82 +73,10 @@ header {
     background-color: var(--th-color-beige) !important;
 }
 
-.home-body {
-    background-color: #f6e1b5;
-    align-items: center;
-    text-align: center;
-}
-
-.classrooms-body {
-    background-color: #e5d8bf;
-}
-
-.welcome-body {
-    background-color: #c7b198;
-}
-
-
-.steam-body {
-    background-color: #f6e1b5;
-}
-
-.preschool-body {
-    background-color: #c7b198;
-}
-
-.school-body {
-    background-color: #e5d8bf;
-}
-
-.contact-body {
-    background-color: #f6e1b5;
-}
-
-.max-md {
-    max-width: 768px
-}
-
-/* .accordion-welcome {
-    --bs-accordion-bg: beige !important;
-    color:rgb(88, 54, 54) !important;
-    --bs-accordion-border-color: rgb(59, 32, 32);
-    --bs-accordion-active-bg: beige !important;
-    --bs-accordion-active-color: rgb(88, 54, 54) !important;
-    --bs-accordion-btn-focus-box-shadow: beige !important;
-    --bs-accordion-btn-focus-border-color: rgb(59, 32, 32) !important;
-}
-
-.accordion-button collapsed:not(.collapsed) {
-    color: rgb(88, 54, 54);
-    background-color: beige;
-}
-
-.accordion-button collapsed:focus {
-    border-color:rgb(88, 54, 54) !important;
-    box-shadow: beige !important;
-    color: rgb(88, 54, 54) !important;
-    background-color: beige !important;
-} */
-
-.class-img {
-    max-width: 100%;
-    width: 450px;
-    margin-top: 4px;
-}
-
-.preschool-img {
-    max-width: 400px;
-    max-height: 200px;
-}
-
-.school-img {
-    max-width: 100%;
-    max-height: auto;
-    width: 500px;
-}
-
 h1 {
     text-transform: uppercase;
+    text-align: center;
+    font-size: calc(1.375rem + 0.5vw);
 }
 
 h1::before,
@@ -164,6 +89,11 @@ h1::after {
 
 p {
     margin: 1.5rem 0;
+    font-size: calc(0.95rem + 0.25vw);
+}
+
+ul {
+    font-size: calc(0.95rem + 0.25vw);
 }
 
 .start-initial {
@@ -213,8 +143,12 @@ p {
     max-width: 200px;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 992px) and (min-width: 380px) {
     .navbar-expand-lg .navbar-nav .nav-link {
         font-size: clamp(0.75rem, 1vw, 1rem);
     }
+}
+
+.stema-edu {
+    letter-spacing: 1.1em;
 }
