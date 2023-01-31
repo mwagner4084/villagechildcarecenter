@@ -212,10 +212,10 @@ const pageDefaults = {
         content: `
             <p>
                 Our Preschool Program is an optional program as well as open to the public.
-                In our preschool program our teachers will introduce interscope curriculum.
+                In our preschool program our teachers will introduce highscope curriculum.
             </p>
             <p>
-                <strong>Interscope curriculum</strong> offers additional resources designed to support daily learning. Includes
+                <strong>Highscope curriculum</strong> offers additional resources designed to support daily learning. Includes
                 strategies to individualize learning throughout the daily routine and
                 activities for building children's literacy skills and music to support
                 learning. These resources are a first step in creating and engaging the rich
