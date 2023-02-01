@@ -240,6 +240,9 @@ const pageDefaults = {
             <p>
                 <strong>Logic and Reasoning:</strong> Practicing sequencing, problem-solving, and critical thinking.
             </p>
+            <p>
+                Learn more about the Highscope curriculum: <a href="https://{{ highscope.org }}">here</a>.
+            </p>
         `,
     },
     school_age: {
