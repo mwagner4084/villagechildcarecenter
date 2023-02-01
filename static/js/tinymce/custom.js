@@ -62,8 +62,10 @@ const pageDefaults = {
                 and independence. We provide a resource-rich, inclusive environment that allows each child to develop at his/her own pace.
                 Our classrooms are designed to give children room to grow and express themselves in a safe space.
             </p>
-            <img src="${django.staticPrefix + 'img/wander.jpeg'}" />
-        `
+            <p>
+                <img src="${django.staticPrefix + 'img/wander.jpeg'}" />
+            </p>
+        `,
     },
     philosophy: {
         title: `Welcome to the Village`,
