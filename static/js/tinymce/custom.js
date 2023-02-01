@@ -351,10 +351,11 @@ const hasSecondaryContent = [
  */
 function showSecondaryContent(updateContent) {
     return () => {
+        const $handleFieldWrapper = $('.field-handle');
         const $handleSelect = $('#id_handle');
         const handle = $handleSelect.val();
         if (!updateContent && handle) {
-            $handleSelect.attr('disabled', true);
+            $handleFieldWrapper.hide();
         }
         const $title = $('#id_title');
         const mceContent = tinymce.get("id_content");
