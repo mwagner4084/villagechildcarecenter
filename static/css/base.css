@@ -29,6 +29,7 @@ h5,
 h6 {
     font-family: var(--heading-font-family);
     text-align: center;
+    align-items: center;
 }
 
 .navbar {
