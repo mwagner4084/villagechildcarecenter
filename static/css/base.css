@@ -82,7 +82,8 @@ h1 {
 
 h1::before,
 h1::after {
-    content: "-";
+    font-family: "bootstrap-icons";
+    content: "\F685";
     font-weight: bold;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
