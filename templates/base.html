@@ -22,13 +22,11 @@
 </head>
 <body class="font-family-base">
     <header class="site-header" role="banner">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container justify-content-lg-center">
-                {% comment %} <h2 class="mb-0" title="The Village Childcare Center"> {% endcomment %}
+        <nav class="navbar navbar-expand-lg justify-content-lg-between">
+            <div class="container justify-content-lg-between">
                     <a class="navbar-brand lead text-primary d-inline-block py-3" href="{% url 'home' %}">
                         <img class="img-fluid img-limit-height site-logo" src="{% static 'img/vcc-logo.png' %}" alt="The Village Childcare Center Logo" width="300" height="200">
                     </a>
-                {% comment %} </h2> {% endcomment %}
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -52,53 +50,45 @@
                         <a href="{% url 'contact'%}" class="nav-link link-dark">
                                 Contact
                         </a>
-                    </div>
-                </div>
-                {% if user.is_staff %}
-                <div class="dropdown d-none d-lg-flex justify-content-end ms-auto text-end">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-person-circle"></i>
-                    </a>
-                    <ul class="dropdown-menu text-small start-initial" aria-labelledby="dropdownUser1">
-                        <li>
-                            <a class="dropdown-item" href="{% url 'admin:index' %}">
+                        {% if user.is_staff %}
+                        <div class="d-flex d-lg-none justify-content-center align-items-center">
+                            <a class="nav-link link-dark" href="{% url 'admin:index' %}">
                                 Admin
                             </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{% url 'login' %}">
+                            <span class="mx-3 border-end border-2 border-dark nav-link link-dark"></span>
+                            <a class="nav-link link-dark" href="{% url 'login' %}">
                                 Log Out
                             </a>
-                        </li>
-                    </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% if user.is_staff %}
+                        <div class="dropdown d-none d-lg-block justify-content-lg-center ms-auto">
+                            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-circle"></i>
+                            </a>
+                            <ul class="dropdown-menu text-small start-initial" aria-labelledby="dropdownUser1">
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'admin:index' %}">
+                                        Admin
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'login' %}">
+                                        Log Out
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    {% endif %}
                 </div>
-                {% endif %}
             </nav>
         </header>
+
         <main class="site-main bg-eggshell" role="main">
 
             {% block content %}
             {% endblock content %}
-
-            <section class="pb-5 container">
-                <form action="" method="post">
-                    <div class="row d-flex justify-content-md-center">
-                        {% csrf_token %}
-                        {% comment %} {{ form|crispy }} {% endcomment %}
-                        <div class="col-12 col-md-auto mt-3 mt-md-0">
-                            <input id="name" name="name" class="form-control" placeholder="Jane Doe"/>
-                        </div>
-                        <div class="col-12 col-md-auto mt-3 mt-md-0">
-                            <input id="email" name="email" class="form-control" placeholder="example@email.com"/>
-                        </div>
-                        <div class="col-12 col-md-auto mt-3 mt-md-0">
-                            <a href="{% url 'subscribe' %}" class="btn" role="button">
-                                Signup
-                            </a>
-                        </div>
-                    </div>
-                </form>
-            </section>
 
         </main>
 

@@ -103,6 +103,8 @@ ul {
 
 .rte img {
     max-width: 100%;
+    margin: 0;
+    display: block;
 }
 
 .rte ul {
@@ -142,9 +144,10 @@ ul {
 
 .navbar-brand {
     max-width: 200px;
+    min-width: 200px;
 }
 
-@media (min-width: 992px) and (min-width: 380px) {
+@media (min-width: 992px) {
     .navbar-expand-lg .navbar-nav .nav-link {
         font-size: clamp(0.75rem, 1vw, 1rem);
     }
