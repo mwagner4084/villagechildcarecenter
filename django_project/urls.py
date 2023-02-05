@@ -25,6 +25,7 @@ urlpatterns = [
     path("accounts/", include("accounts.urls")),
     path("", include("pages.urls")),
     path('upload_image/', views.upload_image),
+    path('submit_contact/', views.submit_contact),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

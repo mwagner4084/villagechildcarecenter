@@ -3,7 +3,9 @@ import os
 from django.conf import settings
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpRequest, JsonResponse
+from django.http import HttpRequest, JsonResponse, HttpResponse
+from django.shortcuts import render, redirect
+from pages.forms import InformationRequestForm, ContactForm
 
 @csrf_exempt
 def upload_image(request: HttpRequest) -> JsonResponse:
@@ -40,3 +42,16 @@ def upload_image(request: HttpRequest) -> JsonResponse:
             'location': file_url
         })
     return JsonResponse({'detail': "Wrong request"})
+
+@csrf_exempt
+def submit_contact(request: HttpRequest) -> HttpResponse:
+    '''Submit contact form and rediret to the confirmation page'''
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('confirm')
+        return render(request, 'contact.html', {'form': form})
+    return HttpResponse('Wrong request')
+
+
