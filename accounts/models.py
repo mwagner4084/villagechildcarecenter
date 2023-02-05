@@ -6,7 +6,6 @@ from django.contrib.auth.models import AbstractUser
 import django.utils.timezone
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
-from pages.models import Page
 
 class CustomUser(AbstractUser):
     """ Custom User Model """
