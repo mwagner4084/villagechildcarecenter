@@ -76,8 +76,8 @@
                 </figure>
             </div>
             <div class="col-12 col-md-6 justify-content-md-start">
-                <form action="" method="post">
-                    {% csrf_token %}
+                {% csrf_token %}
+                <form action="{% url 'submit_contact' %}" method="POST">
                     {{ form|crispy }}
                     <h3 class="text-start">
                         Send us a message!
@@ -148,9 +148,9 @@
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-12">
-                            <a href="{% url 'subscribe' %}" class="btn" role="button">
+                            <button type="submit" class="btn btn-primary">
                                 Submit
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>

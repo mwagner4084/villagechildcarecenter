@@ -36,6 +36,11 @@
                             We look forward to working with you and your child.
                             We'll be in touch soon.
                         </h4>
+                        <p>
+                            {% if email %}
+                            <p>{{ email }} has been {{ action }}.</p>
+                            {% endif %}
+                        </p>
                         <img src="{% static 'img/thank-you.png' %}" class="py-5" />
                     {% endif %}
                 </div>
