@@ -80,17 +80,20 @@ h1 {
     font-size: calc(1.375rem + 0.5vw);
 }
 
-h1::before,
-h1::after {
-    font-family: "bootstrap-icons";
-    content: "\F685";
+h1.heading::before,
+h1.heading::after {
+    display: inline-block;
+    background: url(../images/blocks.png);
+    content: " ";
+    position: absolute;
     font-weight: bold;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
 
+
 p {
-    margin: 1.5rem 0;
+    /* margin: 1.5rem 0; */
     font-size: calc(0.95rem + 0.25vw);
 }
 

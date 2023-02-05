@@ -63,6 +63,27 @@ const pageDefaults = {
                 Our classrooms are designed to give children room to grow and express themselves in a safe space.
             </p>
             <p>
+                Learn more about our:
+                <br>
+                <a href="{% url 'classrooms' %}">
+                    Classrooms
+                </a>
+                /
+                <a href="{% url 'preschool' %}">
+                    Preschool Program
+                </a>
+                /
+                <a href="{% url 'school_age' %}">
+                    School Age Programs
+                </a>
+                /
+                <a href="{% url 'steam' %}">
+                    S.T.E.A.M. Room
+                </a>
+            </p>
+        `,
+        contentSecondary: `
+            <p>
                 <img src="${django.staticPrefix + 'img/wander.jpeg'}" />
             </p>
         `,
@@ -322,7 +343,7 @@ const pageDefaults = {
             </ul>
         `,
     },
-    subscribe: {
+    confirm: {
         title: `Thank you`,
         content: `
             <h3>
@@ -338,6 +359,7 @@ const pageDefaults = {
 };
 
 const hasSecondaryContent = [
+    'home',
     'classrooms',
     'school_age',
     'contact',
