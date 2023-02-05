@@ -63,7 +63,8 @@ const pageDefaults = {
                 Our classrooms are designed to give children room to grow and express themselves in a safe space.
             </p>
             <p>
-                Learn more about our:
+                <strong>Learn more about our:</strong>
+                <br>
                 <br>
                 <a href="{% url 'classrooms' %}">
                     Classrooms
@@ -73,10 +74,12 @@ const pageDefaults = {
                     Preschool Program
                 </a>
                 /
+                <br>
                 <a href="{% url 'school_age' %}">
                     School Age Programs
                 </a>
                 /
+                <br>
                 <a href="{% url 'steam' %}">
                     S.T.E.A.M. Room
                 </a>

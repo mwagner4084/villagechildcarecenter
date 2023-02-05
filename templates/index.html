@@ -4,12 +4,12 @@
 
 {% block content %}
 
-<div class="template-home text-center">
+<div class="template-home">
     <div class="container py-5">
         <div class="row justify-content-md-center">
             <div class="col-12 col-md-auto text-center mb-4">
                 {% spaceless %}
-                    <h1>
+                    <h1 class="heading">
                         {% if page.title %}
                             <span>{{ page.title | safe }}</span>
                         {% else %}
@@ -20,9 +20,9 @@
             </div>
         </div>
         <hr>
-        <div class="row justify-content-md-center">
-            <div class="col-12 col-md-8 pb-2">
-                <div class="text-center rte">
+        <div class="row justify-content-md-start">
+            <div class="col-12 col-md-6 pb-2">
+                <div class="rte">
                     {% if page.content %}
                         {{ page.content | safe }}
                     {% else %}
@@ -31,6 +31,59 @@
                             and independence. We provide a resource-rich, inclusive environment that allows each child to develop at his/her own pace.
                             Our classrooms are designed to give children room to grow and express themselves in a safe space.
                         </p>
+                        <p>
+                            <strong>Learn more about our:</strong>
+                            <br>
+                            <br>
+                            <a href="{% url 'classrooms' %}">
+                                Classrooms
+                            </a>
+                            /
+                            <a href="{% url 'preschool' %}">
+                                Preschool Program
+                            </a>
+                            /
+                            <br>
+                            <a href="{% url 'school_age' %}">
+                                School Age Programs
+                            </a>
+                            /
+                            <br>
+                            <a href="{% url 'steam' %}">
+                                S.T.E.A.M. Room
+                            </a>
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="justify-content-md-start text-start">
+                    <h3 class="text-start">
+                        Contact us for more information!
+                    </h3>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        {% comment %} <div class="row my-3">
+                            <div class="col-md-12 mt-md-0">
+                                <input id="name" name="name" class="form-control" placeholder="Jane Doe"/>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <input id="email" name="email" class="form-control" placeholder="email@example.com"/>
+                            </div>
+                        </div>
+                        {% endcomment %}
+                        <button type="submit" class="btn btn-primary my-2">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+                <div class="rte justify-content-md-center my-2">
+                    {% if page.content_secondary %}
+                        {{ page.content_secondary | safe }}
+                    {% else %}
                         <p>
                             <img src="{% static 'img/wander.jpeg' %}" />
                         </p>
