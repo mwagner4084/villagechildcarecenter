@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Page
+from .models import Page, InformationRequest, Contact
 from .forms import HomePageForm
 
 class PageAdmin(admin.ModelAdmin):
@@ -13,3 +13,5 @@ class PageAdmin(admin.ModelAdmin):
         }
 
 admin.site.register(Page, PageAdmin)
+admin.site.register(InformationRequest)
+admin.site.register(Contact)
