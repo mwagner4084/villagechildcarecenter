@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                     ("preschool", "Preschool"),
                     ("school_age", "School Age"),
                     ("contact", "Contact"),
-                    ("subscribe", "Subscribe"),
+                    ("confirm", "Confirmation"),
                 ],
                 max_length=200,
                 null=True,
