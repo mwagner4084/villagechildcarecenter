@@ -131,9 +131,9 @@ const pageDefaults = {
     classrooms: {
         title: `Classrooms`,
         content: `
-            <h3>
+            <h4>
                 <strong>Newborn - 12 Months</strong>
-            </h3>
+            </h4>
             <p>
                 Here, babies are made to feel safe, secure, and happy.
                 This classroom gives warm, caring teachers an opportunity to
@@ -146,9 +146,9 @@ const pageDefaults = {
                 environment with stimulating activities and age-appropriate educational
                 toys.
             </p>
-            <h3>
+            <h4>
                 <strong>12 Months - 24 Months</strong>
-            </h3>
+            </h4>
             <p>
                 These energetic little ones are growing and learning, so we channel their
                 energy into positive learning moments by giving them ample room to move
@@ -177,9 +177,9 @@ const pageDefaults = {
             </p>
         `,
         contentSecondary: `
-            <h3>
+            <h4>
                 <strong>24 Months - 35 Months</strong>
-            </h3>
+            </h4>
             <p>
                 This classroom is committed to potty training. A mobile, energetic
                 2-year-old enjoys the entire world as their playground. We've put
@@ -193,9 +193,9 @@ const pageDefaults = {
                 with others, like family, friends, and community members, as well as
                 understanding how to interact with others while developing self-awareness.
             </p>
-            <h3>
+            <h4>
                 <strong>3 - 4 Year Olds</strong>
-            </h3>
+            </h4>
             <p>
                 As they grow to be independent learners, these children develop the ability
                 to work with others, follow directions, self-regulate, follow routines, and

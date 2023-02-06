@@ -102,19 +102,22 @@ h1 {
     font-size: calc(1.375rem + 0.5vw);
 }
 
-h1.heading::before,
-h1.heading::after {
-    display: block;
-    margin: 0.5rem 0;
-    background-image: url('../img/blocks.png');
-    max-width: 30%;
-    content: " ";
-    position: absolute;
-    font-weight: bold;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+h1.heading {
+    display: flex;
+    align-items: center;
 }
 
+h1.heading::before,
+h1.heading::after {
+    content: "";
+    display: block;
+    width: 2em;
+    height: 1.6em;
+    background-image: url(../img/blocks.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 p {
     /* margin: 1.5rem 0; */
