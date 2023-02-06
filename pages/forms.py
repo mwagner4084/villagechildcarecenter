@@ -12,13 +12,15 @@ class HomePageForm(forms.ModelForm):
 
 class InformationRequestForm(forms.ModelForm):
     name = forms.CharField(
-        label='Your name',
+        label='',
+        help_text='First + Last Name',
         max_length=200,
         widget=forms.TextInput(attrs={'class': 'form-control'})
     )
-    email = forms.EmailField(label='Your email',
+    email = forms.EmailField(
+        label='',
         max_length=200,
-        help_text='Required',
+        help_text='Email Address',
         widget=forms.EmailInput(attrs={'class': 'form-control'})
     )
     class Meta:
@@ -33,42 +35,49 @@ class InformationRequestForm(forms.ModelForm):
 
 class ContactForm(forms.Form):
     fname = forms.CharField(
-        label='Your name',
+        label='',
+        help_text='First Name',
         max_length=200,
         widget=forms.TextInput(attrs={'class': 'form-control'})
     )
     lname = forms.CharField(
-        label='Your name',
+        label='',
+        help_text='Last Name',
         max_length=200,
         widget=forms.TextInput(attrs={'class': 'form-control'})
     )
     email = forms.EmailField(
-        label='Your email',
+        label='',
+        help_text='Email Address',
         max_length=200,
-        help_text='Required',
         widget=forms.EmailInput(attrs={'class': 'form-control'})
     )
     phone = forms.CharField(
-        label='Your phone number',
+        label='',
+        help_text='Phone Number',
         max_length=200,
         widget=forms.TextInput(attrs={'class': 'form-control'})
     )
     children = forms.CharField(
-        label='Your children',
+        label='',
+        help_text='Children\'s Names and Ages',
         max_length=500,
         widget=forms.TextInput(attrs={'class': 'form-control'})
     )
     start_date = forms.DateField(
-        label='Start date',
+        label='',
+        help_text='Start Date (MM/DD/YYYY)',
         widget=forms.DateInput(attrs={'class': 'form-control'})
     )
     comments = forms.CharField(
-        label='Comments',
+        label='',
+        help_text='Comments',
         max_length=500,
         widget=forms.TextInput(attrs={'class': 'form-control'})
     )
     referred_by = forms.CharField(
-        label='Referred by',
+        label='',
+        help_text='How did you hear about us?',
         max_length=200,
         widget=forms.TextInput(attrs={'class': 'form-control'})
     )
