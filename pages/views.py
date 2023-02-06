@@ -3,22 +3,21 @@ from .models import Page, InformationRequest, Contact
 from .forms import InformationRequestForm, ContactForm
 from django.urls import reverse_lazy
 from django.shortcuts import render, redirect
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+# from sendgrid import SendGridAPIClient
+# from sendgrid.helpers.mail import Mail
 from django.conf import settings
 from django_project import settings
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpRequest, JsonResponse, HttpResponse
+from django.http import HttpRequest, JsonResponse, HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail, BadHeaderError
 from django import forms
+from django.template.loader import render_to_string
 
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
+from django.contrib.sites.shortcuts import get_current_site
 
 
 class PageView(TemplateView):
     """ Base class for all page views. """
-
     model = Page
     handle = None
     template_name = None
@@ -33,6 +32,7 @@ class PageView(TemplateView):
         """ Add the page to the context. """
         context = super(TemplateView, self).get_context_data(**kwargs)
         pages = Page.objects.filter(handle=self.handle)
+
         if len(pages):
             context['page'] = pages[0]
 
@@ -45,53 +45,43 @@ class PageView(TemplateView):
 
 TEMPLATE_ID = 'd-e1123576e9594830abb7a8fca73b0dc6'
 
-class ExampleForm(forms.Form):
-    like_website = forms.TypedChoiceField(
-        label = "Do you like this website?",
-        choices = ((1, "Yes"), (0, "No")),
-        coerce = lambda x: bool(int(x)),
-        widget = forms.RadioSelect,
-        initial = '1',
-        required = True,
-    )
-
-    favorite_food = forms.CharField(
-        label = "What is your favorite food?",
-        max_length = 80,
-        required = True,
-    )
-
-    favorite_color = forms.CharField(
-        label = "What is your favorite color?",
-        max_length = 80,
-        required = True,
-    )
-
-    favorite_number = forms.IntegerField(
-        label = "Favorite number",
-        required = False,
-    )
-
-    notes = forms.CharField(
-        label = "Additional notes or feedback",
-        required = False,
-    )
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.form_id = 'id-exampleForm'
-        self.helper.form_class = 'blueForms'
-        self.helper.form_method = 'post'
-
-        self.helper.add_input(Submit('submit', 'Submit'))
-
 class HomePageView(PageView):
     """ Home page view. """
-
     template_name = "index.html"
     handle = 'home'
-    form = ExampleForm()
+    form = InformationRequestForm
+
+    def post(self, request: HttpRequest, *args, **kwargs):
+        """ Handle the form submission. """
+        form = InformationRequestForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            subject = f'New Information Request from {name}'
+            message = f'Name: {name}\nEmail: {email}'
+            sender = settings.DEFAULT_FROM_EMAIL
+            recipients = [email]
+            site = get_current_site(request)
+            msg_html = render_to_string('email/info-request.html', {'site': site, 'name': name, 'email': email})
+
+            send_mail(
+                subject,
+                message,
+                sender,
+                recipients,
+                fail_silently=False,
+                html_message=msg_html,
+            )
+
+            # save the form data to the database
+            inforequest = InformationRequest.objects.create(name=name, email=email)
+            inforequest.save()
+
+            return HttpResponseRedirect('/confirm/')
+
+        context = self.get_context_data(**kwargs)
+        context['form'] = form
+        return render(request, self.template_name, context)
 
 
 class WelcomePageView(PageView):
