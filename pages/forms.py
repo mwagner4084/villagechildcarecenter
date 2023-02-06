@@ -1,5 +1,9 @@
 from django import forms
 from pages.models import InformationRequest, Contact
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Fieldset, Submit
+from crispy_bootstrap5.bootstrap5 import FloatingField
+
 
 class HomePageForm(forms.ModelForm):
     """ Form for editing the home page. """
@@ -10,28 +14,32 @@ class HomePageForm(forms.ModelForm):
             'content_secondary': forms.Textarea(attrs={'rows': 3}),
         }
 
-class InformationRequestForm(forms.ModelForm):
+class InformationRequestForm(forms.Form):
     name = forms.CharField(
-        label='',
-        help_text='First + Last Name',
+        label='Name',
+        help_text='',
         max_length=200,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput()
     )
-    email = forms.EmailField(
-        label='',
-        max_length=200,
-        help_text='Email Address',
-        widget=forms.EmailInput(attrs={'class': 'form-control'})
-    )
-    class Meta:
-        model = InformationRequest
-        fields = ('name', 'email')
 
-    def save(self, commit=True):
-        instance = super(InformationRequestForm, self).save(commit=False)
-        if commit:
-            instance.save()
-        return instance
+    email = forms.EmailField(
+        label='Email Address',
+        max_length=200,
+        help_text='',
+        widget=forms.EmailInput()
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-infoReqForm'
+        self.helper.form_class = 'form-rev-labels'
+        self.helper.form_method = 'post'
+        self.helper.layout = Layout(
+            FloatingField('name'),
+            FloatingField('email'),
+            Submit('submit', 'Submit')
+        )
 
 class ContactForm(forms.Form):
     fname = forms.CharField(
