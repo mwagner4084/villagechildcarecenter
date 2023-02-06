@@ -59,6 +59,9 @@ const pageDefaults = {
     home: {
         title: `Opening Spring 2023`,
         content: `
+            <h3>
+                Our Mission
+            </h3>
             <p>
                 Our mission is to provide child-centered care focused on fostering children's creativity, educational development,
                 and independence. We provide a resource-rich, inclusive environment that allows each child to develop at his/her own pace.
@@ -66,7 +69,6 @@ const pageDefaults = {
             </p>
             <p>
                 <strong>Learn more about our:</strong>
-                <br>
                 <br>
                 <i class="bi bi-rainbow"></i>
                 <a href="/classrooms">

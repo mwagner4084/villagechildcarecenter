@@ -21,11 +21,14 @@
         </div>
         <hr>
         <div class="row justify-content-md-start">
-            <div class="col-12 col-md-6 pb-2">
+            <div class="col-12 col-md-6 my-3">
                 <div class="rte">
                     {% if page.content %}
                         {{ page.content | safe }}
                     {% else %}
+                        <h3>
+                            Our Mission
+                        </h3>
                         <p>
                             Our mission is to provide child-centered care focused on fostering children's creativity, educational development,
                             and independence. We provide a resource-rich, inclusive environment that allows each child to develop at his/her own pace.
@@ -33,8 +36,6 @@
                         </p>
                         <p>
                             <strong>Learn more about our:</strong>
-                            <br>
-                            <br>
                             <i class="bi bi-rainbow"></i>
                             <a href="{% url 'classrooms' %}">
                                 Classrooms
@@ -59,24 +60,13 @@
                 </div>
             </div>
             <div class="col-12 col-md-6">
-                <div class="justify-content-md-start text-start">
-                    <h3 class="text-start">
+                <div class="justify-content-md-start text-start my-3">
+                    <h3 class="text-center">
                         Contact us for more information!
                     </h3>
-                    <form action="" method="post">
+                    <form action="{% url 'submit_information_request '%}" method="post" class="my-3">
                         {% csrf_token %}
                         {{ form|crispy }}
-                        {% comment %} <div class="row my-3">
-                            <div class="col-md-12 mt-md-0">
-                                <input id="name" name="name" class="form-control" placeholder="Jane Doe"/>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-md-12">
-                                <input id="email" name="email" class="form-control" placeholder="email@example.com"/>
-                            </div>
-                        </div>
-                        {% endcomment %}
                         <button type="submit" class="btn btn-primary my-2">
                             Submit
                         </button>
