@@ -145,7 +145,7 @@ CSRF_TRUSTED_ORIGINS = ['https://web-production-b31d.up.railway.app']
 SENDGRID_API_KEY = env("SENDGRID_API_KEY")
 
 # using sendgrid:
-DEFAULT_FROM_EMAIL = "testiestest828@gmail.com"
+DEFAULT_FROM_EMAIL = "director@thevillageccc.com"
 EMAIL_HOST = "smtp.sendgrid.net"
 EMAIL_HOST_USER = "apikey"
 EMAIL_HOST_PASSWORD = SENDGRID_API_KEY

@@ -1,3 +1,4 @@
+from sqlite3 import IntegrityError
 from django.views.generic import View, TemplateView
 from .models import Page, InformationRequest, Contact
 from .forms import InformationRequestForm, ContactForm
@@ -74,8 +75,15 @@ class HomePageView(PageView):
             )
 
             # save the form data to the database
-            inforequest = InformationRequest.objects.create(name=name, email=email)
-            inforequest.save()
+            try:
+                inforequest = InformationRequest.objects.create(name=name, email=email)
+                inforequest.save()
+            except:
+                # return form with errors
+                context = self.get_context_data(**kwargs)
+                form.add_error(None, forms.ValidationError('This email address has already been submitted.'))
+                context['form'] = form
+                return render(request, self.template_name, context)
 
             return HttpResponseRedirect('/confirm/')
 
