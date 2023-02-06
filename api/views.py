@@ -6,6 +6,10 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpRequest, JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 from pages.forms import InformationRequestForm, ContactForm
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+from django_project import settings
+from pages.models import InformationRequest, Contact
 
 @csrf_exempt
 def upload_image(request: HttpRequest) -> JsonResponse:
@@ -54,4 +58,47 @@ def submit_contact(request: HttpRequest) -> HttpResponse:
         return render(request, 'contact.html', {'form': form})
     return HttpResponse('Wrong request')
 
+@csrf_exempt
+def submit_information_request(request: HttpRequest) -> HttpResponse:
+    '''Submit information request form and rediret to the confirmation page'''
+    if request.method == 'POST':
+        form = InformationRequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('confirm')
+        return render(request, 'index.html', {'form': form})
+    return HttpResponse('Wrong request')
+
+TEMPLATE_ID = 'd-e1123576e9594830abb7a8fca73b0dc6'
+
+@csrf_exempt
+def send_email(request: HttpRequest) -> HttpResponse:
+    '''Send email to the user'''
+    if request.method == 'POST':
+        sub = InformationRequest(email=request.POST['email'], name=request.POST['name'])
+        sub.save()
+        message = Mail(
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to_emails=sub.email)
+        message.dynamic_template_data = {
+            'subject': 'Thank you for subscribing',
+            'name': sub.name,
+            'email': sub.email
+            }
+        message.template_id = TEMPLATE_ID
+        try:
+            sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
+            response = sg.send(message)
+            code, body, headers = response.status_code, response.body, response.headers
+            print(f"Response code: {code}")
+            print(f"Response body: {body}")
+            print(f"Response headers: {headers}")
+            print("Dynamic template data sent!")
+            return HttpResponse('Email sent')
+        except Exception as e:
+            # print(e.message)
+            print("Error: {0}".format(e))
+        return str(response.status_code)
+        # return HttpResponse('Email not sent')
+    # return HttpResponse('Wrong request')
 

@@ -8,6 +8,7 @@ from sendgrid.helpers.mail import Mail
 from django.conf import settings
 from django_project import settings
 from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpRequest, JsonResponse, HttpResponse
 # from django.core.mail import send_mail
 
 class PageView(TemplateView):
@@ -16,6 +17,8 @@ class PageView(TemplateView):
     model = Page
     handle = None
     template_name = None
+    form = None
+
     def __init__(self, *args, **kwargs):
         super(PageView, self).__init__(*args, **kwargs)
         if not self.handle or not self.template_name:
@@ -27,19 +30,26 @@ class PageView(TemplateView):
         pages = Page.objects.filter(handle=self.handle)
         if len(pages):
             context['page'] = pages[0]
+
+        if self.form:
+            context['form'] = self.form
+
+        self.context = context
+
         return context
 
-
+TEMPLATE_ID = 'd-e1123576e9594830abb7a8fca73b0dc6'
 class HomePageView(PageView):
     """ Home page view. """
 
     template_name = "index.html"
     handle = 'home'
+    form = InformationRequestForm()
 
     # handle get request
     def get(self, request, *args, **kwargs):
-        form = InformationRequestForm()
-        return render(request, self.template_name, {"form": form})
+        context = self.get_context_data(**kwargs)
+        return render(request=request, template_name=self.template_name, context=context)
 
     # handle post request
     def post(self, request, *args, **kwargs):
@@ -47,31 +57,43 @@ class HomePageView(PageView):
         if form.is_valid():
             form.save()
             return redirect("confirm")
-        return render(request, self.template_name, {"form": form})
+        context = self.get_context_data(**kwargs)
+        return render(request=request, template_name=self.template_name, context=context)
 
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
 
     @csrf_exempt
-    def send_email(request):
+    def send_email(request: HttpRequest) -> HttpResponse:
+        '''Send email to the user'''
         if request.method == 'POST':
-            sub = InformationRequest(email=request.POST['email'])
+            sub = InformationRequest(email=request.POST['email'], name=request.POST['name'])
             sub.save()
             message = Mail(
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                to_emails=sub.email,
-                subject='Welcome to The Village!',
-                html_content='Thank you for your interest in The Village Childcare Center! \
-                We look forward to working with you and your child. \
-                We will be in touch soon. \
-                '
-            )
-            sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
-            response = sg.send(message)
-            return render(request, 'index.html', {'email': sub.email, 'action': 'added', 'form': InformationRequestForm()})
-        else:
-            return render(request, 'index.html', {'form': InformationRequestForm()})
+                to_emails=sub.email)
+            message.dynamic_template_data = {
+                'subject': 'Thank you for subscribing',
+                'name': sub.name,
+                'email': sub.email
+                }
+            message.template_id = TEMPLATE_ID
+            try:
+                sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
+                response = sg.send(message)
+                code, body, headers = response.status_code, response.body, response.headers
+                print(f"Response code: {code}")
+                print(f"Response body: {body}")
+                print(f"Response headers: {headers}")
+                print("Dynamic template data sent!")
+                return HttpResponse('Email sent')
+            except Exception as e:
+                # print(e.message)
+                print("Error: {0}".format(e))
+            return str(response.status_code)
+            # return HttpResponse('Email not sent')
+        # return HttpResponse('Wrong request')
 
 class WelcomePageView(PageView):
     """ Welcome page view. """
@@ -146,25 +168,25 @@ class ConfirmPageView(PageView):
 class ContactFormView(View):
     """Contact View"""
 
-    form_class = ContactForm
+    form = ContactForm
     template_name = "contact.html"
     success_url = reverse_lazy("confirm")
 
     # handle get request
     def get(self, request, *args, **kwargs):
-        form = self.form_class()
+        form = self.form()
         return render(request, self.template_name, {"form": form})
 
     # handle post request
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
+        form = self.form(request.POST)
         if form.is_valid():
             form.save()
             return redirect("index")
         return render(request, self.template_name, {"form": form})
 
     @csrf_exempt
-    def new(request):
+    def send_email(request: HttpRequest):
         if request.method == 'POST':
             sub = Contact(email=request.POST['email'])
             sub.save()
