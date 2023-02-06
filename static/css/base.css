@@ -52,14 +52,36 @@ header {
     font-family: var(--heading-font-family);
 }
 
+a {
+    color: var(--th-color-gray);
+    line-height: 2.5;
+}
+
+a:hover {
+    color: var(--th-color-green);
+}
+
 .home-img {
     max-width: 100%;
     width: 600px;
     margin-top: 4px;
 }
 
-.btn {
-    background-color: rgb(125, 197, 133);
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--th-color-green);
+    --bs-btn-border-color: var(--th-color-green);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--th-color-gray);
+    --bs-btn-hover-border-color: var(--th-color-gray);
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--th-color-green);
+    --bs-btn-active-border-color: var(--th-color-green);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--th-color-gray);
+    --bs-btn-disabled-border-color: var(--th-color-gray);
 }
 
 .bg-green {
@@ -82,8 +104,10 @@ h1 {
 
 h1.heading::before,
 h1.heading::after {
-    display: inline-block;
-    background: url(../images/blocks.png);
+    display: block;
+    margin: 0.5rem 0;
+    background-image: url('../img/blocks.png');
+    max-width: 30%;
     content: " ";
     position: absolute;
     font-weight: bold;
