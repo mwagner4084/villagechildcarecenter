@@ -9,7 +9,7 @@ from django.conf import settings
 from django_project import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpRequest, JsonResponse, HttpResponse
-# from django.core.mail import send_mail
+from django.core.mail import send_mail, BadHeaderError
 
 class PageView(TemplateView):
     """ Base class for all page views. """
@@ -55,7 +55,15 @@ class HomePageView(PageView):
     def post(self, request, *args, **kwargs):
         form = InformationRequestForm(request.POST)
         if form.is_valid():
+            subject = 'Welcome to the village!'
+            from_email = settings.DEFAULT_FROM_EMAIL
+            to_email = [form.cleaned_data.get('email')]
+            message = form.cleaned_data['message']
             form.save()
+            try:
+                send_mail(subject, message, from_email, to_email, fail_silently=False)
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
             return redirect("confirm")
         context = self.get_context_data(**kwargs)
         return render(request=request, template_name=self.template_name, context=context)
