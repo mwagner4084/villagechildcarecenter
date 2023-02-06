@@ -10,10 +10,12 @@ const settings = {
     selector: 'textarea[name^="content"]',
     height: "400",
     width: "100%",
+    valid_elements: "*[*]",
     images_upload_url: '/upload_image/',
     convert_urls: false,
-    plugins: "insertdatetime media image preview",
-    toolbar: "undo redo |  bold italic | alignleft alignright aligncenter alignjustify | image media | preview",
+    plugins: "insertdatetime media image preview code",
+    toolbar: "undo redo | code | formatselect | bold italic | alignleft alignright aligncenter alignjustify | image media | preview",
+/* aligncenter alignjustify alignleft alignnone alignright blockquote backcolor bold copy cut fontselect fontsizeselect forecolor formatselect h1 h2 h3 h4 h5 h6 indent italic language lineheight newdocument outdent paste redo remove removeformat selectall strikethrough styleselect subscript superscript underline undo visualaid */
     image_title: true,
     image_caption: true,
     // automatic_uploads: false,
@@ -66,21 +68,23 @@ const pageDefaults = {
                 <strong>Learn more about our:</strong>
                 <br>
                 <br>
-                <a href="{% url 'classrooms' %}">
+                <i class="bi bi-rainbow"></i>
+                <a href="/classrooms">
                     Classrooms
                 </a>
-                /
-                <a href="{% url 'preschool' %}">
+                <br>
+                <i class="bi bi-boxes"></i>
+                <a href="/preschool">
                     Preschool Program
                 </a>
-                /
                 <br>
-                <a href="{% url 'school_age' %}">
+                <i class="bi bi-shop"></i>
+                <a href="/school-age">
                     School Age Programs
                 </a>
-                /
                 <br>
-                <a href="{% url 'steam' %}">
+                <i class="bi bi-palette-fill"></i>
+                <a href="/steam">
                     S.T.E.A.M. Room
                 </a>
             </p>
@@ -388,9 +392,14 @@ function showSecondaryContent(updateContent) {
         const mceContentSecondary = tinymce.get("id_content_secondary");
 
         if (updateContent) {
+            console.log('updating content');
+            console.log(pageDefaults[handle].content);
             mceContent.setContent(pageDefaults[handle].content);
         }
-        $title.val(pageDefaults[handle].title);
+
+        if (pageDefaults[handle] && pageDefaults[handle].title) {
+            $title.val(pageDefaults[handle].title);
+        }
 
         if (hasSecondaryContent.includes(handle)) {
             $contentSecondary.show();
