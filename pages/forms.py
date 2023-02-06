@@ -25,6 +25,12 @@ class InformationRequestForm(forms.ModelForm):
         model = InformationRequest
         fields = ('name', 'email')
 
+    def save(self, commit=True):
+        instance = super(InformationRequestForm, self).save(commit=False)
+        if commit:
+            instance.save()
+        return instance
+
 class ContactForm(forms.Form):
     fname = forms.CharField(
         label='Your name',
