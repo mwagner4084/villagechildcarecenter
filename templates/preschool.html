@@ -1,22 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load my_templatetags %}
 
 {% block content %}
 
 <div class="template-preschool">
     <div class="container py-5">
-        <div class="row justify-content-md-center">
+        <div class="row">
             <div class="col-md-12 mb-4">
-                {% spaceless %}
-                    <h1>
-                        {% if page.title %}
-                            <span>{{ page.title | safe }}</span>
-                        {% else %}
-                            <span>Coming Fall 2023</span>
-                        {% endif %}
-                    </h1>
-                {% endspaceless %}
+                {% heading title=page.title default='Coming Fall 2023' %}
             </div>
         </div>
         <hr>

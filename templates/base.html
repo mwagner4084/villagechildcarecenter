@@ -55,15 +55,19 @@
                             <a class="nav-link link-dark" href="{% url 'admin:index' %}">
                                 Admin
                             </a>
-                            <span class="mx-3 border-end border-2 border-dark nav-link link-dark"></span>
-                            <a class="nav-link link-dark" href="{% url 'login' %}">
+                            <span class="mx-1 border-end border-2 border-dark nav-link link-dark"></span>
+                            <a class="nav-link link-dark" href="{% url 'logout' %}">
                                 Log Out
+                            </a>
+                            <span class="mx-1 border-end border-2 border-dark nav-link link-dark"></span>
+                            <a class="nav-link link-dark" href="{% url 'password_change' %}">
+                                Password
                             </a>
                         </div>
                         {% endif %}
                     </div>
                     {% if user.is_staff %}
-                        <div class="dropdown d-none d-lg-block justify-content-lg-center ms-auto">
+                        <div class="dropdown d-none d-lg-block justify-content-lg-start ms-auto">
                             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-person-circle"></i>
                             </a>
@@ -74,7 +78,12 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{% url 'login' %}">
+                                    <a class="dropdown-item" href="{% url 'password_change' %}">
+                                        Password
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'logout' %}">
                                         Log Out
                                     </a>
                                 </li>

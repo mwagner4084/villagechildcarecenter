@@ -1,22 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load my_templatetags %}
 
 {% block content %}
 
 <div class="template-classrooms">
     <div class="container py-5">
         <div class="row justify-content-md-center">
-            <div class="col-md-12 mb-4">
-                {% spaceless %}
-                    <h1>
-                        {% if page.title %}
-                            <span>{{ page.title | safe }}</span>
-                        {% else %}
-                            <span>Classrooms</span>
-                        {% endif %}
-                    </h1>
-                {% endspaceless %}
+            <div class="col-md-12 text-center pb-4">
+                {% heading title=page.title default='Classrooms' %}
             </div>
         </div>
         <hr>
@@ -26,9 +19,9 @@
                     {% if page.content %}
                         {{ page.content | safe }}
                     {% else %}
-                        <h3>
+                        <h4>
                             <strong>Newborn - 12 Months</strong>
-                        </h3>
+                        </h4>
                         <p>
                             Here, babies are made to feel safe, secure, and happy.
                             This classroom gives warm, caring teachers an opportunity to
@@ -41,9 +34,9 @@
                             environment with stimulating activities and age-appropriate educational
                             toys.
                         </p>
-                        <h3>
+                        <h4>
                             <strong>12 Months - 24 Months</strong>
-                        </h3>
+                        </h4>
                         <p>
                             These energetic little ones are growing and learning, so we channel their
                             energy into positive learning moments by giving them ample room to move
@@ -78,9 +71,9 @@
                     {% if page.content_secondary %}
                         {{ page.content_secondary | safe }}
                     {% else %}
-                        <h3>
+                        <h4>
                             <strong>24 Months - 35 Months</strong>
-                        </h3>
+                        </h4>
                         <p>
                             This classroom is committed to potty training. A mobile, energetic
                             2-year-old enjoys the entire world as their playground. We've put
@@ -94,9 +87,9 @@
                             with others, like family, friends, and community members, as well as
                             understanding how to interact with others while developing self-awareness.
                         </p>
-                        <h3>
+                        <h4>
                             <strong>3 - 4 Year Olds</strong>
-                        </h3>
+                        </h4>
                         <p>
                             As they grow to be independent learners, these children develop the ability
                             to work with others, follow directions, self-regulate, follow routines, and
@@ -125,7 +118,7 @@
             <div class="col-12 col-md-8">
                 <div class="accordion accordion-flush py-5 position-sticky top-0" id="accordionGroup">
                     <div class="accordion-item">
-                        <h3 class="accordion-header" id="headingMission">
+                        <h4 class="accordion-header" id="headingMission">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMission" aria-expanded="false" aria-controls="collapseMission">
                                 Potty Training Philosophy
                             </button>

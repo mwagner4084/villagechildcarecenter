@@ -1,26 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load my_templatetags %}
 
 {% block content %}
 
 <div class="template-welcome">
     <div class="container py-5">
         <div class="row justify-content-md-center">
-            <div class="col-md-12 pb-4">
-                {% spaceless %}
-                <h1>
-                    {% if page.title %}
-                        <span>{{ page.title | safe }}</span>
-                    {% else %}
-                        <span>Welcome to the Village</span>
-                    {% endif %}
-                </h1>
-                {% endspaceless %}
+            <div class="col-12 col-md-auto text-center pb-4">
+                {% heading title=page.title default='Welcome to the Village' %}
             </div>
         </div>
         <hr>
-        <div class="row justify-content-md-start">
+        <div class="row justify-content-md-start pt-3">
             <div class="col-12 col-md-8">
                 <section id="philosophy" class="rte">
                     {% if page.content %}
