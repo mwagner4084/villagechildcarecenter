@@ -1,12 +1,12 @@
 {% load static %}
 {% spaceless %}
-    <h1 class="d-flex justify-content-md-center text-center">
-        <img src="{% static 'img/blocks.png' %}" class="d-block mx-2" style="width: 1em" />
+    <h1 class="justify-content-md-center text-center">
+        <img src="{% static 'img/blocks.png' %}" class="mx-2" style="width: 1em" />
         {% if title %}
             <strong><span>{{ title | safe }}</span></strong>
         {% else %}
             <span>{{ default }}</span>
         {% endif %}
-        <img src="{% static 'img/blocks.png' %}" class="d-block mx-2" style="width: 1em" />
+        <img src="{% static 'img/blocks.png' %}" class="mx-2" style="width: 1em" />
     </h1>
 {% endspaceless %}
