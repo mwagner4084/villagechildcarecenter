@@ -160,36 +160,3 @@ class ContactFormView(View):
     form = ContactForm
     template_name = "contact.html"
     success_url = reverse_lazy("confirm")
-
-    # handle get request
-    def get(self, request, *args, **kwargs):
-        form = self.form()
-        return render(request, self.template_name, {"form": form})
-
-    # handle post request
-    def post(self, request, *args, **kwargs):
-        form = self.form(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("index")
-        return render(request, self.template_name, {"form": form})
-
-    @csrf_exempt
-    def send_email(request: HttpRequest):
-        if request.method == 'POST':
-            sub = Contact(email=request.POST['email'])
-            sub.save()
-            message = Mail(
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                to_emails=sub.email,
-                subject='The Village Childcare Center Confirmation',
-                html_content='Thank you for your interest in The Village Childcare Center! \
-                    Verify your email here: \
-                    <a href="{}/confirm/?email={}&conf_num={}"> clicking here to \
-                    confirm your registration</a>.'.format(request.build_absolute_uri('/confirm/'),
-                                                        sub.email))
-            sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
-            response = sg.send(message)
-            return render(request, 'contact.html', {'email': sub.email, 'action': 'added', 'form': ContactForm()})
-        else:
-            return render(request, 'contact.html', {'form': ContactForm()})
