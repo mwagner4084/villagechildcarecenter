@@ -9,7 +9,7 @@ from .views import (
     ContactPageView,
     ConfirmPageView,
 )
-from api.views import submit_contact
+from api.views import submit_contact, submit_information_request, send_email
 
 urlpatterns = [
     path("confirm/", ConfirmPageView.as_view(), name="confirm"),
@@ -20,5 +20,7 @@ urlpatterns = [
     path("school-age/", SchoolAgePageView.as_view(), name="school_age"),
     path("contact/", ContactPageView.as_view(), name="contact"),
     path("submit-contact/", submit_contact, name="submit_contact"),
+    path("submit-information-request/", submit_information_request, name="submit_information_request"),
+    path("send-email/", send_email, name="send_email"),
     path("", HomePageView.as_view(), name="home"),
 ]
