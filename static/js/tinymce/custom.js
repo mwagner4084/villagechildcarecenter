@@ -358,10 +358,10 @@ const pageDefaults = {
             <h3>
                 Thank you for your interest in The Village Childcare Center!
             </h3>
-            <h4>
+            <h5>
                 We look forward to working with you and your child.
                 We'll be in touch soon.
-            </h4>
+            </h5>
             <img src="${ django.staticPrefix + 'img/thank-you.png' }" />
         `,
     },
