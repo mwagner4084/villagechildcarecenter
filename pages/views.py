@@ -10,6 +10,11 @@ from django_project import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpRequest, JsonResponse, HttpResponse
 from django.core.mail import send_mail, BadHeaderError
+from django import forms
+
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
+
 
 class PageView(TemplateView):
     """ Base class for all page views. """
@@ -39,69 +44,55 @@ class PageView(TemplateView):
         return context
 
 TEMPLATE_ID = 'd-e1123576e9594830abb7a8fca73b0dc6'
+
+class ExampleForm(forms.Form):
+    like_website = forms.TypedChoiceField(
+        label = "Do you like this website?",
+        choices = ((1, "Yes"), (0, "No")),
+        coerce = lambda x: bool(int(x)),
+        widget = forms.RadioSelect,
+        initial = '1',
+        required = True,
+    )
+
+    favorite_food = forms.CharField(
+        label = "What is your favorite food?",
+        max_length = 80,
+        required = True,
+    )
+
+    favorite_color = forms.CharField(
+        label = "What is your favorite color?",
+        max_length = 80,
+        required = True,
+    )
+
+    favorite_number = forms.IntegerField(
+        label = "Favorite number",
+        required = False,
+    )
+
+    notes = forms.CharField(
+        label = "Additional notes or feedback",
+        required = False,
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-exampleForm'
+        self.helper.form_class = 'blueForms'
+        self.helper.form_method = 'post'
+
+        self.helper.add_input(Submit('submit', 'Submit'))
+
 class HomePageView(PageView):
     """ Home page view. """
 
     template_name = "index.html"
     handle = 'home'
-    form = InformationRequestForm()
+    form = ExampleForm()
 
-    # handle get request
-    def get(self, request, *args, **kwargs):
-        context = self.get_context_data(**kwargs)
-        return render(request=request, template_name=self.template_name, context=context)
-
-    # handle post request
-    def post(self, request, *args, **kwargs):
-        form = InformationRequestForm(request.POST)
-        if form.is_valid():
-            subject = 'Welcome to the village!'
-            from_email = settings.DEFAULT_FROM_EMAIL
-            to_email = [form.cleaned_data.get('email')]
-            message = form.cleaned_data['message']
-            form.save()
-            try:
-                send_mail(subject, message, from_email, to_email, fail_silently=False)
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            return redirect("confirm")
-        context = self.get_context_data(**kwargs)
-        return render(request=request, template_name=self.template_name, context=context)
-
-    def form_valid(self, form):
-        form.save()
-        return super().form_valid(form)
-
-    @csrf_exempt
-    def send_email(request: HttpRequest) -> HttpResponse:
-        '''Send email to the user'''
-        if request.method == 'POST':
-            sub = InformationRequest(email=request.POST['email'], name=request.POST['name'])
-            sub.save()
-            message = Mail(
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                to_emails=sub.email)
-            message.dynamic_template_data = {
-                'subject': 'Thank you for subscribing',
-                'name': sub.name,
-                'email': sub.email
-                }
-            message.template_id = TEMPLATE_ID
-            try:
-                sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
-                response = sg.send(message)
-                code, body, headers = response.status_code, response.body, response.headers
-                print(f"Response code: {code}")
-                print(f"Response body: {body}")
-                print(f"Response headers: {headers}")
-                print("Dynamic template data sent!")
-                return HttpResponse('Email sent')
-            except Exception as e:
-                # print(e.message)
-                print("Error: {0}".format(e))
-            return str(response.status_code)
-            # return HttpResponse('Email not sent')
-        # return HttpResponse('Wrong request')
 
 class WelcomePageView(PageView):
     """ Welcome page view. """
