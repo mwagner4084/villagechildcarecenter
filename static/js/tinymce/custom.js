@@ -68,32 +68,33 @@ const pageDefaults = {
                 Our classrooms are designed to give children room to grow and express themselves in a safe space.
             </p>
             <p>
-                <strong>Learn more about our:</strong>
-                <br>
+                <img src="${django.staticPrefix + 'img/wander.jpeg'}" />
+            </p>
+        `,
+        contentSecondary: `
+            <h3>
+                Learn more about our...
+            </h3>
+            <p>
                 <i class="bi bi-rainbow"></i>
-                <a href="/classrooms">
+                <a href="{% url 'classrooms' %}">
                     Classrooms
                 </a>
                 <br>
                 <i class="bi bi-boxes"></i>
-                <a href="/preschool">
+                <a href="{% url 'preschool' %}">
                     Preschool Program
                 </a>
                 <br>
                 <i class="bi bi-shop"></i>
-                <a href="/school-age">
+                <a href="{% url 'school_age' %}">
                     School Age Programs
                 </a>
                 <br>
                 <i class="bi bi-palette-fill"></i>
-                <a href="/steam">
+                <a href="{% url 'steam' %}">
                     S.T.E.A.M. Room
                 </a>
-            </p>
-        `,
-        contentSecondary: `
-            <p>
-                <img src="${django.staticPrefix + 'img/wander.jpeg'}" />
             </p>
         `,
     },
@@ -219,7 +220,7 @@ const pageDefaults = {
         `,
     },
     steam: {
-        title: `Science. Technology. Engineering. Art. Mathematics.`,
+        title: `S.T.E.A.M. Room`,
         content: `
             <img src="${django.staticPrefix + 'img/steam.png'}" class="school-img img-fluid rounded" />
             <h2>
@@ -336,7 +337,7 @@ const pageDefaults = {
                     The Village Childcare Center
                 </li>
                 <li>
-                    5320 Holiday Terrace
+                    5320 Holiday Terrace, Suite 124
                 </li>
                 <li>
                     Kalamazoo, MI 49009

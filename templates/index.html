@@ -27,46 +27,45 @@
                             and independence. We provide a resource-rich, inclusive environment that allows each child to develop at his/her own pace.
                             Our classrooms are designed to give children room to grow and express themselves in a safe space.
                         </p>
-                        <strong>Learn more about our:</strong>
-                        <p>
-                            <i class="bi bi-rainbow"></i>
-                            <a href="{% url 'classrooms' %}">
-                                Classrooms
-                            </a>
-                            <br>
-                            <i class="bi bi-boxes"></i>
-                            <a href="{% url 'preschool' %}">
-                                Preschool Program
-                            </a>
-                            <br>
-                            <i class="bi bi-shop"></i>
-                            <a href="{% url 'school_age' %}">
-                                School Age Programs
-                            </a>
-                            <br>
-                            <i class="bi bi-palette-fill"></i>
-                            <a href="{% url 'steam' %}">
-                                S.T.E.A.M. Room
-                            </a>
-                        </p>
+                        <img src="{% static 'img/wander.jpeg' %}" class="pt-3"/>
                     {% endif %}
                 </div>
             </div>
             <div class="col-12 col-md-6">
-                <div class="justify-content-md-start py-3">
-                    <h3 class="text-center pb-3">
-                        Contact us for more information!
-                    </h3>
-                    {% crispy form %}
-                </div>
-                <div class="rte py-2">
+                <div class="rte py-3">
                     {% if page.content_secondary %}
                         {{ page.content_secondary | safe }}
                     {% else %}
-                        <p>
-                            <img src="{% static 'img/wander.jpeg' %}" />
-                        </p>
+                    <h3>
+                        Learn more about our...
+                    <p>
+                        <i class="bi bi-rainbow"></i>
+                        <a href="{% url 'classrooms' %}">
+                            Classrooms
+                        </a>
+                        <br>
+                        <i class="bi bi-boxes"></i>
+                        <a href="{% url 'preschool' %}">
+                            Preschool Program
+                        </a>
+                        <br>
+                        <i class="bi bi-shop"></i>
+                        <a href="{% url 'school_age' %}">
+                            School Age Programs
+                        </a>
+                        <br>
+                        <i class="bi bi-palette-fill"></i>
+                        <a href="{% url 'steam' %}">
+                            S.T.E.A.M. Room
+                        </a>
+                    </p>
                     {% endif %}
+                    <div class="justify-content-md-start py-3">
+                        <h3 class="text-center pb-3">
+                            Contact us for more information!
+                        </h3>
+                        {% crispy form %}
+                    </div>
                 </div>
             </div>
         </div>
