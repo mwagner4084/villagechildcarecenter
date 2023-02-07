@@ -55,16 +55,17 @@
                                 Login
                             </a>
                             {% if user.is_staff %}
+                            <span class="mx-1 border-end border-2 border-dark nav-link link-dark"></span>
                             <a class="nav-link link-dark" href="{% url 'admin:index' %}">
                                 Admin
                             </a>
                             <span class="mx-1 border-end border-2 border-dark nav-link link-dark"></span>
-                            <a class="nav-link link-dark" href="{% url 'logout' %}">
-                                Log Out
-                            </a>
-                            <span class="mx-1 border-end border-2 border-dark nav-link link-dark"></span>
                             <a class="nav-link link-dark" href="{% url 'password_change' %}">
                                 Password
+                            </a>
+                            <span class="mx-1 border-end border-2 border-dark nav-link link-dark"></span>
+                            <a class="nav-link link-dark" href="{% url 'logout' %}">
+                                Log Out
                             </a>
                         </div>
                         {% endif %}
