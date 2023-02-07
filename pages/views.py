@@ -4,9 +4,9 @@ from django.core.mail import EmailMessage
 from django.db import IntegrityError
 from django.http import HttpRequest, HttpResponseRedirect
 from django.shortcuts import render
-from django.urls import reverse_lazy
-from django.views.generic import TemplateView, View
+from django.views.generic import TemplateView
 
+from api.sendgrid import SendGridContact, sendgrid_add_contacts
 from django_project import settings
 
 from .forms import ContactForm, InformationRequestForm
@@ -17,7 +17,7 @@ class PageView(TemplateView):
     """ Base class for all page views. """
     model = Page
     handle = None
-    template_name = None
+    template_name = ""
     form = None
 
     def __init__(self, *args, **kwargs):
@@ -58,7 +58,8 @@ class HomePageView(PageView):
             recipients = [email]
 
             msg = EmailMessage(from_email=sender, to=recipients)
-            msg.template_id = settings.SENDGRID_TEMPLATES.get('info_request')
+            msg.template_id = settings.SENDGRID_TEMPLATES.get(  # type: ignore
+                'info_request')
             msg.send(fail_silently=False)
 
             try:
@@ -67,6 +68,20 @@ class HomePageView(PageView):
                     email=email
                 )
                 inforequest.save()
+
+                split_name = name.split(' ')
+                first_name = name
+                last_name = ''
+
+                if len(split_name) > 1:
+                    first_name = split_name[0]
+                    last_name = split_name[1]
+
+                contact = SendGridContact(email, first_name, last_name)
+                sendgrid_add_contacts(
+                    contacts=[contact],
+                    list_ids=[settings.SENDGRID_LISTS['info_request']]
+                )
             except Exception as e:
                 context = self.get_context_data(**kwargs)
                 error_msg = 'There was an error submitting your request.'
@@ -142,7 +157,8 @@ class ContactPageView(PageView):
             recipients = [email]
 
             msg = EmailMessage(from_email=sender, to=recipients)
-            msg.template_id = settings.SENDGRID_TEMPLATES.get('contact')
+            msg.template_id = settings.SENDGRID_TEMPLATES.get(  # type: ignore
+                'contact')
             msg.send(fail_silently=False)
 
             try:
