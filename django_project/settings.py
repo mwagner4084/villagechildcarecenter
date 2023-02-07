@@ -178,3 +178,5 @@ SENDGRID_TEMPLATES = {
     'info_request': 'd-e1123576e9594830abb7a8fca73b0dc6',
     'contact': 'd-e1123576e9594830abb7a8fca73b0dc6',
 }
+
+SENDGRID_LIST_ID = '2232a93f-a333-44d8-aee9-00481c32e278'
