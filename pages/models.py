@@ -36,9 +36,11 @@ class InformationRequest(models.Model):
     name = models.CharField(max_length=254, null=True, blank=True)
     email = models.EmailField(max_length=254, unique=True)
     date_added = models.DateTimeField(auto_now_add=True)
+    contacted = models.BooleanField(default=False)
+    notes = models.CharField(max_length=5000, null=True, blank=True)
 
     def __str__(self):
-        return f"{self.email}"
+        return f"{self.name}"
 
     def get_absolute_url(self):
         return reverse("index", args=(self.pk))
@@ -55,6 +57,8 @@ class Contact(models.Model):
     comments = models.CharField(max_length=500, null=True, blank=True)
     referred_by = models.CharField(max_length=254, null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
+    contacted = models.BooleanField(default=False)
+    notes = models.CharField(max_length=5000, null=True, blank=True)
 
     def __str__(self):
         return f"{self.lname}, {self.fname}"
