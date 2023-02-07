@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+
 from environs import Env
 
 env = Env()
@@ -29,7 +30,8 @@ SECRET_KEY = env.str("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = ["web-production-b31d.up.railway.app", "railway.app", "localhost", "127.0.0.1", "0.0.0.0"]
+ALLOWED_HOSTS = ["web-production-b31d.up.railway.app",
+                 "railway.app", "localhost", "127.0.0.1", "0.0.0.0"]
 
 # Application definition
 
@@ -171,3 +173,7 @@ LOGOUT_REDIRECT_URL = "login"
 
 # Auth User
 AUTH_USER_MODEL = "accounts.CustomUser"
+
+SENDGRID_TEMPLATES = {
+    'info_request': 'd-e1123576e9594830abb7a8fca73b0dc6',
+}

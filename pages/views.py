@@ -1,20 +1,16 @@
-from sqlite3 import IntegrityError
-from django.views.generic import View, TemplateView
-from .models import Page, InformationRequest, Contact
-from .forms import InformationRequestForm, ContactForm
-from django.urls import reverse_lazy
-from django.shortcuts import render, redirect
-# from sendgrid import SendGridAPIClient
-# from sendgrid.helpers.mail import Mail
-from django.conf import settings
-from django_project import settings
-from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpRequest, JsonResponse, HttpResponse, HttpResponseRedirect
-from django.core.mail import send_mail, EmailMessage
 from django import forms
-from django.template.loader import render_to_string
+from django.conf import settings
+from django.core.mail import EmailMessage
+from django.db import IntegrityError
+from django.http import HttpRequest, HttpResponseRedirect
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, View
 
-from django.contrib.sites.shortcuts import get_current_site
+from django_project import settings
+
+from .forms import ContactForm, InformationRequestForm
+from .models import InformationRequest, Page
 
 
 class PageView(TemplateView):
@@ -44,7 +40,6 @@ class PageView(TemplateView):
 
         return context
 
-TEMPLATE_ID = 'd-e1123576e9594830abb7a8fca73b0dc6'
 
 class HomePageView(PageView):
     """ Home page view. """
@@ -54,6 +49,7 @@ class HomePageView(PageView):
 
     def post(self, request: HttpRequest, *args, **kwargs):
         """ Handle the form submission. """
+
         form = InformationRequestForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data['name']
@@ -61,21 +57,22 @@ class HomePageView(PageView):
             sender = settings.DEFAULT_FROM_EMAIL
             recipients = [email]
 
-            msg = EmailMessage(
-                from_email=sender,
-                to=recipients,
-            )
-            msg.template_id = TEMPLATE_ID
+            msg = EmailMessage(from_email=sender, to=recipients)
+            msg.template_id = settings.SENDGRID_TEMPLATES.get('info_request')
             msg.send(fail_silently=False)
-            # save the form data to the database
+
             try:
-                pass
-                # inforequest = InformationRequest.objects.create(name=name, email=email)
-                # inforequest.save()
-            except:
-                # return form with errors
+                inforequest = InformationRequest.objects.create(
+                    name=name,
+                    email=email
+                )
+                inforequest.save()
+            except Exception as e:
                 context = self.get_context_data(**kwargs)
-                form.add_error(None, forms.ValidationError('This email address has already been submitted.'))
+                error_msg = 'There was an error submitting your request.'
+                if isinstance(e, IntegrityError):
+                    error_msg = 'This email address has already been submitted.'
+                form.add_error(None, forms.ValidationError(error_msg))
                 context['form'] = form
                 return render(request, self.template_name, context)
 
@@ -92,11 +89,13 @@ class WelcomePageView(PageView):
     template_name = "welcome.html"
     handle = 'philosophy'
 
+
 class ClassroomPageView(PageView):
     """ Classroom page view. """
 
     template_name = "classrooms.html"
     handle = 'classrooms'
+
 
 class SteamPageView(PageView):
     """ Steam page view. """
@@ -104,11 +103,13 @@ class SteamPageView(PageView):
     template_name = "steam.html"
     handle = 'steam'
 
+
 class PreschoolPageView(PageView):
     """ Preschool page view. """
 
     template_name = "preschool.html"
     handle = 'preschool'
+
 
 class SchoolAgePageView(PageView):
     """ School age page view. """
@@ -116,12 +117,14 @@ class SchoolAgePageView(PageView):
     template_name = "school_age.html"
     handle = 'school_age'
 
+
 class ContactPageView(PageView):
     """ Contact page view. """
 
     template_name = "contact.html"
     handle = 'contact'
     form = ContactForm
+
 
 class ConfirmPageView(PageView):
     """ Confirmation page view. """
