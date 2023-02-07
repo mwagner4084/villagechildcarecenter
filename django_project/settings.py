@@ -176,4 +176,5 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 
 SENDGRID_TEMPLATES = {
     'info_request': 'd-e1123576e9594830abb7a8fca73b0dc6',
+    'contact': 'd-e1123576e9594830abb7a8fca73b0dc6',
 }

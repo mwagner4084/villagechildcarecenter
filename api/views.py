@@ -1,15 +1,16 @@
 import os
 
 from django.conf import settings
-from django.http import JsonResponse
+from django.http import HttpRequest, HttpResponse, JsonResponse
+from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpRequest, JsonResponse, HttpResponse
-from django.shortcuts import render, redirect
-from pages.forms import InformationRequestForm, ContactForm
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
+
 from django_project import settings
-from pages.models import InformationRequest, Contact
+from pages.forms import ContactForm, InformationRequestForm
+from pages.models import Contact, InformationRequest
+
 
 @csrf_exempt
 def upload_image(request: HttpRequest) -> JsonResponse:
@@ -47,6 +48,7 @@ def upload_image(request: HttpRequest) -> JsonResponse:
         })
     return JsonResponse({'detail': "Wrong request"})
 
+
 @csrf_exempt
 def submit_contact(request: HttpRequest) -> HttpResponse:
     '''Submit contact form and rediret to the confirmation page'''
@@ -57,6 +59,7 @@ def submit_contact(request: HttpRequest) -> HttpResponse:
             return redirect('confirm')
         return render(request, 'contact.html', {'form': form})
     return HttpResponse('Wrong request')
+
 
 @csrf_exempt
 def submit_information_request(request: HttpRequest) -> HttpResponse:
@@ -69,13 +72,16 @@ def submit_information_request(request: HttpRequest) -> HttpResponse:
         return render(request, 'index.html', {'form': form})
     return HttpResponse('Wrong request')
 
+
 TEMPLATE_ID = 'd-e1123576e9594830abb7a8fca73b0dc6'
+
 
 @csrf_exempt
 def send_email(request: HttpRequest) -> HttpResponse:
     '''Send email to the user'''
     if request.method == 'POST':
-        sub = InformationRequest(email=request.POST['email'], name=request.POST['name'])
+        sub = InformationRequest(
+            email=request.POST['email'], name=request.POST['name'])
         sub.save()
         message = Mail(
             from_email=settings.DEFAULT_FROM_EMAIL,
@@ -84,7 +90,7 @@ def send_email(request: HttpRequest) -> HttpResponse:
             'subject': 'Thank you for subscribing',
             'name': sub.name,
             'email': sub.email
-            }
+        }
         message.template_id = TEMPLATE_ID
         try:
             sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
@@ -101,4 +107,3 @@ def send_email(request: HttpRequest) -> HttpResponse:
         return str(response.status_code)
         # return HttpResponse('Email not sent')
     # return HttpResponse('Wrong request')
-
