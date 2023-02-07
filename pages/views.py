@@ -158,11 +158,11 @@ class ContactPageView(PageView):
 
             msg = EmailMessage(from_email=sender, to=recipients)
             msg.template_id = settings.SENDGRID_TEMPLATES.get(  # type: ignore
-                'contact')
+                'tour_request')
             msg.send(fail_silently=False)
 
             try:
-                schedule_tour = Contact.objects.create(
+                tour_requests = Contact.objects.create(
                     fname=fname,
                     lname=lname,
                     email=email,
@@ -172,7 +172,13 @@ class ContactPageView(PageView):
                     comments=comments,
                     referred_by=referred_by,
                 )
-                schedule_tour.save()
+                tour_requests.save()
+
+                contact = SendGridContact(email, fname, lname)
+                sendgrid_add_contacts(
+                    contacts=[contact],
+                    list_ids=[settings.SENDGRID_LISTS['tour_request']]
+                )
             except Exception as e:
                 context = self.get_context_data(**kwargs)
                 error_msg = 'There was an error submitting your request.'
