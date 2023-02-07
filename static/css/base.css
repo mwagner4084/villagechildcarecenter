@@ -124,7 +124,7 @@ p {
     font-size: calc(0.95rem + 0.25vw);
 }
 
-ul {
+ul, ol {
     font-size: calc(0.95rem + 0.25vw);
 }
 
@@ -149,14 +149,14 @@ ul {
 }
 
 .accordion {
-    --bs-accordion-color: var(--bs-body-color);
-    --bs-accordion-bg: #6f936b;
-    --bs-accordion-border-color: white;
+    --bs-accordion-color: var(--th-color-gray);
+    --bs-accordion-bg: var(--th-color-green);
+    --bs-accordion-border-color: var(--th-color-gray);
     --bs-accordion-btn-color: white;
     --bs-accordion-btn-bg: var(--bs-accordion-bg);
     --bs-accordion-btn-focus-border-color: #4f6b4c;
     --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(58, 110, 52, 0.25);
-    --bs-accordion-active-color: white;
+    --bs-accordion-active-color: var(--th-color-gray);
     --bs-accordion-active-bg: rgb(111, 147, 107);
 }
 
@@ -165,8 +165,9 @@ ul {
 }
 
 .accordion-body {
-    background-color: #97846d;
-    color: white;
+    background-color: var(--th-color-eggshell);
+    color: var(--th-color-gray);
+    border: 1px solid var(--th-color-gray);
 }
 
 .site-main {

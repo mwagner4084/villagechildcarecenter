@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
+
 class Page(models.Model):
     """ Page model for static pages. """
 
@@ -29,6 +30,7 @@ class Page(models.Model):
     def __str__(self):
         return self.handle
 
+
 class InformationRequest(models.Model):
     """ Information Request Model """
     name = models.CharField(max_length=254, null=True, blank=True)
@@ -40,6 +42,7 @@ class InformationRequest(models.Model):
 
     def get_absolute_url(self):
         return reverse("index", args=(self.pk))
+
 
 class Contact(models.Model):
     """ Contact Model """
@@ -54,7 +57,7 @@ class Contact(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.email}"
+        return f"{self.lname}, {self.fname}"
 
     def get_absolute_url(self):
         return reverse("contact", args=(self.pk))

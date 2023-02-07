@@ -66,29 +66,34 @@
                         </div>
                         {% endif %}
                     </div>
-                    {% if user.is_staff %}
-                        <div class="dropdown d-none d-lg-block justify-content-lg-start ms-auto">
-                            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-circle"></i>
-                            </a>
-                            <ul class="dropdown-menu text-small start-initial" aria-labelledby="dropdownUser1">
-                                <li>
-                                    <a class="dropdown-item" href="{% url 'admin:index' %}">
-                                        Admin
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{% url 'password_change' %}">
-                                        Password
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{% url 'logout' %}">
-                                        Log Out
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="dropdown d-none d-lg-block justify-content-lg-start ms-auto">
+                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>
+                        </a>
+                        <ul class="dropdown-menu text-small start-initial" aria-labelledby="dropdownUser1">
+                            <li>
+                                <a href="{% url 'login'%}" class="dropdown-item">
+                                    Login
+                                </a>
+                            </li>
+                            {% if user.is_staff %}
+                            <li>
+                                <a class="dropdown-item" href="{% url 'admin:index' %}">
+                                    Admin
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'password_change' %}">
+                                    Password
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'logout' %}">
+                                    Log Out
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                     {% endif %}
                 </div>
             </nav>
