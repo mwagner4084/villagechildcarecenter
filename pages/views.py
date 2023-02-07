@@ -10,7 +10,7 @@ from django.views.generic import TemplateView, View
 from django_project import settings
 
 from .forms import ContactForm, InformationRequestForm
-from .models import InformationRequest, Page
+from .models import Contact, InformationRequest, Page
 
 
 class PageView(TemplateView):
@@ -125,6 +125,53 @@ class ContactPageView(PageView):
     handle = 'contact'
     form = ContactForm
 
+    def post(self, request: HttpRequest, *args, **kwargs):
+        """ Handle the form submission. """
+
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            fname = form.cleaned_data['fname']
+            lname = form.cleaned_data['lname']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+            children = form.cleaned_data['children']
+            start_date = form.cleaned_data['start_date']
+            comments = form.cleaned_data['comments']
+            referred_by = form.cleaned_data['referred_by']
+            sender = settings.DEFAULT_FROM_EMAIL
+            recipients = [email]
+
+            msg = EmailMessage(from_email=sender, to=recipients)
+            msg.template_id = settings.SENDGRID_TEMPLATES.get('contact')
+            msg.send(fail_silently=False)
+
+            try:
+                schedule_tour = Contact.objects.create(
+                    fname=fname,
+                    lname=lname,
+                    email=email,
+                    phone=phone,
+                    children=children,
+                    start_date=start_date,
+                    comments=comments,
+                    referred_by=referred_by,
+                )
+                schedule_tour.save()
+            except Exception as e:
+                context = self.get_context_data(**kwargs)
+                error_msg = 'There was an error submitting your request.'
+                if isinstance(e, IntegrityError):
+                    error_msg = 'This email address has already been submitted.'
+                form.add_error(None, forms.ValidationError(error_msg))
+                context['form'] = form
+                return render(request, self.template_name, context)
+
+            return HttpResponseRedirect('/confirm/')
+
+        context = self.get_context_data(**kwargs)
+        # context['form'] = form
+        return render(request, self.template_name, context)
+
 
 class ConfirmPageView(PageView):
     """ Confirmation page view. """
@@ -132,36 +179,10 @@ class ConfirmPageView(PageView):
     template_name = "confirm.html"
     handle = 'confirm'
 
-# send_mail('Subject here', 'Here is the message.', 'from@example.com', ['to@example.com'], fail_silently=False)
 
-# class InformationRequestView(View):
-#     """Email View"""
+# class ContactFormView(View):
+#     """Contact View"""
 
-#     form_class = InformationRequestForm
-#     template_name = "index.html"
+#     form = ContactForm
+#     template_name = "contact.html"
 #     success_url = reverse_lazy("confirm")
-
-#     # handle get request
-#     def get(self, request, *args, **kwargs):
-#         form = self.form_class()
-#         return render(request, self.template_name, {"form": form})
-
-#     # handle post request
-#     def post(self, request, *args, **kwargs):
-#         form = self.form_class(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect("index")
-#         return render(request, self.template_name, {"form": form})
-
-#     def form_valid(self, form):
-#         form.save()
-#         return super().form_valid(form)
-
-
-class ContactFormView(View):
-    """Contact View"""
-
-    form = ContactForm
-    template_name = "contact.html"
-    success_url = reverse_lazy("confirm")

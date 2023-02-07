@@ -1,8 +1,9 @@
-from django import forms
-from pages.models import InformationRequest, Contact
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Fieldset, Submit
 from crispy_bootstrap5.bootstrap5 import FloatingField
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Fieldset, Layout, Submit
+from django import forms
+
+from pages.models import Contact, InformationRequest
 
 
 class HomePageForm(forms.ModelForm):
@@ -13,6 +14,7 @@ class HomePageForm(forms.ModelForm):
             'content': forms.Textarea(attrs={'rows': 3}),
             'content_secondary': forms.Textarea(attrs={'rows': 3}),
         }
+
 
 class InformationRequestForm(forms.Form):
     name = forms.CharField(
@@ -33,7 +35,6 @@ class InformationRequestForm(forms.Form):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_id = 'id-infoReqForm'
-        self.helper.form_class = 'form-rev-labels'
         self.helper.form_method = 'post'
         self.helper.layout = Layout(
             FloatingField('name'),
@@ -41,69 +42,69 @@ class InformationRequestForm(forms.Form):
             Submit('submit', 'Submit')
         )
 
+
 class ContactForm(forms.Form):
     fname = forms.CharField(
-        label='',
-        help_text='First Name',
+        help_text='',
+        label='First Name',
         max_length=200,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput()
     )
     lname = forms.CharField(
-        label='',
-        help_text='Last Name',
+        help_text='',
+        label='Last Name',
         max_length=200,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput()
     )
     email = forms.EmailField(
-        label='',
-        help_text='Email Address',
+        help_text='',
+        label='Email Address',
         max_length=200,
-        widget=forms.EmailInput(attrs={'class': 'form-control'})
+        widget=forms.EmailInput()
     )
     phone = forms.CharField(
-        label='',
-        help_text='Phone Number',
+        help_text='',
+        label='Phone Number',
         max_length=200,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput()
     )
     children = forms.CharField(
-        label='',
-        help_text='Children\'s Names and Ages',
+        help_text='',
+        label='Children\'s Names and Ages',
         max_length=500,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput()
     )
     start_date = forms.DateField(
-        label='',
-        help_text='Start Date (MM/DD/YYYY)',
-        widget=forms.DateInput(attrs={'class': 'form-control'})
+        help_text='',
+        label='Start Date (MM/DD/YYYY)',
+        widget=forms.DateInput()
     )
     comments = forms.CharField(
-        label='',
-        help_text='Comments',
+        help_text='',
+        label='Comments',
         max_length=500,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput()
     )
     referred_by = forms.CharField(
-        label='',
-        help_text='How did you hear about us?',
+        help_text='',
+        label='How did you hear about us?',
         max_length=200,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput()
     )
-    class Meta:
-        model = Contact
-        fields = (
-            'fname',
-            'lname',
-            'email',
-            'phone',
-            'children',
-            'start_date',
-            'comments',
-            'referred_by',
-        )
 
-    def save(self, commit=True):
-        contact = Contact(**self.cleaned_data)
-        if commit:
-            contact.save()
-        return contact
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-contactForm'
+        self.helper.form_method = 'post'
+        self.helper.layout = Layout(
+            FloatingField('fname'),
+            FloatingField('lname'),
+            FloatingField('email'),
+            FloatingField('phone'),
+            FloatingField('children'),
+            FloatingField('start_date'),
+            FloatingField('comments'),
+            FloatingField('referred_by'),
+            Submit('submit', 'Submit')
+        )
