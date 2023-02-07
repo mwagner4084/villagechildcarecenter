@@ -179,4 +179,7 @@ SENDGRID_TEMPLATES = {
     'contact': 'd-e1123576e9594830abb7a8fca73b0dc6',
 }
 
-SENDGRID_LIST_ID = '2232a93f-a333-44d8-aee9-00481c32e278'
+SENDGRID_LISTS = {
+    'info_request': '2232a93f-a333-44d8-aee9-00481c32e278',
+    'tour_request': 'd6f529ed-1ca7-4a07-8e7e-dcbc0d5f64bf',
+}
