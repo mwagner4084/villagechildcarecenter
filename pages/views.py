@@ -10,7 +10,7 @@ from django.conf import settings
 from django_project import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpRequest, JsonResponse, HttpResponse, HttpResponseRedirect
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import send_mail, EmailMessage
 from django import forms
 from django.template.loader import render_to_string
 
@@ -58,26 +58,20 @@ class HomePageView(PageView):
         if form.is_valid():
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
-            subject = f'New Information Request from {name}'
-            message = f'Name: {name}\nEmail: {email}'
             sender = settings.DEFAULT_FROM_EMAIL
             recipients = [email]
-            site = get_current_site(request)
-            msg_html = render_to_string('email/info-request.html', {'site': site, 'name': name, 'email': email})
 
-            send_mail(
-                subject,
-                message,
-                sender,
-                recipients,
-                fail_silently=False,
-                html_message=msg_html,
+            msg = EmailMessage(
+                from_email=sender,
+                to=recipients,
             )
-
+            msg.template_id = TEMPLATE_ID
+            msg.send(fail_silently=False)
             # save the form data to the database
             try:
-                inforequest = InformationRequest.objects.create(name=name, email=email)
-                inforequest.save()
+                pass
+                # inforequest = InformationRequest.objects.create(name=name, email=email)
+                # inforequest.save()
             except:
                 # return form with errors
                 context = self.get_context_data(**kwargs)
