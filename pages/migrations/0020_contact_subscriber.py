@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name="InformationRequest",
+            name="Subscriber",
             fields=[
                 (
                     "id",
