@@ -77,22 +77,22 @@ const pageDefaults = {
             </h3>
             <p>
                 <i class="bi bi-rainbow"></i>
-                <a href="{% url 'classrooms' %}">
+                <a href="/classrooms">
                     Classrooms
                 </a>
                 <br>
                 <i class="bi bi-boxes"></i>
-                <a href="{% url 'preschool' %}">
+                <a href="/preschool">
                     Preschool Program
                 </a>
                 <br>
                 <i class="bi bi-shop"></i>
-                <a href="{% url 'school_age' %}">
+                <a href="/school-age">
                     School Age Programs
                 </a>
                 <br>
                 <i class="bi bi-palette-fill"></i>
-                <a href="{% url 'steam' %}">
+                <a href="/steam">
                     S.T.E.A.M. Room
                 </a>
             </p>
@@ -273,8 +273,9 @@ const pageDefaults = {
             <p>
                 <strong>Logic and Reasoning:</strong> Practicing sequencing, problem-solving, and critical thinking.
             </p>
+            <hr>
             <p>
-                Learn more about the Highscope curriculum: <a href="https://{{ highscope.org }}">here</a>.
+                Learn more about the Highscope curriculum: <a href="https://highscope.org" target="_blank">here</a>.
             </p>
         `,
     },
