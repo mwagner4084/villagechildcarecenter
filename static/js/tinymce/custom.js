@@ -338,7 +338,7 @@ const pageDefaults = {
                     The Village Childcare Center
                 </li>
                 <li>
-                    5320 Holiday Terrace, Suite 124
+                    5320 Holiday Terrace, Suite 4
                 </li>
                 <li>
                     Kalamazoo, MI 49009
