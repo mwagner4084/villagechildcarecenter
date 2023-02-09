@@ -7,16 +7,8 @@
 <div class="template-home text-center">
     <div class="container py-5">
         <div class="row justify-content-md-center">
-            <div class="col-md-12 mb-4">
-                {% spaceless %}
-                    <h1>
-                        {% if page.title %}
-                            <span>{{ page.title | safe }}</span>
-                        {% else %}
-                            <span>Thank you</span>
-                        {% endif %}
-                    </h1>
-                {% endspaceless %}
+            <div class="col-12 col-md-auto text-center pb-4">
+                {% heading title=page.title default='Thank you' %}
             </div>
         </div>
         <hr>
