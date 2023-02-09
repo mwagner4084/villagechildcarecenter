@@ -275,7 +275,7 @@ const pageDefaults = {
             </p>
             <hr>
             <p>
-                Learn more about the Highscope curriculum: <a href="highscope.org" target="_blank">here</a>.
+                Learn more about the Highscope curriculum: <a href="https://highscope.org" target="_blank">here</a>.
             </p>
         `,
     },
