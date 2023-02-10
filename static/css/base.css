@@ -10,6 +10,7 @@
     --th-color-eggshell: #fcefd5;
     --th-color-gray: #3b3d34;
     --th-color-beige: #e2cfb8;
+    --th-color-orange: #FF8360;
 
     --heading-font-family: 'Marker Felt', fantasy;
     --navbar-font-family: "Trueno", sans-serif;
@@ -121,7 +122,7 @@ h1.heading::after {
 
 footer {
     display: in-line;
-    background-color: var(--th-color-green);
+    background-color: var(--th-color-orange);
     color: var(--th-color-eggshell);
     /* padding: 1rem; */
     text-align: center;
