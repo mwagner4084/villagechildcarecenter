@@ -15,7 +15,6 @@ const settings = {
     convert_urls: false,
     plugins: "insertdatetime media image preview code",
     toolbar: "undo redo | code | formatselect | bold italic | alignleft alignright aligncenter alignjustify | image media | preview",
-/* aligncenter alignjustify alignleft alignnone alignright blockquote backcolor bold copy cut fontselect fontsizeselect forecolor formatselect h1 h2 h3 h4 h5 h6 indent italic language lineheight newdocument outdent paste redo remove removeformat selectall strikethrough styleselect subscript superscript underline undo visualaid */
     image_title: true,
     image_caption: true,
     // automatic_uploads: false,

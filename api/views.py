@@ -14,6 +14,7 @@ from pages.models import Contact, InformationRequest
 
 @csrf_exempt
 def upload_image(request: HttpRequest) -> JsonResponse:
+    """ Upload image to the server """
     if request.method == "POST":
         file_obj = request.FILES['file']
         file_name_suffix = file_obj.name.split(".")[-1]

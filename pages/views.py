@@ -200,11 +200,3 @@ class ConfirmPageView(PageView):
 
     template_name = "confirm.html"
     handle = 'confirm'
-
-
-# class ContactFormView(View):
-#     """Contact View"""
-
-#     form = ContactForm
-#     template_name = "contact.html"
-#     success_url = reverse_lazy("confirm")

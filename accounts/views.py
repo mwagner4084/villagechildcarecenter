@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from django.views.generic import View, CreateView
+from django.views.generic import CreateView
+
 from .forms import CustomUserCreationForm
+
 
 class SignUpView(CreateView):
     """Sign Up View"""

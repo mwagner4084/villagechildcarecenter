@@ -1,9 +1,7 @@
 from crispy_bootstrap5.bootstrap5 import FloatingField
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Fieldset, Layout, Submit
+from crispy_forms.layout import Layout, Submit
 from django import forms
-
-from pages.models import Contact, InformationRequest
 
 
 class HomePageForm(forms.ModelForm):
@@ -17,6 +15,7 @@ class HomePageForm(forms.ModelForm):
 
 
 class InformationRequestForm(forms.Form):
+    """ Form for the information request page. """
     name = forms.CharField(
         label='Name',
         help_text='',
@@ -44,6 +43,7 @@ class InformationRequestForm(forms.Form):
 
 
 class ContactForm(forms.Form):
+    """ Form for the contact page. """
     fname = forms.CharField(
         help_text='',
         label='First Name',
