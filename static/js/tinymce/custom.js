@@ -314,6 +314,11 @@ const hasSecondaryContent = [
     'steam',
 ]
 
+const hasAccordionContent = [
+    'classrooms',
+    'philosophy',
+]
+
 /**
  * Show the secondary content for the page and update the title and content if set.
  * @param {bool} updateContent
@@ -355,3 +360,45 @@ function showSecondaryContent(updateContent) {
 
 $(showSecondaryContent(false));
 $('#id_handle').on('change', showSecondaryContent(true));
+
+/**
+ * Show the accordion content for the page and update the title and content if set.
+ * @param {bool} updateContent
+ * @returns
+ */
+function showAccordion(updateContent) {
+    return () => {
+        const $handleFieldWrapper = $('.field-handle');
+        const $handleSelect = $('#id_handle');
+        const handle = $handleSelect.val();
+        if (!updateContent && handle) {
+            $handleFieldWrapper.hide();
+        }
+        const $title = $('#id_title');
+        const mceContent = tinymce.get("id_content");
+        const $accordion = $('.field-accordion');
+        const mceAccordion = tinymce.get("id_accordion");
+
+        if (updateContent) {
+            console.log('updating content');
+            console.log(pageDefaults[handle].content);
+            mceContent.setContent(pageDefaults[handle].content);
+        }
+
+        if (pageDefaults[handle] && pageDefaults[handle].title) {
+            $title.val(pageDefaults[handle].title);
+        }
+
+        if (hasAccordion.includes(handle)) {
+            $accordion.show();
+            if (updateContent) {
+                mceAccordion.setContent(pageDefaults[handle].accordion);
+            }
+        } else {
+            $accordion.hide();
+        }
+    }
+}
+
+$(showAccordion(false));
+$('#id_handle').on('change', showAccordion(true));
