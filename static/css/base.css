@@ -152,7 +152,12 @@ ul, ol {
 
 .rte ul {
     /* the same as Bootstrap unstyled-list */
+    padding-left: 17px;
+}
+
+.template-contact .rte ul {
     padding-left: 0;
+    list-style: none;
 }
 
 .site-logo {

@@ -8,7 +8,7 @@
 <div class="template-contact">
     <div class="container py-5">
         <div class="row justify-content-md-center">
-            <div class="col-12 col-md-12 pb-4">
+            <div class="col-12 col-md-10 pb-4">
                 {% heading title=page.title default='Contact Us' %}
             </div>
         </div>
@@ -39,15 +39,15 @@
                 </h3>
                 {% crispy form %}
             </div>
-            <div class="col-12 col-md-6 list-unstyled">
-                <div class="rte text-start pt-4">
+            <div class="col-12 col-md-6">
+                <div class="rte text-start">
                     {% if page.content_secondary %}
                         {{ page.content_secondary | safe }}
                     {% else %}
                         <h3 class="text-start">
                             Location:
                         </h3>
-                        <ul>
+                        <ul class="list-unstyled">
                             <li>
                                 The Village Childcare Center
                             </li>
@@ -58,7 +58,7 @@
                                 Kalamazoo, MI 49009
                             </li>
                         </ul>
-                        <ul>
+                        <ul class="list-unstyled">
                             <li>
                                 <strong>Local:</strong> (269) 253-8008
                             </li>
