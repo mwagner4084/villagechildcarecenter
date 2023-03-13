@@ -112,6 +112,36 @@ const pageDefaults = {
                 You know your child best. We encourage you to contact the school about any questions or concerns you might have. We look forward to becoming a part of your child's community.
             </p>
         `,
+        accordion: `
+            <p>
+                We are dedicated to giving children a love of learning in a safe and secure environment. Our teachers design their own lesson plans to help children learn and explore the world at their own pace. Our teachers are loving, nurturing, trained professionals committed to maintaining the highest quality in early childhood education. Through onsite training provided by the Director, our teachers receive ongoing training in order to learn the latest developments within the field of Early Childhood Education.
+            </p>
+            <p>
+                The Village is a safe, secure, clean, and happy environment for children to grow and learn. Each child is treated as a unique individual. They are given individual attention within a group, allowing them to develop according to their own needs and rate of development. Our number one priority is providing every child with a loving and caring atmosphere that encourages the development of self-esteem, confidence, creativity, and a love of learning.
+            </p>
+        `,
+        accordionSecondary: `
+            <ul>
+                <li>
+                    Every child in our program has the right to be respected as an individual with concern for his or her own interests, handicaps, special talents, and individual style and pace of learning.
+                </li>
+                <li>
+                    Every child has the right to a calm, warm, loving, and nurturing environment where physical attention (hugs and cuddling) is freely given so that a child feels valued and secure and thus able to develop positive self-esteem.
+                </li>
+                <li>
+                    Every child has the right to personal attention, a relaxed atmosphere, and freedom of choice in their daily activities.
+                </li>
+                <li>
+                    Every child has the right to have all physical needs met, including the need for rest and relaxation throughout the day.
+                </li>
+                <li>
+                    Every child has the right to experience various activities throughout the day that help them develop independence and confidence.
+                </li>
+                <li>
+                    These activities provide opportunities for creativity, exploration, learning, and development in language skills, gross and fine motor skills, cognitive skills, social skills, and emotional/psychological development.
+                </li>
+            </ul>
+        `,
     },
     classrooms: {
         title: `Classrooms`,
@@ -178,6 +208,40 @@ const pageDefaults = {
             </ul>
             <p>
                 We will begin more projects in these classrooms - children will be able to follow their strengths and imagination to explore the world around them.
+            </p>
+        `,
+        accordion: `
+            <p>
+                The Village faculty is eager to share in the process of potty training. Our official potty-training age is 24-36 months. At this age, our classroom faculty works diligently with the children to promote using the toilet. We do realize that some children begin training at younger ages. In these cases, our faculty will work with your child on a more individual basis to reinforce procedures that you are using at home.
+            </p>
+            <p>
+                Your child may be ready for potty training if:
+            </p>
+            <ol>
+                <li>
+                    They have a dry diaper for two hours or more.
+                </li>
+                <li>
+                    They have dry diapers after naptime.
+                </li>
+                <li>
+                    They tell you when their diaper needs to be changed.
+                </li>
+                <li>
+                    They tell you when they are urinating or making a bowel movement in their diaper.
+                </li>
+                <li>
+                    They show an interest or curiosity in using the toilet.
+                </li>
+            </ol>
+            <p>
+                As your child is beginning to potty train, we suggest heavy cotton training pants or rubber pants which may be more effective than pull-ups. Rubber pants keep their clothes dry. Cotton pants may leave your child feeling a bit uncomfortable so they will quickly learn to relieve themselves using the toilet. Pull-ups are most effective AFTER the child has shown that they are dry most of the time or at bedtime.
+            </p>
+            <p>
+                Please remind your child to go to the potty at home. When he or she is successful, use positive reinforcement.
+            </p>
+            <p>
+                It is not recommended that your child be allowed to wear underpants over diapers or pull-ups. This defeats the purpose of them and removes the incentive for your child to wear underwear. Lastly, it is important to be consistent in whichever method you choose to use.
             </p>
         `,
     },
@@ -314,10 +378,6 @@ const hasSecondaryContent = [
     'steam',
 ]
 
-const hasAccordionContent = [
-    'classrooms',
-    'philosophy',
-]
 
 /**
  * Show the secondary content for the page and update the title and content if set.
@@ -361,6 +421,12 @@ function showSecondaryContent(updateContent) {
 $(showSecondaryContent(false));
 $('#id_handle').on('change', showSecondaryContent(true));
 
+
+const hasAccordionContent = [
+    'classrooms',
+    'philosophy',
+]
+
 /**
  * Show the accordion content for the page and update the title and content if set.
  * @param {bool} updateContent
@@ -402,3 +468,50 @@ function showAccordion(updateContent) {
 
 $(showAccordion(false));
 $('#id_handle').on('change', showAccordion(true));
+
+const hasSecondaryAccordion = [
+    'classrooms',
+]
+
+/**
+ * Show the secondary accordion content for the page and update the title and content if set.
+ * @param {bool} updateContent
+ * @returns
+ */
+
+function showSecondaryAccordion(updateContent) {
+    return () => {
+        const $handleFieldWrapper = $('.field-handle');
+        const $handleSelect = $('#id_handle');
+        const handle = $handleSelect.val();
+        if (!updateContent && handle) {
+            $handleFieldWrapper.hide();
+        }
+        const $title = $('#id_title');
+        const mceContent = tinymce.get("id_content");
+        const $accordionSecondary = $('.field-accordion_secondary');
+        const mceAccordionSecondary = tinymce.get("id_accordion_secondary");
+
+        if (updateContent) {
+            console.log('updating content');
+            console.log(pageDefaults[handle].content);
+            mceContent.setContent(pageDefaults[handle].content);
+        }
+
+        if (pageDefaults[handle] && pageDefaults[handle].title) {
+            $title.val(pageDefaults[handle].title);
+        }
+
+        if (hasSecondaryAccordion.includes(handle)) {
+            $accordionSecondary.show();
+            if (updateContent) {
+                mceAccordionSecondary.setContent(pageDefaults[handle].accordionSecondary);
+            }
+        } else {
+            $accordionSecondary.hide();
+        }
+    }
+}
+
+$(showSecondaryAccordion(false));
+$('#id_handle').on('change', showSecondaryAccordion(true));
