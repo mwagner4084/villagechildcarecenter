@@ -368,6 +368,89 @@ const pageDefaults = {
             <img src="${ django.staticPrefix + 'img/thank-you.png' }" />
         `,
     },
+    employment: {
+        title: `Employment Information`,
+        content: `
+            <p>
+                The Village Childcare Center is a nature-focused, play-based center inspired by the Reggio Emilia philosophy. We are dedicated to providing the highest level of care to the children in our community. We are looking for hardworking teachers and administrators who take pride in their work and take ownership of their classrooms.
+            </p>
+            <p>
+                An Assistant Director will ensure that the center operates smoothly and assist in classrooms to ensure teachers are performing their duties adequately. This position works alongside the Director to create a harmonious and fun environment for both children and teachers. We are in the process of opening our first location, so there are ample opportunities for growth.
+            </p>
+            <p>
+                A childcare center is only as good as its teaching staff. Our teachers must deliver professional services in a reputable manner. The early childhood years are a very special time in a child's development. Great changes occur in this relatively short period of time as children learn to communicate, increase their intellectual awareness, and make great physical strides.
+            </p>
+            <p>
+                The Village Childcare Center's philosophy is to provide an age-appropriate environment to develop self-esteem, confidence, and a love of learning. By combining the best possible equipment and professionally educated staff in an environment specifically designed for young children, we can provide an outstanding program. Our educational goal is to utilize play and creativity to foster a love of learning. We challenge our students by promoting inquiry and discovery through exploring the world around them, using the environment as a third teacher. This instills a sense of confidence in their ability to master new situations and tasks through reasoning.
+            </p>
+            <p>
+                Job Description:
+            </p>
+            <p>
+                The following responsibilities are required but not limited to:
+            </p>
+            <li>
+                Provide complete care for a group of children, including diapering, toilet training, feeding, providing educational opportunities, and serving as a positive role model.
+            </li>
+            <li>
+                Maintain a sanitary and safe classroom environment through cleaning methods and regular inspection of supplies and facility structure.
+            </li>
+            <li>
+                Communicate with parents daily regarding each child's progress and daily activities.
+            </li>
+            <li>
+                Create and implement lesson plans, daily schedules, and cooperative learning plans.
+            </li>
+            <li>
+                Present a friendly learning environment while maintaining a positive attitude.
+            </li>
+            <li>
+                Practice and encourage growth and development habits.
+            </li>
+            <li>
+                Maintain adequate care for all supplies and learning centers.
+            </li>
+            <li>
+                Ensure that your personnel file, as well as the regulations required to work in a childcare center, are current and documented as required.
+            </li>
+            <p>
+                Requirements:
+            </p>
+            <li>
+                Be at least 18 years of age.
+            </li>
+            <li>
+                Possess a high school diploma or equivalent education.
+            </li>
+            <li>
+                Be willing to submit to various background checks, including those completed by the Department of Human Services and the Michigan State Police Department.
+            </li>
+            <li>
+                Be CPR, First Aid, and Blood Borne Pathogen certified or willing to obtain certification upon hire.
+            </li>
+            <li>
+                Complete a Tuberculosis test and physical and provide a physician's documentation of both.
+            </li>
+            <li>
+                Complete 12 hours of pre-approved continued education per calendar year, with 3 hours of these being face-to-face.
+            </li>
+            <p>
+                Lead Teacher: $11-$16 per hour. Please do NOT apply for a lead teacher position if you do not meet all state qualifications to be approved as a lead teacher.
+            </p>
+            <p>
+                Assistant Teacher: $10.25-$12 per hour.
+            </p>
+            <p>
+                Benefits:
+            </p>
+            <li>
+                Employee discount.
+            </li>
+            <li>
+                Paid time off.
+            </li>
+        `,
+    },
 };
 
 const hasSecondaryContent = [
