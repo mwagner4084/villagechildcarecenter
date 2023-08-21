@@ -15,6 +15,7 @@ class Page(models.Model):
         ('school_age', 'School Age'),
         ('contact', 'Contact'),
         ('confirm', 'Confirmation'),
+        ('employment', 'Employment Information'),
     )
 
     handle = models.CharField(

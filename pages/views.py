@@ -133,6 +133,13 @@ class SchoolAgePageView(PageView):
     handle = 'school_age'
 
 
+class EmploymentPageView(PageView):
+    """ Employment page view. """
+
+    template_name = "employment.html"
+    handle = 'employment'
+
+
 class ContactPageView(PageView):
     """ Contact page view. """
 
