@@ -384,71 +384,91 @@ const pageDefaults = {
                 The Village Childcare Center's philosophy is to provide an age-appropriate environment to develop self-esteem, confidence, and a love of learning. By combining the best possible equipment and professionally educated staff in an environment specifically designed for young children, we can provide an outstanding program. Our educational goal is to utilize play and creativity to foster a love of learning. We challenge our students by promoting inquiry and discovery through exploring the world around them, using the environment as a third teacher. This instills a sense of confidence in their ability to master new situations and tasks through reasoning.
             </p>
             <p>
-                Job Description:
+                <strong>Job Description</strong>
             </p>
             <p>
                 The following responsibilities are required but not limited to:
             </p>
-            <li>
-                Provide complete care for a group of children, including diapering, toilet training, feeding, providing educational opportunities, and serving as a positive role model.
-            </li>
-            <li>
-                Maintain a sanitary and safe classroom environment through cleaning methods and regular inspection of supplies and facility structure.
-            </li>
-            <li>
-                Communicate with parents daily regarding each child's progress and daily activities.
-            </li>
-            <li>
-                Create and implement lesson plans, daily schedules, and cooperative learning plans.
-            </li>
-            <li>
-                Present a friendly learning environment while maintaining a positive attitude.
-            </li>
-            <li>
-                Practice and encourage growth and development habits.
-            </li>
-            <li>
-                Maintain adequate care for all supplies and learning centers.
-            </li>
-            <li>
-                Ensure that your personnel file, as well as the regulations required to work in a childcare center, are current and documented as required.
-            </li>
+            <ol>
+                <li>
+                    Provide complete care for a group of children, including diapering, toilet training, feeding, providing educational opportunities, and serving as a positive role model.
+                </li>
+                <li>
+                    Maintain a sanitary and safe classroom environment through cleaning methods and regular inspection of supplies and facility structure.
+                </li>
+                <li>
+                    Communicate with parents daily regarding each child's progress and daily activities.
+                </li>
+                <li>
+                    Create and implement lesson plans, daily schedules, and cooperative learning plans.
+                </li>
+                <li>
+                    Present a friendly learning environment while maintaining a positive attitude.
+                </li>
+                <li>
+                    Practice and encourage growth and development habits.
+                </li>
+                <li>
+                    Maintain adequate care for all supplies and learning centers.
+                </li>
+                <li>
+                    Ensure that your personnel file, as well as the regulations required to work in a childcare center, are current and documented as required.
+                </li>
+            </ol>
             <p>
-                Requirements:
+                <strong>Requirements</strong>
             </p>
-            <li>
-                Be at least 18 years of age.
-            </li>
-            <li>
-                Possess a high school diploma or equivalent education.
-            </li>
-            <li>
-                Be willing to submit to various background checks, including those completed by the Department of Human Services and the Michigan State Police Department.
-            </li>
-            <li>
-                Be CPR, First Aid, and Blood Borne Pathogen certified or willing to obtain certification upon hire.
-            </li>
-            <li>
-                Complete a Tuberculosis test and physical and provide a physician's documentation of both.
-            </li>
-            <li>
-                Complete 12 hours of pre-approved continued education per calendar year, with 3 hours of these being face-to-face.
-            </li>
+            <ol>
+                <li>
+                    Be at least 18 years of age.
+                </li>
+                <li>
+                    Possess a high school diploma or equivalent education.
+                </li>
+                <li>
+                    Be willing to submit to various background checks, including those completed by the Department of Human Services and the Michigan State Police Department.
+                </li>
+                <li>
+                    Be CPR, First Aid, and Blood Borne Pathogen certified or willing to obtain certification upon hire.
+                </li>
+                <li>
+                    Complete a Tuberculosis test and physical and provide a physician's documentation of both.
+                </li>
+                <li>
+                    Complete 12 hours of pre-approved continued education per calendar year, with 3 hours of these being face-to-face.
+                </li>
+            </ol>
             <p>
-                Lead Teacher: $11-$16 per hour. Please do NOT apply for a lead teacher position if you do not meet all state qualifications to be approved as a lead teacher.
+                <strong>Benefits</strong>
+            </p>
+            <ol>
+                <li>
+                    Employee discount.
+                </li>
+                <li>
+                    Paid time off.
+                </li>
+            </ol>
+            <p>
+                <strong>Salary</strong>
+            </p>
+            <ol>
+                <li>
+                    *Lead Teacher: $11-$16 per hour.
+                </li>
+                <li>
+                    Assistant Teacher: $10.25-$12 per hour.
+                </li>
+            </ol>
+            <p>
+                <i>*Note: Please do NOT apply for a lead teacher position if you do not meet all state qualifications to be approved as a lead teacher.</i>
             </p>
             <p>
-                Assistant Teacher: $10.25-$12 per hour.
+                <strong>How to Apply</strong>
             </p>
             <p>
-                Benefits:
+                Please send your completed <a href="${ django.staticPrefix + 'img/VCC-App.pdf' }">application</a>, along with your resume and cover letter, to <a href="mailto:director@thevillageccc.com">our director</a>.
             </p>
-            <li>
-                Employee discount.
-            </li>
-            <li>
-                Paid time off.
-            </li>
         `,
     },
 };
