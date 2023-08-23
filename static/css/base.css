@@ -12,6 +12,7 @@
     --th-color-beige: #e2cfb8;
     --th-color-orange: #FF8360;
     --th-color-pink: #EBB3A9;
+    --th-color-dark-green: #588157;
 
     --heading-font-family: 'Marker Felt', fantasy;
     --navbar-font-family: "Trueno", sans-serif;
@@ -55,12 +56,13 @@ header {
 }
 
 a {
-    color: var(--th-color-gray);
+    color: var(--th-color-dark-green);
     line-height: 2.5;
 }
 
 a:hover {
     color: var(--th-color-green);
+    font-weight: 600;
 }
 
 .home-img {
