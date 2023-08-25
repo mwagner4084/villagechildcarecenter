@@ -447,24 +447,13 @@ const pageDefaults = {
                 </li>
             </ol>
             <p>
-                <strong>Salary</strong>
+            <strong>How to Apply</strong>
             </p>
-            <ol>
-                <li>
-                    *Lead Teacher: $11-$16 per hour.
-                </li>
-                <li>
-                    Assistant Teacher: $10.25-$12 per hour.
-                </li>
-            </ol>
+            <p>
+            Please send your completed <a href="${ django.staticPrefix + 'img/VCC-App.pdf' }">application</a>, along with your resume and cover letter, to <a href="mailto:director@thevillageccc.com">our director</a>.
+            </p>
             <p>
                 <i>*Note: Please do NOT apply for a lead teacher position if you do not meet all state qualifications to be approved as a lead teacher.</i>
-            </p>
-            <p>
-                <strong>How to Apply</strong>
-            </p>
-            <p>
-                Please send your completed <a href="${ django.staticPrefix + 'img/VCC-App.pdf' }">application</a>, along with your resume and cover letter, to <a href="mailto:director@thevillageccc.com">our director</a>.
             </p>
         `,
     },
