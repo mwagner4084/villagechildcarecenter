@@ -365,7 +365,7 @@ const pageDefaults = {
                 We look forward to working with you and your child.
                 We'll be in touch soon.
             </h5>
-            <img src="${ django.staticPrefix + 'img/thank-you.png' }" />
+            <img src="${ django.staticPrefix + 'img/thank_you.png' }" />
         `,
     },
     employment: {
