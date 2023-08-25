@@ -57,7 +57,7 @@ tinymce.init(settings);
 /* Default template content */
 const pageDefaults = {
     home: {
-        title: `Opening Spring 2023`,
+        title: `Now Accepting Applications for Fall 2023!`,
         content: `
             <h3>
                 Our Mission
@@ -156,7 +156,7 @@ const pageDefaults = {
                 In this classroom, children will enjoy a warm, nurturing classroom environment with stimulating activities and age-appropriate educational toys.
             </p>
             <h4>
-                <strong>12 Months - 24 Months</strong>
+                <strong>12 Months - 30 Months</strong>
             </h4>
             <p>
                 These energetic little ones are growing and learning, so we channel their energy into positive learning moments by giving them ample room to move and explore. Here, toddlers receive encouragement and guidance toward the growth of their physical skills and emerging milestones:
@@ -181,7 +181,7 @@ const pageDefaults = {
         `,
         contentSecondary: `
             <h4>
-                <strong>24 Months - 35 Months</strong>
+                <strong>30 Months - 40 Months</strong>
             </h4>
             <p>
                 This classroom is committed to potty training. A mobile, energetic 2-year-old enjoys the entire world as their playground. We've put together a unique educational approach that focuses their enthusiasm on opportunities for development, growth, and achievement. Here, 2-year-olds enjoy an exclusive milestone-based curriculum and interactive, tactile learning experiences.
@@ -263,7 +263,7 @@ const pageDefaults = {
         `,
     },
     preschool: {
-        title: `Coming Fall 2023`,
+        title: `Now Enrolling for Fall 2023!`,
         content: `
             <p>
                 Our Preschool Program is an optional program as well as open to the public. In our preschool program, our teachers will introduce highscope curriculum.
