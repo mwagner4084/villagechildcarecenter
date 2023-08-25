@@ -272,7 +272,7 @@ const pageDefaults = {
                 <strong>Highscope curriculum</strong> offers additional resources designed to support daily learning. This includes strategies to individualize learning throughout the daily routine and activities for building children's literacy skills and music to support learning. These resources are the first step in creating and engaging a rich learning environment that encourages young children to learn through exploration. Combined with diverse, open-ended materials that reflect children's home, language, and culture to provide an optimal learning environment that truly aligns with active learning.
             </p>
             <p>
-                Our 4-year-olds will have the opportunity to use the STEAM classroom from 9-12 Monday, Wednesday, and Thursday. During this time, students will follow the SCOPE curriculum. This program is also available to the public. The Village Childcare center will go in-depth with the following:
+                Our 4-year-olds will have the opportunity to use the STEAM classroom from 8-12 Monday, Wednesday, and Thursday. During this time, students will follow the SCOPE curriculum. This program is also available to the public. The Village Childcare center will go in-depth with the following:
             </p>
             <p>
                 <strong>Nature and Science:</strong> to comprehend the physical and natural world through observation, description, prediction, and data gathering.
@@ -347,10 +347,10 @@ const pageDefaults = {
             </ul>
             <ul>
                 <li>
-                    <strong>Local:</strong> (269) 253-8008
+                    <strong>Local:</strong> (269) 365-0808
                 </li>
                 <li>
-                    <strong>Fax:</strong> (269) 222-2588
+                    <strong>Fax:</strong> (269) 270-3768
                 </li>
             </ul>
         `,
@@ -373,9 +373,6 @@ const pageDefaults = {
         content: `
             <p>
                 The Village Childcare Center is a nature-focused, play-based center inspired by the Reggio Emilia philosophy. We are dedicated to providing the highest level of care to the children in our community. We are looking for hardworking teachers and administrators who take pride in their work and take ownership of their classrooms.
-            </p>
-            <p>
-                An Assistant Director will ensure that the center operates smoothly and assist in classrooms to ensure teachers are performing their duties adequately. This position works alongside the Director to create a harmonious and fun environment for both children and teachers. We are in the process of opening our first location, so there are ample opportunities for growth.
             </p>
             <p>
                 A childcare center is only as good as its teaching staff. Our teachers must deliver professional services in a reputable manner. The early childhood years are a very special time in a child's development. Great changes occur in this relatively short period of time as children learn to communicate, increase their intellectual awareness, and make great physical strides.
