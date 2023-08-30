@@ -57,7 +57,7 @@ tinymce.init(settings);
 /* Default template content */
 const pageDefaults = {
     home: {
-        title: `Now Accepting Applications for Fall 2023!`,
+        title: `Now Accepting Applications for Fall '23!`,
         content: `
             <h3>
                 Our Mission
