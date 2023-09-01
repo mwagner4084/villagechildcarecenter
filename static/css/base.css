@@ -6,13 +6,16 @@
 }
 
 :root {
+    --th-color-white: #fff;
+    --th-color-black: #212121;
     --th-color-green: #8ab885;
     --th-color-eggshell: #fcefd5;
-    --th-color-gray: #3b3d34;
+    --th-color-gray: #20231F;
     --th-color-beige: #e2cfb8;
     --th-color-orange: #FF8360;
     --th-color-pink: #EBB3A9;
     --th-color-dark-green: #3E5B3E;
+    --th-color-blue: #20231F;
 
     --heading-font-family: 'Marker Felt', fantasy;
     --navbar-font-family: "Trueno", sans-serif;
@@ -71,19 +74,19 @@ a:hover {
 }
 
 .btn-primary {
-    --bs-btn-color: #fff;
-    --bs-btn-bg: var(--th-color-green);
+    --bs-btn-color: var(--th-color-white);
+    --bs-btn-bg: var(--th-color-dark-green);
     --bs-btn-border-color: var(--th-color-green);
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: var(--th-color-gray);
-    --bs-btn-hover-border-color: var(--th-color-gray);
+    --bs-btn-hover-color: var(--th-color-grey);
+    --bs-btn-hover-bg: var(--th-color-green);
+    --bs-btn-hover-border-color: var(--th-color-dark-green);
     --bs-btn-focus-shadow-rgb: 49,132,253;
-    --bs-btn-active-color: #fff;
+    --bs-btn-active-color: var(--th-color-grey);
     --bs-btn-active-bg: var(--th-color-green);
-    --bs-btn-active-border-color: var(--th-color-green);
+    --bs-btn-active-border-color: var(--th-color-dark-green);
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: var(--th-color-gray);
+    --bs-btn-disabled-color: var(--th-color-gray);
+    --bs-btn-disabled-bg: var(--th-color-green);
     --bs-btn-disabled-border-color: var(--th-color-gray);
 }
 
@@ -124,7 +127,7 @@ h1.heading::after {
 
 footer {
     display: in-line;
-    background-color: #92B9BD;
+    background-color: var(--th-color-blue);
     color: var(--th-color-gray);
     /* padding: 1rem; */
     text-align: center;
@@ -169,12 +172,16 @@ ul, ol {
     --bs-accordion-color: var(--th-color-gray);
     --bs-accordion-bg: var(--th-color-green);
     --bs-accordion-border-color: var(--th-color-gray);
-    --bs-accordion-btn-color: white;
+    --bs-accordion-btn-color: var(--th-color-gray);
     --bs-accordion-btn-bg: var(--bs-accordion-bg);
     --bs-accordion-btn-focus-border-color: #4f6b4c;
     --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(58, 110, 52, 0.25);
-    --bs-accordion-active-color: var(--th-color-gray);
-    --bs-accordion-active-bg: rgb(111, 147, 107);
+    --bs-accordion-active-color: var(--th-color-white);
+    --bs-accordion-active-bg: var(--th-color-dark-green);
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--th-color-white);
 }
 
 .accordion-flush .accordion-item {
