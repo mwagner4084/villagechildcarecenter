@@ -37,9 +37,11 @@
                 <h3 class="text-start pb-4">
                     Send us a message
                 </h3>
-                {% crispy form %}
+                <div class="pb-4">
+                    {% crispy form %}
+                </div>
             </div>
-            <div class="col-12 col-md-6 pt-4">
+            <div class="col-12 col-md-6">
                 <div class="rte text-start">
                     {% if page.content_secondary %}
                         {{ page.content_secondary | safe }}
@@ -47,12 +49,18 @@
                         <h3 class="text-start">
                             Location:
                         </h3>
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled" style="padding-top: 20px;">
                             <li>
                                 The Village Childcare Center
                             </li>
                             <li>
+                                Westwood Plaza
+                            </li>
+                            <li>
                                 5320 Holiday Terrace, Suite 4
+                            </li>
+                            <li>
+                                Building A - Lower Level
                             </li>
                             <li>
                                 Kalamazoo, MI 49009
@@ -68,7 +76,13 @@
                         </ul>
                     {% endif %}
                 </div>
-                <figure class="figure pt-4">
+                <h5 class="text-start pt-2">
+                    Conveniently located in Oshtemo Township
+                </h5>
+                <p>
+                    Right next to US-131 and just 3 miles from I-94.
+                </p>
+                <figure class="figure pt-2">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2952.5895720496633!2d-85.65791634942362!3d42.2659365790912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x881776e4f1f128d3%3A0xe3505950e3160da0!2s5320%20Holiday%20Terrace%2C%20Kalamazoo%2C%20MI%2049009!5e0!3m2!1sen!2sus!4v1673838103210!5m2!1sen!2sus" class="mw-100" width="475" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </figure>
             </div>

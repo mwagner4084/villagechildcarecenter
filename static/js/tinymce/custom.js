@@ -339,7 +339,13 @@ const pageDefaults = {
                     The Village Childcare Center
                 </li>
                 <li>
-                    5320 Holiday Terrace, Suite 4
+                    Westwood Plaza
+                </li>
+                <li>
+                5320 Holiday Terrace, Suite 4
+                </li>
+                <li>
+                    Building A - Lower Level
                 </li>
                 <li>
                     Kalamazoo, MI 49009
@@ -365,7 +371,7 @@ const pageDefaults = {
                 We look forward to working with you and your child.
                 We'll be in touch soon.
             </h5>
-            <img src="${ django.staticPrefix + 'img/thank_you.png' }" />
+            <img src="${django.staticPrefix + 'img/thank_you.png'}" />
         `,
     },
     employment: {
@@ -450,7 +456,7 @@ const pageDefaults = {
             <strong>How to Apply</strong>
             </p>
             <p>
-            Please send your completed <a href="${ django.staticPrefix + 'img/VCC-App.pdf' }">application</a>, along with your resume and cover letter, to <a href="mailto:director@thevillageccc.com">our director</a>.
+            Please send your completed <a href="${django.staticPrefix + 'img/VCC-App.pdf'}">application</a>, along with your resume and cover letter, to <a href="mailto:director@thevillageccc.com">our director</a>.
             </p>
             <p>
                 <i>*Note: Please do NOT apply for a lead teacher position if you do not meet all state qualifications to be approved as a lead teacher.</i>
@@ -471,7 +477,7 @@ const hasSecondaryContent = [
 /**
  * Show the secondary content for the page and update the title and content if set.
  * @param {bool} updateContent
- * @returns
+ * @returns {() => void}
  */
 function showSecondaryContent(updateContent) {
     return () => {
@@ -519,7 +525,7 @@ const hasAccordionContent = [
 /**
  * Show the accordion content for the page and update the title and content if set.
  * @param {bool} updateContent
- * @returns
+ * @returns {() => void}
  */
 function showAccordion(updateContent) {
     return () => {
@@ -544,7 +550,7 @@ function showAccordion(updateContent) {
             $title.val(pageDefaults[handle].title);
         }
 
-        if (hasAccordion.includes(handle)) {
+        if (hasAccordionContent.includes(handle) && $accordion.length) {
             $accordion.show();
             if (updateContent) {
                 mceAccordion.setContent(pageDefaults[handle].accordion);
@@ -565,9 +571,8 @@ const hasSecondaryAccordion = [
 /**
  * Show the secondary accordion content for the page and update the title and content if set.
  * @param {bool} updateContent
- * @returns
+ * @returns {() => void}
  */
-
 function showSecondaryAccordion(updateContent) {
     return () => {
         const $handleFieldWrapper = $('.field-handle');
@@ -591,7 +596,7 @@ function showSecondaryAccordion(updateContent) {
             $title.val(pageDefaults[handle].title);
         }
 
-        if (hasSecondaryAccordion.includes(handle)) {
+        if (hasSecondaryAccordion.includes(handle) && $accordionSecondary.length) {
             $accordionSecondary.show();
             if (updateContent) {
                 mceAccordionSecondary.setContent(pageDefaults[handle].accordionSecondary);
