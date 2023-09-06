@@ -74,7 +74,7 @@ def submit_information_request(request: HttpRequest) -> HttpResponse:
     return HttpResponse('Wrong request')
 
 
-TEMPLATE_ID = 'd-e1123576e9594830abb7a8fca73b0dc6'
+TEMPLATE_ID = 'd-c82f01e43d234bffa996b03d9c4b57a1'
 
 
 @csrf_exempt
