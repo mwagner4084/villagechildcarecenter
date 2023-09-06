@@ -15,7 +15,7 @@
     --th-color-orange: #FF8360;
     --th-color-pink: #EBB3A9;
     --th-color-dark-green: #3E5B3E;
-    --th-color-blue: #20231F;
+    --th-color-blue: #447A9C;
 
     --heading-font-family: 'Marker Felt', fantasy;
     --navbar-font-family: "Trueno", sans-serif;
@@ -128,7 +128,7 @@ h1.heading::after {
 footer {
     display: in-line;
     background-color: var(--th-color-blue);
-    color: var(--th-color-gray);
+    color: var(--th-color-white);
     /* padding: 1rem; */
     text-align: center;
     font-size: calc(0.75rem + 0.25vw) !important;
