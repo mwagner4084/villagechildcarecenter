@@ -176,11 +176,11 @@ LOGOUT_REDIRECT_URL = "login"
 AUTH_USER_MODEL = "accounts.CustomUser"
 
 SENDGRID_TEMPLATES = {
-    'info_request': 'd-e1123576e9594830abb7a8fca73b0dc6',
+    'info_request': 'd-c82f01e43d234bffa996b03d9c4b57a1',
     'tour_request': 'd-1d5511da89534cfdb648f074e95fb681',
 }
 
 SENDGRID_LISTS = {
-    'info_request': '2232a93f-a333-44d8-aee9-00481c32e278',
-    'tour_request': 'd6f529ed-1ca7-4a07-8e7e-dcbc0d5f64bf',
+    'info_request': '07f20d72-faf9-433f-8f11-3668f7734d7d',
+    'tour_request': '12fc0a5f-8665-4cd3-adac-2b321e76d231',
 }
