@@ -9,7 +9,7 @@ from sendgrid.helpers.mail import Mail
 
 from django_project import settings
 from pages.forms import ContactForm, InformationRequestForm
-from pages.models import Contact, InformationRequest
+from pages.models import InformationRequest
 
 
 @csrf_exempt
