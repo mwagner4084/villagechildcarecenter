@@ -177,7 +177,7 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 
 SENDGRID_TEMPLATES = {
     'info_request': 'd-c82f01e43d234bffa996b03d9c4b57a1',
-    'tour_request': 'd-1d5511da89534cfdb648f074e95fb681',
+    'tour_request': 'd-c82f01e43d234bffa996b03d9c4b57a1',
 }
 
 SENDGRID_LISTS = {
