@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
+from django.core.cache import cache
 from environs import Env
 
 env = Env()
@@ -43,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
-    # 'tinymce',
+    'meta',
     # Local
     'pages.apps.PagesConfig',
     'accounts.apps.AccountsConfig',
@@ -148,22 +149,23 @@ CSRF_TRUSTED_ORIGINS = [
 SENDGRID_API_KEY = env("SENDGRID_API_KEY")
 
 # using sendgrid:
-EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
-DEFAULT_FROM_EMAIL = "director@thevillageccc.com"
-EMAIL_HOST = "smtp.sendgrid.net"
-EMAIL_HOST_USER = "apikey"
-EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-SENDGRID_SANDBOX_MODE_IN_DEBUG = False
-
-# using gmail:
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = env('EMAIL_HOST')
+# EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+# DEFAULT_FROM_EMAIL = "director@thevillageccc.com"
+# EMAIL_HOST = "smtp.sendgrid.net"
+# EMAIL_HOST_USER = "apikey"
+# EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 # EMAIL_PORT = 587
 # EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+# SENDGRID_SANDBOX_MODE_IN_DEBUG = False
+
+# using gmail:
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = ['director@thevillageccc.com']
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',

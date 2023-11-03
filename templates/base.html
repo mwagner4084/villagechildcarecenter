@@ -1,14 +1,17 @@
 {% load static %}
 {% load crispy_forms_tags %}
+{% include 'meta/meta.html' %}
+{% load meta %}
 
 <!DOCTYPE html>
 <html>
-<head>
+<head {% meta_namespaces %} >
     <meta charset="utf-8">
     <title>
-        {% block title %}
-        {% endblock title %}
+        {% block meta_title %}{{ meta.title }}{% endblock meta_title %}
     </title>
+    <meta name="description" content="{% block description %}{{ meta.description }}{% endblock description %}">
+    <meta name="keywords" content="{% block keywords %}{{ meta.keywords }}{% endblock keywords %}">
     <meta name="viewport" content="width=device-width,
     initial-scale=1, shrink-to-fit=no">
     <!-- CSS only -->

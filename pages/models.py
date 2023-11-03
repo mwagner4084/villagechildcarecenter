@@ -27,6 +27,9 @@ class Page(models.Model):
     title = models.CharField(max_length=200, default='Title')
     content = models.CharField(max_length=500000, default='Content')
     content_secondary = models.CharField(max_length=500000, default='Content2')
+    meta_title = models.CharField(max_length=255, null=True, blank=True)
+    meta_description = models.TextField(default='Default meta description')
+    meta_keywords = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.handle

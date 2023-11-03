@@ -1,4 +1,5 @@
 asgiref==3.6.0
+autopep8==2.0.1
 boto3==1.26.59
 botocore==1.29.59
 crispy-bootstrap5==0.7
@@ -7,6 +8,7 @@ dj-email-url==1.0.6
 Django==4.1.5
 django-cache-url==3.4.4
 django-crispy-forms==1.14.0
+django-meta==2.4.0
 django-sendgrid-v5==1.2.2
 django-ses==3.3.0
 django-tinymce==3.5.0
@@ -17,6 +19,7 @@ marshmallow==3.19.0
 packaging==23.0
 Pillow==9.4.0
 psycopg2==2.9.5
+pycodestyle==2.10.0
 python-dateutil==2.8.2
 python-dotenv==0.21.0
 python-http-client==3.3.7
