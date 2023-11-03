@@ -138,11 +138,6 @@ class HomePageView(PageView):
                 self.send_custom_email(subject, message, from_email, to_email)
 
             except Exception as e:
-                logger = logging.getLogger('django')
-                logger.exception(
-                    f"Error occurred when processing contact form: {e}")
-                print(e)
-
                 context = self.get_context_data(**kwargs)
                 error_msg = 'There was an error submitting your request.'
                 if isinstance(e, IntegrityError):
@@ -351,11 +346,6 @@ class ContactPageView(PageView):
                 self.send_custom_email(subject, message, from_email, to_email)
 
             except Exception as e:
-                logger = logging.getLogger('django')
-                logger.exception(
-                    f"Error occurred when processing contact form: {e}")
-                print(e)
-
                 context = self.get_context_data(**kwargs)
                 error_msg = 'There was an error submitting your request.'
                 if isinstance(e, IntegrityError):

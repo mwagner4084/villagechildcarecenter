@@ -146,18 +146,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 CSRF_TRUSTED_ORIGINS = [
     'https://web-production-b31d.up.railway.app', 'https://thevillageccc.com', 'https://www.thevillageccc.com', 'https://127.0.0.1:8000', 'https://yo6075qb.up.railway.app']
 
-SENDGRID_API_KEY = env("SENDGRID_API_KEY")
-
-# using sendgrid:
-# EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
-# DEFAULT_FROM_EMAIL = "director@thevillageccc.com"
-# EMAIL_HOST = "smtp.sendgrid.net"
-# EMAIL_HOST_USER = "apikey"
-# EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# SENDGRID_SANDBOX_MODE_IN_DEBUG = False
-
 # using gmail:
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = env('EMAIL_HOST')
@@ -176,43 +164,3 @@ LOGOUT_REDIRECT_URL = "login"
 
 # Auth User
 AUTH_USER_MODEL = "accounts.CustomUser"
-
-SENDGRID_TEMPLATES = {
-    'info_request': 'd-c82f01e43d234bffa996b03d9c4b57a1',
-    'tour_request': 'd-c82f01e43d234bffa996b03d9c4b57a1',
-}
-
-SENDGRID_LISTS = {
-    'info_request': '07f20d72-faf9-433f-8f11-3668f7734d7d',
-    'tour_request': '12fc0a5f-8665-4cd3-adac-2b321e76d231',
-}
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {message}',
-            'style': '{',
-        },
-        'simple': {
-            'format': '{levelname} {message}',
-            'style': '{',
-        },
-    },
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'debug.log',
-            'formatter': 'verbose',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
