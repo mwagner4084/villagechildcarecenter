@@ -1,3 +1,4 @@
+import logging
 import smtplib
 from email.mime.text import MIMEText
 
@@ -14,6 +15,8 @@ from django_project import settings
 
 from .forms import ContactForm, InformationRequestForm
 from .models import Contact, InformationRequest, Page
+
+logger = logging.getLogger(__name__)
 
 
 class PageView(TemplateView):
@@ -106,7 +109,7 @@ class HomePageView(PageView):
         """ Handle the form submission. """
 
         form = InformationRequestForm(request.POST)
-        from_email = settings.DEFAULT_FROM_EMAIL
+        from_email = 'thevillagechildcarecenter4@gmail.com'
         to_email = ['director@thevillageccc.com', 'mw.devdesign@gmail.com']
 
         if form.is_valid():
@@ -135,6 +138,11 @@ class HomePageView(PageView):
                 self.send_custom_email(subject, message, from_email, to_email)
 
             except Exception as e:
+                logger = logging.getLogger('django')
+                logger.exception(
+                    f"Error occurred when processing contact form: {e}")
+                print(e)
+
                 context = self.get_context_data(**kwargs)
                 error_msg = 'There was an error submitting your request.'
                 if isinstance(e, IntegrityError):
@@ -276,10 +284,32 @@ class ContactPageView(PageView):
 
         return context
 
+    def send_custom_email(self, subject, message, from_email, to_email):
+        # Initialize connection
+        smtp_server = smtplib.SMTP('smtp.gmail.com', 587)
+        smtp_server.starttls()
+
+        email_host_user = settings.EMAIL_HOST_USER
+        email_host_password = settings.EMAIL_HOST_PASSWORD
+        smtp_server.login(email_host_user, email_host_password)
+
+        # Create email
+        msg = MIMEText(message)
+        msg['From'] = from_email
+        msg['To'] = ', '.join(to_email)
+        msg['Subject'] = subject
+
+        # Send email
+        smtp_server.sendmail(from_email, to_email, msg.as_string())
+        smtp_server.quit()
+
     def post(self, request: HttpRequest, *args, **kwargs):
         """ Handle the form submission. """
 
         form = ContactForm(request.POST)
+        from_email = 'thevillagechildcarecenter4@gmail.com'
+        to_email = ['director@thevillageccc.com', 'mw.devdesign@gmail.com']
+
         if form.is_valid():
             fname = form.cleaned_data['fname']
             lname = form.cleaned_data['lname']
@@ -289,13 +319,21 @@ class ContactPageView(PageView):
             start_date = form.cleaned_data['start_date']
             comments = form.cleaned_data['comments']
             referred_by = form.cleaned_data['referred_by']
-            sender = settings.DEFAULT_FROM_EMAIL
-            recipients = [email]
 
-            msg = EmailMessage(from_email=sender, to=recipients)
-            msg.template_id = settings.SENDGRID_TEMPLATES.get(  # type: ignore
-                'tour_request')
-            msg.send(fail_silently=False)
+            # msg.send(fail_silently=False)
+
+            from_email = from_email
+            to_email = to_email
+            subject = f'New Tour Request from {fname} {lname}'
+            message = f'''
+                Name: {fname} {lname}
+                Email: {email}
+                Phone: {phone}
+                Children: {children}
+                Start Date: {start_date}
+                Comments: {comments}
+                Referred By: {referred_by}
+            '''
 
             try:
                 tour_requests = Contact.objects.create(
@@ -310,12 +348,14 @@ class ContactPageView(PageView):
                 )
                 tour_requests.save()
 
-                contact = SendGridContact(email, fname, lname)
-                sendgrid_add_contacts(
-                    contacts=[contact],
-                    list_ids=[settings.SENDGRID_LISTS['tour_request']]
-                )
+                self.send_custom_email(subject, message, from_email, to_email)
+
             except Exception as e:
+                logger = logging.getLogger('django')
+                logger.exception(
+                    f"Error occurred when processing contact form: {e}")
+                print(e)
+
                 context = self.get_context_data(**kwargs)
                 error_msg = 'There was an error submitting your request.'
                 if isinstance(e, IntegrityError):

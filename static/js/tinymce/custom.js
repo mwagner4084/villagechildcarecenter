@@ -57,7 +57,7 @@ tinymce.init(settings);
 /* Default template content */
 const pageDefaults = {
     home: {
-        title: `Now Enrolling for Fall!`,
+        title: `Now Enrolling for 2023 + 2024!`,
         content: `
             <h3>
                 Our Mission
@@ -263,7 +263,7 @@ const pageDefaults = {
         `,
     },
     preschool: {
-        title: `Now Enrolling for Fall!`,
+        title: `Now Enrolling!`,
         content: `
             <p>
                 Our Preschool Program is an optional program as well as open to the public. In our preschool program, our teachers will introduce highscope curriculum.

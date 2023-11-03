@@ -144,7 +144,7 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-b31d.up.railway.app', 'https://thevillageccc.com', 'https://www.thevillageccc.com']
+    'https://web-production-b31d.up.railway.app', 'https://thevillageccc.com', 'https://www.thevillageccc.com', 'https://127.0.0.1:8000', 'https://yo6075qb.up.railway.app']
 
 SENDGRID_API_KEY = env("SENDGRID_API_KEY")
 
@@ -185,4 +185,34 @@ SENDGRID_TEMPLATES = {
 SENDGRID_LISTS = {
     'info_request': '07f20d72-faf9-433f-8f11-3668f7734d7d',
     'tour_request': '12fc0a5f-8665-4cd3-adac-2b321e76d231',
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
 }
