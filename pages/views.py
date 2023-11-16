@@ -20,7 +20,7 @@ class PageView(TemplateView):
     handle = None
     template_name = ""
     title = ""
-    meta_title = "Empowering the Young Minds of Kalamazoo with Quality Childcare"
+    meta_title = "The Village Childcare Center: Empowering the Young Minds of Kalamazoo with Quality Child Care"
     description = "Here at The Village, we choose to focus on each individual's strengths rather than their weaknesses. Our childcare philosophy is to provide an age-appropriate environment that develops self-esteem, confidence, and a love of learning."
     keywords = "child care, childcare, day care, daycare, preschool, school age, steam, stem, kalamazoo, portage, oshtemo, vicksburg, mattawan, gull lake, richland, plainwell, paw paw, texas corners, infant care, toddler care, pre-k, pre-kindergarten, kindergarten, before school care, after school care, summer camp, summer care, summer daycare, summer child care, summer childcare, summercamp"
     form = None
