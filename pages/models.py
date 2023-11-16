@@ -27,9 +27,14 @@ class Page(models.Model):
     title = models.CharField(max_length=200, default='Title')
     content = models.CharField(max_length=500000, default='Content')
     content_secondary = models.CharField(max_length=500000, default='Content2')
-    meta_title = models.CharField(max_length=255, null=True, blank=True)
-    meta_description = models.TextField(default='Default meta description')
-    meta_keywords = models.TextField(null=True, blank=True)
+    meta_title = models.CharField(max_length=255, default='Empowering the Young Minds of Kalamazoo with Quality Childcare')
+    description = models.TextField(max_length=300, default='Here at The Village, we choose to focus on each individual\'s strengths rather than their weaknesses. Our childcare philosophy is to provide an age-appropriate environment that develops self-esteem, confidence, and a love of learning.')
+    keywords = models.TextField(max_length=800, default='childcare, daycare, preschool, school age, kalamazoo, michigan, steam, science, technology, engineering, art, math, education, learning, fun, play, kids, children, infant, toddler, pre-k, pre-k, pre-kindergarten, kindergarten, elementary, after school, before school, summer camp, summer, camp, summer program, summer programs, summer childcare, summer daycare, summer child care, summer day care, summercamp')
+
+    class Meta:
+        verbose_name = _("Page")
+        verbose_name_plural = _("Pages")
+        
 
     def __str__(self):
         return self.handle

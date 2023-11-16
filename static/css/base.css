@@ -73,6 +73,11 @@ a:hover {
     margin-top: 4px;
 }
 
+.text-muted {
+    --bs-text-opacity: 1;
+    color: #6c7d77!important;
+}
+
 .btn-primary {
     --bs-btn-color: var(--th-color-white);
     --bs-btn-bg: var(--th-color-dark-green);

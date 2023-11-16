@@ -8,8 +8,13 @@
 <div class="template-home">
     <div class="container py-5">
         <div class="row justify-content-md-center">
-            <div class="col-12 col-md-auto text-center pb-4">
-                {% heading title=page.title default="Now Enrolling for 2023 + 2024!" %}
+            <div class="col-12 col-md-auto text-center">
+                <h1 class="display-6"><strong>It takes a village...</strong></h1>
+                {% if page.title %}
+                    <h3 class="text-muted">{{ page.title}}</h3>
+                {% else %}
+                    <h3 class="text-muted">Empowering the Young Minds of Kalamazoo with Quality Childcare</h3>
+                {% endif %}
             </div>
         </div>
         <hr>

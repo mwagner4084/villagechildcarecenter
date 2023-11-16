@@ -57,7 +57,7 @@ tinymce.init(settings);
 /* Default template content */
 const pageDefaults = {
     home: {
-        title: `Now Enrolling for 2023 + 2024!`,
+        title: `Empowering the Young Minds of Kalamazoo with Quality Childcare`,
         content: `
             <h3>
                 Our Mission

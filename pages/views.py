@@ -20,7 +20,8 @@ class PageView(TemplateView):
     handle = None
     template_name = ""
     title = ""
-    description = ""
+    meta_title = "Empowering the Young Minds of Kalamazoo with Quality Childcare"
+    description = "Here at The Village, we choose to focus on each individual's strengths rather than their weaknesses. Our childcare philosophy is to provide an age-appropriate environment that develops self-esteem, confidence, and a love of learning."
     keywords = "child care, childcare, day care, daycare, preschool, school age, steam, stem, kalamazoo, portage, oshtemo, vicksburg, mattawan, gull lake, richland, plainwell, paw paw, texas corners, infant care, toddler care, pre-k, pre-kindergarten, kindergarten, before school care, after school care, summer camp, summer care, summer daycare, summer child care, summer childcare, summercamp"
     form = None
 
@@ -37,9 +38,7 @@ class PageView(TemplateView):
         if pages:
             page = pages[0]
             context['page'] = page
-            context['meta_title'] = page.meta_title
-            context['meta_description'] = page.meta_description
-            context['meta_keywords'] = page.meta_keywords
+            context['meta'] = {'title': page.meta_title, 'description': page.description, 'keywords': page.keywords}
 
         if len(pages):
             context['page'] = pages[0]
@@ -57,9 +56,8 @@ class HomePageView(PageView):
     template_name = "index.html"
     form = InformationRequestForm
     handle = 'home'
-    title = 'Now Enrolling for 2023 + 2024!'
-    description = 'The Village Child Care Center is a locally owned and operated child care center located in the heart of Oshtemo Township. We are committed to providing a safe, nurturing, and educational environment for children ages 6 weeks and up. We are now enrolling for 2023 and 2024!'
-
+    title = 'Empowering the Young Minds of Kalamazoo with Quality Childcare'
+    
     def __init__(self, *args, **kwargs):
         if not self.handle or not self.template_name:
             raise Exception('You must define a handle and template_name')
@@ -138,8 +136,6 @@ class WelcomePageView(PageView):
     template_name = "welcome.html"
     handle = 'philosophy'
     title = 'Welcome to the Village'
-    description = 'We believe that children learn best through play and exploration. Our curriculum is designed to foster a love of learning and to prepare children for kindergarten and beyond. We are dedicated to providing a warm and welcoming environment for children and their families. We look forward to welcoming you to the Village!'
-
 
 class ClassroomPageView(PageView):
     """ Classroom page view. """
@@ -147,8 +143,7 @@ class ClassroomPageView(PageView):
     template_name = "classrooms.html"
     handle = 'classrooms'
     title = 'Classrooms'
-    description = 'We offer programs for children ages 6 weeks and up. Our classrooms are designed to meet the needs of each age group and are equipped with age appropriate toys and materials. We also have a large outdoor play area with a playground and a garden. We are proud to offer a variety of programs to meet the needs of our families.'
-
+    
 
 class SteamPageView(PageView):
     """ Steam page view. """
@@ -156,8 +151,7 @@ class SteamPageView(PageView):
     template_name = "steam.html"
     handle = 'steam'
     title = 'S.T.E.A.M. Room'
-    description = 'Our S.T.E.A.M. classroom is designed to allow children to use their imagination to explore their creativity.'
-
+    
 
 class PreschoolPageView(PageView):
     """ Preschool page view. """
@@ -165,7 +159,7 @@ class PreschoolPageView(PageView):
     template_name = "preschool.html"
     handle = 'preschool'
     title = 'Now Enrolling!'
-    description = 'Our preschool program is designed to prepare children for kindergarten and beyond. We use the Highscope Curriculum to provide individualized learning focused on nature and science, early math, and logic and reasoning. We offer a creative learning environment that fosters a love of learning.'
+    
 
 class SchoolAgePageView(PageView):
     """ School age page view. """
@@ -173,8 +167,7 @@ class SchoolAgePageView(PageView):
     template_name = "school_age.html"
     handle = 'school_age'
     title = 'School Age'
-    description = 'Our school age program is designed to provide a safe and nurturing environment for children before and after school. We offer transportation to and from local schools and provide a variety of activities to keep children engaged and entertained.'
-
+    
 
 class EmploymentPageView(PageView):
     """ Employment page view. """
@@ -182,8 +175,7 @@ class EmploymentPageView(PageView):
     template_name = "employment.html"
     handle = 'employment'
     title = 'Employment'
-    description = 'We are always looking for talented and dedicated individuals to join our team. If you are interested in joining our team, please fill out the form below and we will contact you to schedule an interview.'
-
+    
 
 class ContactPageView(PageView):
     """ Contact page view. """
@@ -192,7 +184,6 @@ class ContactPageView(PageView):
     template_name = "contact.html"
     handle = 'contact'
     title = 'Contact Us'
-    description = 'Please feel free to contact us at any time with any questions or to schedule a tour. We look forward to hearing from you!'
     
 
     def send_custom_email(self, subject, message, from_email, to_email):
@@ -283,4 +274,3 @@ class ConfirmPageView(PageView):
     template_name = "confirm.html"
     handle = 'confirm'
     title = 'Thank You!'
-    description = 'Thank you for contacting us! We will be in touch soon!'
