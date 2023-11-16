@@ -27,7 +27,7 @@ class Page(models.Model):
     title = models.CharField(max_length=200, default='Title')
     content = models.CharField(max_length=500000, default='Content')
     content_secondary = models.CharField(max_length=500000, default='Content2')
-    meta_title = models.CharField(max_length=255, default='The Village Childcare: Empowering the Young Minds of Kalamazoo with Quality Child Care')
+    meta_title = models.CharField(max_length=255, default='The Village Childcare: Empowering the Young Minds of Kalamazoo with Quality child care')
     description = models.TextField(max_length=300, default='Here at The Village, we choose to focus on each individual\'s strengths rather than their weaknesses. Our childcare philosophy is to provide an age-appropriate environment that develops self-esteem, confidence, and a love of learning.')
     keywords = models.TextField(max_length=800, default='childcare, daycare, preschool, school age, kalamazoo, michigan, steam, science, technology, engineering, art, math, education, learning, fun, play, kids, children, infant, toddler, pre-k, pre-k, pre-kindergarten, kindergarten, elementary, after school, before school, summer camp, summer, camp, summer program, summer programs, summer childcare, summer daycare, summer child care, summer day care, summercamp')
 
