@@ -58,6 +58,10 @@ header {
     font-family: var(--heading-font-family);
 }
 
+.display-6 {
+    text-transform: uppercase;
+}
+
 a {
     color: var(--th-color-dark-green);
     line-height: 2.5;
