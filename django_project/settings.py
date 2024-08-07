@@ -164,3 +164,4 @@ LOGOUT_REDIRECT_URL = "login"
 
 # Auth User
 AUTH_USER_MODEL = "accounts.CustomUser"
+
