@@ -14,6 +14,7 @@ from pathlib import Path
 
 from django.core.cache import cache
 from environs import Env
+import dj_database_url
 
 env = Env()
 env.read_env()
@@ -33,6 +34,27 @@ DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = ["www.thevillageccc.com", "thevillageccc.com", "web-production-b31d.up.railway.app",
                  "railway.app", "localhost", "127.0.0.1", "0.0.0.0", "yo6075qb.up.railway.app"]
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+            'propagate': False,
+        },
+    },
+}
 
 # Application definition
 
@@ -89,7 +111,11 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': env.dj_db_url("DATABASE_URL")
+    'default': dj_database_url.config(
+        default=env("DATABASE_URL"),
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
 
 
@@ -163,5 +189,5 @@ LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "login"
 
 # Auth User
-AUTH_USER_MODEL = "accounts.CustomUser" 
+AUTH_USER_MODEL = "accounts.CustomUser"
 
