@@ -1,1 +1,1 @@
-web: gunicorn villagechildcarecenter.django_project.wsgi:application --log-file - --log-level debug --workers 4 --threads 2 --timeout 120
+gunicorn django_project.wsgi:application --log-file - --log-level debug
