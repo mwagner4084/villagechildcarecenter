@@ -15,14 +15,14 @@ class Migration(migrations.Migration):
             model_name="customuser",
             name="fname",
             field=models.CharField(
-                default=None, max_length=150, verbose_name="first name"
+                default='', max_length=150, verbose_name="first name"
             ),
         ),
         migrations.AddField(
             model_name="customuser",
             name="lname",
             field=models.CharField(
-                default=None, max_length=150, verbose_name="last name"
+                default='', max_length=150, verbose_name="last name"
             ),
         ),
         migrations.AlterField(
