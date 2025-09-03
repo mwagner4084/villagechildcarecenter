@@ -15,11 +15,24 @@ from pathlib import Path
 from django.core.cache import cache
 from environs import Env
 
-env = Env()
-env.read_env()
+env = Env(); env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+if env("DATABASE_URL", None):
+    DATABASES = {
+        "default": env.dj_db_url("DATABASE_URL", ssl_require=True)
+    }
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -51,6 +64,7 @@ INSTALLED_APPS = [
     # 3rd Party
     'crispy_forms',
     'crispy_bootstrap5',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +95,8 @@ TEMPLATES = [
         },
     },
 ]
+
+EMAIL_TEMPLATE_DIRS = [BASE_DIR / "templates/email"]
 
 WSGI_APPLICATION = 'django_project.wsgi.application'
 
@@ -151,7 +167,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = env('EMAIL_HOST')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = ['director@thevillageccc.com']
+DEFAULT_FROM_EMAIL = "director@thevillageccc.com"
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
