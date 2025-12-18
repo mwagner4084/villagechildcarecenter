@@ -1,22 +1,20 @@
-import logging
 import smtplib
 from email.mime.text import MIMEText
 
 from django import forms
 from django.conf import settings
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, send_mail
 from django.db import IntegrityError
 from django.http import HttpRequest, HttpResponseRedirect
 from django.shortcuts import render
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 from django.views.generic import TemplateView
 
-from api.sendgrid import SendGridContact, sendgrid_add_contacts
 from django_project import settings
 
 from .forms import ContactForm, InformationRequestForm
 from .models import Contact, InformationRequest, Page
-
-logger = logging.getLogger(__name__)
 
 
 class PageView(TemplateView):
@@ -87,23 +85,56 @@ class HomePageView(PageView):
         return context
 
     def send_custom_email(self, subject, message, from_email, to_email):
-        # Initialize connection
-        smtp_server = smtplib.SMTP('smtp.gmail.com', 587)
-        smtp_server.starttls()
+        try:
+            # Initialize connection
+            smtp_server = smtplib.SMTP('smtp.gmail.com', 587)
+            smtp_server.starttls()
 
-        email_host_user = settings.EMAIL_HOST_USER
-        email_host_password = settings.EMAIL_HOST_PASSWORD
-        smtp_server.login(email_host_user, email_host_password)
+            email_host_user = settings.EMAIL_HOST_USER
+            email_host_password = settings.EMAIL_HOST_PASSWORD
+            
+            print(f"Attempting to login with: {email_host_user}")  # Debug
+            smtp_server.login(email_host_user, email_host_password)
 
-        # Create email
-        msg = MIMEText(message)
-        msg['From'] = from_email
-        msg['To'] = ', '.join(to_email)
-        msg['Subject'] = subject
+            # Create email
+            msg = MIMEText(message)
+            msg['From'] = from_email
+            msg['To'] = ', '.join(to_email)
+            msg['Subject'] = subject
 
-        # Send email
-        smtp_server.sendmail(from_email, to_email, msg.as_string())
-        smtp_server.quit()
+            # Send email
+            smtp_server.sendmail(from_email, to_email, msg.as_string())
+            smtp_server.quit()
+            print("Email sent successfully!")  # Debug
+        except Exception as e:
+            print(f"Email error: {str(e)}")  # This will show in Railway logs
+            raise e  # Re-raise so the form shows an error
+
+    def send_confirmation_email(self, email, context):
+        try:
+
+            subject = 'Your request has been received'
+            from_email = 'thevillagechildcarecenter4@gmail.com'
+            recipient_list = [email]
+
+            print(f"Attempting to render template for email to: {email}")
+            html_content = render_to_string('email/confirmation_email.html', context)
+            print("Template rendered successfully")
+            
+            email_message = EmailMessage(
+                subject=subject,
+                body=html_content,
+                from_email=from_email,
+                to=recipient_list,
+            )
+
+            email_message.content_subtype = 'html'
+            email_message.send()
+            print("Email sent successfully")
+
+        except Exception as e:
+            print(f"Confirmation email error: {type(e).__name__}: {str(e)}")
+            raise e
 
     def post(self, request: HttpRequest, *args, **kwargs):
         """ Handle the form submission. """
@@ -111,14 +142,11 @@ class HomePageView(PageView):
         form = InformationRequestForm(request.POST)
         from_email = 'thevillagechildcarecenter4@gmail.com'
         to_email = ['director@thevillageccc.com', 'mw.devdesign@gmail.com']
+        email = request.POST.get('email')
 
         if form.is_valid():
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
-            sender = settings.DEFAULT_FROM_EMAIL
-            recipients = [email]
-
-            # msg.send(fail_silently=False)
 
             from_email = from_email
             to_email = to_email
@@ -135,11 +163,18 @@ class HomePageView(PageView):
                 )
                 inforequest.save()
 
+                # context = {
+                #     'name': name,
+                #     'email': email,
+                # }
+
+                # self.send_confirmation_email(email, context)
                 self.send_custom_email(subject, message, from_email, to_email)
 
             except Exception as e:
                 context = self.get_context_data(**kwargs)
-                error_msg = 'There was an error submitting your request.'
+                error_msg = 'There was an error submitting your request:' + \
+                    str(e)
                 if isinstance(e, IntegrityError):
                     error_msg = 'This email address has already been submitted.'
                 form.add_error(None, forms.ValidationError(error_msg))
@@ -297,6 +332,15 @@ class ContactPageView(PageView):
         # Send email
         smtp_server.sendmail(from_email, to_email, msg.as_string())
         smtp_server.quit()
+
+    def send_confirmation_email(self, to_email, context):
+        subject = 'Your request has been received'
+        message = render_to_string('confirmation_email_template.txt', context)
+        from_email = settings.DEFAULT_FROM_EMAIL
+        recipient_list = [to_email]
+
+        # Send email
+        send_mail(subject, message, from_email, recipient_list)
 
     def post(self, request: HttpRequest, *args, **kwargs):
         """ Handle the form submission. """
