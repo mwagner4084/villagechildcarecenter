@@ -9,7 +9,7 @@
     <div class="container py-5">
         <div class="row justify-content-md-center">
             <div class="col-12 col-md-auto text-center pb-4">
-                {% heading title=page.title default="Now Enrolling for 2023 + 2024!" %}
+                {% heading title=page.title default="Now Enrolling for 2026!" %}
             </div>
         </div>
         <hr>
@@ -51,11 +51,11 @@
                         <a href="{% url 'school_age' %}">
                             School Age Programs
                         </a>
-                        <br>
+                        {% comment %} <br>
                         <i class="bi bi-palette-fill"></i>
                         <a href="{% url 'steam' %}">
                             S.T.E.A.M. Room
-                        </a>
+                        </a> {% endcomment %}
                     </p>
                     {% endif %}
                     <div class="justify-content-md-start pt-3">

@@ -49,7 +49,7 @@ class InformationRequestForm(forms.Form):
             raise forms.ValidationError('Bot submission detected.')
         return cleaned_data
 
-    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox())
+    # captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox())
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -59,7 +59,7 @@ class InformationRequestForm(forms.Form):
         self.helper.layout = Layout(
             FloatingField('name'),
             FloatingField('email'),
-            'captcha',
+            # 'captcha',
             Submit('submit', 'Submit')
         )
 
@@ -131,7 +131,7 @@ class ContactForm(forms.Form):
             raise forms.ValidationError('Bot submission detected.')
         return cleaned_data
 
-    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox())
+    # captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox())
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -147,6 +147,6 @@ class ContactForm(forms.Form):
             FloatingField('start_date'),
             FloatingField('comments'),
             FloatingField('referred_by'),
-            'captcha',
+            # 'captcha',
             Submit('submit', 'Submit')
         )
