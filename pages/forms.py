@@ -1,6 +1,8 @@
 from crispy_bootstrap5.bootstrap5 import FloatingField
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
+from django_recaptcha.fields import ReCaptchaField
+from django_recaptcha.widgets import ReCaptchaV2Checkbox
 from django import forms
 
 
@@ -30,6 +32,25 @@ class InformationRequestForm(forms.Form):
         widget=forms.EmailInput()
     )
 
+    # Honeypot field - hidden from real users
+    website = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={
+            'style': 'display:none !important',
+            'tabindex': '-1',
+            'autocomplete': 'off'
+        })
+    )
+
+    def clean(self):
+        cleaned_data = super().clean()
+        # If the honeypot field is filled, it's a bot
+        if cleaned_data.get('website'):
+            raise forms.ValidationError('Bot submission detected.')
+        return cleaned_data
+
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox())
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -38,6 +59,7 @@ class InformationRequestForm(forms.Form):
         self.helper.layout = Layout(
             FloatingField('name'),
             FloatingField('email'),
+            'captcha',
             Submit('submit', 'Submit')
         )
 
@@ -92,6 +114,25 @@ class ContactForm(forms.Form):
         widget=forms.TextInput()
     )
 
+    # Honeypot field - hidden from real users
+    website = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={
+            'style': 'display:none !important',
+            'tabindex': '-1',
+            'autocomplete': 'off'
+        })
+    )
+
+    def clean(self):
+        cleaned_data = super().clean()
+        # If the honeypot field is filled, it's a bot
+        if cleaned_data.get('website'):
+            raise forms.ValidationError('Bot submission detected.')
+        return cleaned_data
+
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox())
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -106,5 +147,6 @@ class ContactForm(forms.Form):
             FloatingField('start_date'),
             FloatingField('comments'),
             FloatingField('referred_by'),
+            'captcha',
             Submit('submit', 'Submit')
         )
